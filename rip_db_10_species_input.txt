@@ -1,0 +1,10 @@
+Corynebacterium_diphtheriae	NZ_LN831026.1
+Corynebacterium_durum	AMEM01
+Corynebacterium_efficiens	NC_004369.1
+Corynebacterium_genitalium	ACLJ02
+Corynebacterium_ihumii	CAVS02
+Corynebacterium_imitans	NZ_CP009211.1
+Corynebacterium_jeddahense	CBYN01
+Corynebacterium_jeikeium	NZ_CP022054.2
+Corynebacterium_kroppenstedtii	NC_012704.1
+Corynebacterium_kutscheri	NZ_CP011312.1

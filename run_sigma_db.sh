@@ -1,0 +1,12 @@
+conda activate rip 
+
+for i in ./sigma_db_10_species/*; do rm $i/*.bt2; done
+time -v ./Sigma/bin/sigma-index-genomes -c sigma_config_10_species.cfg -w ./sigma_db_10_species -p `grep -c ^processor /proc/cpuinfo`
+for i in ./sigma_db_100_species/*; do rm $i/*.bt2; done
+time -v ./Sigma/bin/sigma-index-genomes -c sigma_config_100_species.cfg -w ./sigma_db_100_species -p `grep -c ^processor /proc/cpuinfo`
+for i in ./sigma_db_1000_species/*; do rm $i/*.bt2; done
+time -v ./Sigma/bin/sigma-index-genomes -c sigma_config_1000_species.cfg -w ./sigma_db_1000_species -p `grep -c ^processor /proc/cpuinfo`
+for i in ./sigma_db_500_species/*; do rm $i/*.bt2; done
+time -v ./Sigma/bin/sigma-index-genomes -c sigma_config_500_species.cfg -w ./sigma_db_500_species -p `grep -c ^processor /proc/cpuinfo`
+for i in ./sigma_db_5638_species/*; do rm $i/*.bt2; done
+time -v ./Sigma/bin/sigma-index-genomes -c sigma_config_5638_species.cfg -w ./sigma_db_5638_species -p `grep -c ^processor /proc/cpuinfo`

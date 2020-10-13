@@ -1,0 +1,14 @@
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+  - r
+dependencies:
+  - python=3.6.7
+  - pip=19.3.1
+  - kraken2=2.0.9beta-0
+  - malt=0.41
+  - hops=0.34-0
+  - bowtie2=2.3.5.1
+  - samtools=1.9
+  - wget

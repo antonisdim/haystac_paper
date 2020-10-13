@@ -1,1 +1,1 @@
-pathToList=/data/arch-undead/arch0435/MALT/results-RefSeq/RefSeq_rep.txt
+pathToList=./RefSeq_rep.txt

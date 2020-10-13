@@ -12,9 +12,9 @@ set -euo pipefail
 
 rm -r ./samples/input_1M_reads
 
-time -v haystack sample --sample-prefix input_1M_reads --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
+/usr/bin/time -v haystack sample --sample-prefix input_1M_reads --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
 
-time -v haystack analyse \
+/usr/bin/time -v haystack analyse \
 	--mode abundances \
 	--database ./rip_db_10_species_input \
 	--sample ./samples/input_1M_reads \
@@ -22,9 +22,9 @@ time -v haystack analyse \
 
 rm -r ./samples/input_1M_reads
 
-time -v haystack sample --sample-prefix input_1M_reads --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
+/usr/bin/time -v haystack sample --sample-prefix input_1M_reads --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
 
-time -v haystack analyse \
+/usr/bin/time -v haystack analyse \
 	--mode abundances \
 	--database ./rip_db_100_species_input \
 	--sample ./samples/input_1M_reads \
@@ -32,9 +32,9 @@ time -v haystack analyse \
 
 rm -r ./samples/input_1M_reads
 
-time -v haystack sample --sample-prefix input_1M_reads --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
+/usr/bin/time -v haystack sample --sample-prefix input_1M_reads --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
 
-time -v haystack analyse \
+/usr/bin/time -v haystack analyse \
 	--mode abundances \
 	--database ./rip_db_500_species_input \
 	--sample ./samples/input_1M_reads \
@@ -42,9 +42,9 @@ time -v haystack analyse \
 
 rm -r ./samples/input_1M_reads
 
-time -v haystack sample --sample-prefix input_1M_reads --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
+/usr/bin/time -v haystack sample --sample-prefix input_1M_reads --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
 
-time -v haystack analyse \
+/usr/bin/time -v haystack analyse \
 	--mode abundances \
 	--database ./rip_db_1000_species_input \
 	--sample ./samples/input_1M_reads \

@@ -12,7 +12,7 @@ set -euo pipefail
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
-time -v kraken2 \
+/usr/bin/time -v kraken2 \
 	--db db_kraken_5638_species \
 	--gzip-compressed \
 	--use-names \
@@ -26,7 +26,7 @@ time -v kraken2 \
 	-o input_1M.bracken \
 	--threads $MAX_CPU
 
-time -v kraken2 \
+/usr/bin/time -v kraken2 \
 	--db db_kraken_5638_species \
 	--gzip-compressed \
 	--use-names \
@@ -40,7 +40,7 @@ time -v kraken2 \
 	-o input_10K.bracken \
 	--threads $MAX_CPU
 
-time -v kraken2 \
+/usr/bin/time -v kraken2 \
 	--db db_kraken_5638_species \
 	--gzip-compressed \
 	--use-names \
@@ -54,7 +54,7 @@ time -v kraken2 \
 	-o input_100K.bracken \
 	--threads $MAX_CPU
 
-time -v kraken2 \
+/usr/bin/time -v kraken2 \
 	--db db_kraken_5638_species \
 	--gzip-compressed \
 	--use-names \
@@ -68,7 +68,7 @@ time -v kraken2 \
 	-o input_10M.bracken \
 	--threads $MAX_CPU
 
-time -v kraken2 \
+/usr/bin/time -v kraken2 \
 	--db db_kraken_5638_species \
 	--gzip-compressed \
 	--use-names \

@@ -17,7 +17,7 @@ mkdir sigma_outputs/input_1M_100sp
 mkdir sigma_outputs/input_1M_1000sp
 mkdir sigma_outputs/input_1M_500sp
 
-time -v ./Sigma/bin/sigma-align-reads \
+/usr/bin/time -v ./Sigma/bin/sigma-align-reads \
 	-c sigma_config_input_1M_10sp.cfg \
 	-w sigma_outputs/input_1M_10sp \
 	-p $MAX_CPU; \
@@ -30,7 +30,7 @@ time -v ./Sigma/bin/sigma-align-reads \
 	-t $MAX_CPU; \
 	mv sigma_out.* ./sigma_outputs/input_1M_10sp/
 
-time -v ./Sigma/bin/sigma-align-reads \
+/usr/bin/time -v ./Sigma/bin/sigma-align-reads \
 	-c sigma_config_input_1M_100sp.cfg \
 	-w sigma_outputs/input_1M_100sp \
 	-p $MAX_CPU; \
@@ -43,7 +43,7 @@ time -v ./Sigma/bin/sigma-align-reads \
 	-t $MAX_CPU; \
 	mv sigma_out.* ./sigma_outputs/input_1M_100sp/
 
-time -v ./Sigma/bin/sigma-align-reads \
+/usr/bin/time -v ./Sigma/bin/sigma-align-reads \
 	-c sigma_config_input_1M_1000sp.cfg \
 	-w sigma_outputs/input_1M_1000sp \
 	-p $MAX_CPU; \
@@ -56,7 +56,7 @@ time -v ./Sigma/bin/sigma-align-reads \
 	-t $MAX_CPU; \
 	mv sigma_out.* ./sigma_outputs/input_1M_1000sp/
 
-time -v ./Sigma/bin/sigma-align-reads \
+/usr/bin/time -v ./Sigma/bin/sigma-align-reads \
 	-c sigma_config_input_1M_500sp.cfg \
 	-w sigma_outputs/input_1M_500sp \
 	-p $MAX_CPU; \

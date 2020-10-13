@@ -12,7 +12,7 @@ set -euo pipefail
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
-time -v malt-run \
+/usr/bin/time -v malt-run \
 	-t $MAX_CPU \
 	-i ./inputs/input_1M_reads.fastq \
 	-d index_new_5638_species \
@@ -23,7 +23,7 @@ time -v malt-run \
 	--output hops_input_1M_reads \
 	--configFile configfile.txt
 
-time -v malt-run \
+/usr/bin/time -v malt-run \
 	-t $MAX_CPU \
 	-i ./inputs/input_10M_reads.fastq \
 	-d index_new_5638_species \
@@ -34,7 +34,7 @@ time -v malt-run \
 	--output hops_input_10M_reads \
 	--configFile configfile.txt
 
-time -v malt-run \
+/usr/bin/time -v malt-run \
 	-t $MAX_CPU \
 	-i ./inputs/input_100M_reads.fastq \
 	-d index_new_5638_species \
@@ -45,7 +45,7 @@ time -v malt-run \
 	--output hops_input_100M_reads \
 	--configFile configfile.txt
 
-time -v malt-run \
+/usr/bin/time -v malt-run \
 	-t $MAX_CPU \
 	-i ./inputs/input_10K_reads.fastq \
 	-d index_new_5638_species \
@@ -56,7 +56,7 @@ time -v malt-run \
 	--output hops_input_10K_reads \
 	--configFile configfile.txt
 
-time -v malt-run \
+/usr/bin/time -v malt-run \
 	-t $MAX_CPU \
 	-i ./inputs/input_100K_reads.fastq \
 	-d index_new_5638_species \

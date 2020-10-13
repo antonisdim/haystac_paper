@@ -13,6 +13,7 @@ eval "$(conda shell.bash hook)"
 conda env create -f environment.yaml -n performance_test
 conda activate performance_test
 
+# TODO remove the sigma and bracken binaries from the git repo and download them here instead
 # TODO this can be in the environment.yaml right?
 # install haystack
 python -m pip install git+https://github.com/antonisdim/haystack

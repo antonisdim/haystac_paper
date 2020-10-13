@@ -1,0 +1,16 @@
+read the accessions and the taxa
+                         species GBSeq_accession-version
+20037           Bordetella avium           NZ_CP025522.1
+20586     Bordetella bronchialis           NZ_CP016171.1
+19217  Bordetella bronchiseptica           NZ_CP014013.1
+20581        Bordetella flabilis           NZ_CP016172.1
+20547    Bordetella genomosp. 13           NZ_CP021111.1
+...                          ...                     ...
+20373           Yersinia ruckeri           NZ_CP017236.1
+20251           Yersinia similis           NZ_CP007230.1
+21009  Yersinia sp. FDAARGOS_228           NZ_CP020409.2
+21243       Yersinia sp. KBS0713           NZ_CP042173.1
+20626      [Haemophilus] ducreyi           NZ_CP015434.1
+
+[113 rows x 2 columns]
+selected the longest sequence per species, writing it to a file

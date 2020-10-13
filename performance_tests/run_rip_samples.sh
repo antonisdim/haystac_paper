@@ -1,3 +1,10 @@
+#!/usr/bin/env bash
+
+# Author:    Evangelos A. Dimopoulos, Evan K. Irving-Pease
+# Copyright: Copyright 2020, University of Oxford
+# Email:     antonisdim41@gmail.com
+# License:   MIT
+
 # run haystack sample analysis performance test for samples of various samples
 
 time -v haystack sample --sample-prefix input_10K_reads --fastq ./inputs/input_10K_reads.fastq.gz --output ./samples/input_10K_reads

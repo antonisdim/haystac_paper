@@ -1,4 +1,11 @@
-# run malt sample analysis performance test against dbs of various sizes 
+#!/usr/bin/env bash
+
+# Author:    Evangelos A. Dimopoulos, Evan K. Irving-Pease
+# Copyright: Copyright 2020, University of Oxford
+# Email:     antonisdim41@gmail.com
+# License:   MIT
+
+# run malt sample analysis performance test against dbs of various sizes
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 

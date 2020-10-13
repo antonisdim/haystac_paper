@@ -1,6 +1,13 @@
-# run test for db building with haystack with memory limit  
+#!/usr/bin/env bash
 
-MEM_LIMIT_TEST = 8000
+# Author:    Evangelos A. Dimopoulos, Evan K. Irving-Pease
+# Copyright: Copyright 2020, University of Oxford
+# Email:     antonisdim41@gmail.com
+# License:   MIT
+
+# run test for db building with haystack with memory limit
+
+MEM_LIMIT_TEST=8000
 
 haystack config --email antonisdim41@gmail.com
 haystack config --genome-cache-folder ../rip_genome_cache/

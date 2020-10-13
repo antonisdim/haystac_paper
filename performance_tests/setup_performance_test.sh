@@ -1,6 +1,9 @@
-# todo 
+#!/usr/bin/env bash
 
-# create conda env 
+# Author:    Evangelos A. Dimopoulos, Evan K. Irving-Pease
+# Copyright: Copyright 2020, University of Oxford
+# Email:     antonisdim41@gmail.com
+# License:   MIT
 
 eval "$(conda shell.bash hook)"
 

@@ -1,3 +1,10 @@
+#!/usr/bin/env bash
+
+# Author:    Evangelos A. Dimopoulos, Evan K. Irving-Pease
+# Copyright: Copyright 2020, University of Oxford
+# Email:     antonisdim41@gmail.com
+# License:   MIT
+
 bash run_kraken_db.sh &> kraken_db.log
 bash run_kraken_samples.sh &> kraken_samples.log
 bash run_kraken_1M_vs_dbs.sh &> kraken_1M_vs_dbs.log

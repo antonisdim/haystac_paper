@@ -1,3 +1,10 @@
+#!/usr/bin/env bash
+
+# Author:    Evangelos A. Dimopoulos, Evan K. Irving-Pease
+# Copyright: Copyright 2020, University of Oxford
+# Email:     antonisdim41@gmail.com
+# License:   MIT
+
 # run kraken sample analysis performance test of samples of various sizes
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)

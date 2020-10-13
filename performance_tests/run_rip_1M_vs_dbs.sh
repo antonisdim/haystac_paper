@@ -1,4 +1,11 @@
-# run haystack sample analysis performance test against databases of various sizes 
+#!/usr/bin/env bash
+
+# Author:    Evangelos A. Dimopoulos, Evan K. Irving-Pease
+# Copyright: Copyright 2020, University of Oxford
+# Email:     antonisdim41@gmail.com
+# License:   MIT
+
+# run haystack sample analysis performance test against databases of various sizes
 
 rm -r ./samples/input_1M_reads
 

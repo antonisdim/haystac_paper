@@ -6,6 +6,8 @@
 # License:   MIT
 
 eval "$(conda shell.bash hook)"
+# bash strict mode
+set -euo pipefail
 
 conda env create -f environment.yaml -n performance_test
 

@@ -5,6 +5,9 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
+# bash strict mode
+set -euo pipefail
+
 # run malt sample analysis performance test for samples of various sizes
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)

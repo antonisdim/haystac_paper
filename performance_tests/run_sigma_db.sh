@@ -6,6 +6,9 @@
 # License:   MIT
 
 # run sigma building db perfromance test of dbs of various sizes
+# bash strict mode
+set -euo pipefail
+
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 

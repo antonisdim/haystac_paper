@@ -5,6 +5,9 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
+# bash strict mode
+set -euo pipefail
+
 # run kraken sample analysis performance test of samples of various sizes
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)

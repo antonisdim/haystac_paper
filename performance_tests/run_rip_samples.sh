@@ -5,6 +5,9 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
+# bash strict mode
+set -euo pipefail
+
 # run haystack sample analysis performance test for samples of various samples
 
 time -v haystack sample --sample-prefix input_10K_reads --fastq ./inputs/input_10K_reads.fastq.gz --output ./samples/input_10K_reads

@@ -5,6 +5,9 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
+# bash strict mode
+set -euo pipefail
+
 # run haystack sample analysis performance test against databases of various sizes
 
 rm -r ./samples/input_1M_reads

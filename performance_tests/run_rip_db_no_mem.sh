@@ -5,6 +5,9 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
+# bash strict mode
+set -euo pipefail
+
 # run haystack building db performance test with no mem limit
 
 rm ../rip_genome_cache/*/*.bt2l

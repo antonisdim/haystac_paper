@@ -5,6 +5,9 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
+# bash strict mode
+set -euo pipefail
+
 # run test for db building with haystack with memory limit
 
 MEM_LIMIT_TEST=8000

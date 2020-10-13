@@ -5,6 +5,9 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
+# bash strict mode
+set -euo pipefail
+
 # run sigma sample analysis performance test for samples of various size
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)

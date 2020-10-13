@@ -1,6 +1,4 @@
-conda activate rip
-
-haystack config --bowtie2_threads 1
+# run haystack sample analysis performance test for samples of various samples
 
 time -v haystack sample --sample-prefix input_10K_reads --fastq ./inputs/input_10K_reads.fastq.gz --output ./samples/input_10K_reads
 

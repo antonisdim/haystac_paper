@@ -5,20 +5,20 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
-# run sigma building db perfromance test of dbs of various sizes
 # bash strict mode
 set -euo pipefail
 
+# run sigma building db performance test of dbs of various sizes
+
+# setup a list of the different test_sets to run
+test_sets=(10_species 100_species 500_species 1000_species 5638_species)
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
-for i in ./sigma_db_10_species/*; do rm $i/*.bt2; done
-time -v ./Sigma/bin/sigma-index-genomes -c sigma_config_10_species.cfg -w ./sigma_db_10_species -p $MAX_CPU
-for i in ./sigma_db_100_species/*; do rm $i/*.bt2; done
-time -v ./Sigma/bin/sigma-index-genomes -c sigma_config_100_species.cfg -w ./sigma_db_100_species -p $MAX_CPU
-for i in ./sigma_db_1000_species/*; do rm $i/*.bt2; done
-time -v ./Sigma/bin/sigma-index-genomes -c sigma_config_1000_species.cfg -w ./sigma_db_1000_species -p $MAX_CPU
-for i in ./sigma_db_500_species/*; do rm $i/*.bt2; done
-time -v ./Sigma/bin/sigma-index-genomes -c sigma_config_500_species.cfg -w ./sigma_db_500_species -p $MAX_CPU
-for i in ./sigma_db_5638_species/*; do rm $i/*.bt2; done
-time -v ./Sigma/bin/sigma-index-genomes -c sigma_config_5638_species.cfg -w ./sigma_db_5638_species -p $MAX_CPU
+for test_set in "${test_sets[@]}"; do
+  # delete any existing indices so we can rebuild them
+  rm ./sigma_db_"${test_set}"/*/*.bt2
+
+  # benchmark Sigma
+  time -v ./Sigma/bin/sigma-index-genomes -c "sigma_config_${test_set}.cfg" -w "./sigma_db_${test_set}" -p "${MAX_CPU}"
+done

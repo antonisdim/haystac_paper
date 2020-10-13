@@ -29,11 +29,11 @@ sed -i'' "s/-Xmx.*/-Xmx${MAX_MEM}G/" ~/.conda/pkgs/malt-0.41-1/opt/malt-0.41/mal
 
 # create mutlifasta files for kraken2 and MALT and move them to the right folders
 for test_set in "${test_sets[@]}"; do
-  xargs < "${test_set}.txt" | cat > "db_input_${test_set}.fasta.gz"
+  xargs <"${test_set}.txt" | cat >"db_input_${test_set}.fasta.gz"
 done
 
 # create a mutlifasta file for all genomes in the database
-cat ../rip_genome_cache/*/*fasta.gz > db_input_5638_species.fasta.gz
+cat ../rip_genome_cache/*/*fasta.gz >db_input_5638_species.fasta.gz
 
 # TODO do we really need both *.fasta and *.fasta.gz?
 gunzip -d db_input_1000_species.fasta.gz
@@ -48,14 +48,13 @@ mv ./*.fasta db_mutlifasta_inputs/
 # download mapping for MALT
 wget -P mapping_files https://software-ab.informatik.uni-tuebingen.de/download/megan6/megan-map-Jul2020-2.db.zip
 wget -P mapping_files https://software-ab.informatik.uni-tuebingen.de/download/megan6/megan-nucl-Jul2020.db.zip
-gunzip -c mapping_files/megan-map-Jul2020-2.db.zip > mapping_files/megan-map-Jul2020-2.db
+gunzip -c mapping_files/megan-map-Jul2020-2.db.zip >mapping_files/megan-map-Jul2020-2.db
 
 # make the database folders for Sigma by symlinking the genomes into the relevant folders
 for test_set in "${test_sets[@]}"; do
   mkdir -p "sigma_db_${test_set}"
-  xargs dirname < "${test_set}.txt" | xargs ln -s -t "sigma_db_${test_set}"
+  xargs dirname <"${test_set}.txt" | xargs ln -s -t "sigma_db_${test_set}"
 done
 
 # run the performance test_sets
-bash run_performance_test.sh &> performance_test.log
-
+bash run_performance_test.sh &>performance_test.log

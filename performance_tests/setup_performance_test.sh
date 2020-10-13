@@ -5,84 +5,57 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
-eval "$(conda shell.bash hook)"
 # bash strict mode
 set -euo pipefail
 
+# create a new conda environment to run all the test_sets
+eval "$(conda shell.bash hook)"
 conda env create -f environment.yaml -n performance_test
-
-# activate conda env 
-
 conda activate performance_test
 
-# set the right options for ram usage for malt 
+# TODO this can be in the environment.yaml right?
+# install haystack
+python -m pip install git+https://github.com/antonisdim/haystack
 
-sed -i'' 's/-Xmx64G/-Xmx1024G/' ~/.conda/pkgs/malt-0.41-1/opt/malt-0.41/malt-run.vmoptions
-sed -i'' 's/-Xmx64G/-Xmx1024G/' ~/.conda/pkgs/malt-0.41-1/opt/malt-0.41/malt-build.vmoptions
+# setup a list of the different test_sets to run
+test_sets=(10_species 100_species 500_species 1000_species 5638_species)
 
-# install haystack 
+# get the max available memory (in GB)
+MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2/1024}')
 
-python -m pip install git+https://github.com/antonisdim/Haystack
+# configure MALT to use the max available memory
+sed -i'' "s/-Xmx.*/-Xmx${MAX_MEM}G/" ~/.conda/pkgs/malt-0.41-1/opt/malt-0.41/malt-run.vmoptions
+sed -i'' "s/-Xmx.*/-Xmx${MAX_MEM}G/" ~/.conda/pkgs/malt-0.41-1/opt/malt-0.41/malt-build.vmoptions
 
 # create mutlifasta files for kraken2 and MALT and move them to the right folders
+for test_set in "${test_sets[@]}"; do
+  xargs < "${test_set}.txt" | cat > "db_input_${test_set}.fasta.gz"
+done
 
-cat `cat 10_species.txt | paste -s -d ' '` > db_input_10_species.fasta.gz
+# create a mutlifasta file for all genomes in the database
+cat ../rip_genome_cache/*/*fasta.gz > db_input_5638_species.fasta.gz
 
-cat `cat 100_species.txt | paste -s -d ' '` > db_input_100_species.fasta.gz 
-
-cat `cat 500_species.txt | paste -s -d ' '` > db_input_500_species.fasta.gz 
-
-cat `cat 1000_species.txt | paste -s -d ' '` > db_input_1000_species.fasta.gz
-
-for i in ../rip_genome_cache/*; do cat $i/*fasta.gz >> db_input_5638_species.fasta.gz; done 
-
-gunzip -d db_input_1000_species.fasta.gz 
+# TODO do we really need both *.fasta and *.fasta.gz?
+gunzip -d db_input_1000_species.fasta.gz
 gunzip -d db_input_100_species.fasta.gz
 gunzip -d db_input_10_species.fasta.gz
 gunzip -d db_input_500_species.fasta.gz
 gunzip -d db_input_5638_species.fasta.gz
 
 mkdir db_mutlifasta_inputs
-
-mv *fasta db_mutlifasta_inputs/
+mv ./*.fasta db_mutlifasta_inputs/
 
 # download mapping for MALT
+wget -P mapping_files https://software-ab.informatik.uni-tuebingen.de/download/megan6/megan-map-Jul2020-2.db.zip
+wget -P mapping_files https://software-ab.informatik.uni-tuebingen.de/download/megan6/megan-nucl-Jul2020.db.zip
+gunzip -c mapping_files/megan-map-Jul2020-2.db.zip > mapping_files/megan-map-Jul2020-2.db
 
-mkdir mapping_files 
-cd mapping_files
-wget https://software-ab.informatik.uni-tuebingen.de/download/megan6/megan-map-Jul2020-2.db.zip 
-wget https://software-ab.informatik.uni-tuebingen.de/download/megan6/megan-nucl-Jul2020.db.zip
-gunzip -c megan-map-Jul2020-2.db.zip > megan-map-Jul2020-2.db
-cd ..
+# make the database folders for Sigma by symlinking the genomes into the relevant folders
+for test_set in "${test_sets[@]}"; do
+  mkdir -p "sigma_db_${test_set}"
+  xargs dirname < "${test_set}.txt" | xargs ln -s -t "sigma_db_${test_set}"
+done
 
-# make the database folders fpr Sigma
-
-mkdir sigma_db_10_species
-cd sigma_db_10_species/
-for i in `less ../10_species.txt | cut -f 1-3 -d '/' | paste -s -d ' '`; do ln -s ../$i; done
-cd ..
-
-mkdir sigma_db_100_species
-cd sigma_db_100_species/
-for i in `less ../100_species.txt | cut -f 1-3 -d '/' | paste -s -d ' '`; do ln -s ../$i; done
-cd ..
-
-mkdir sigma_db_1000_species
-cd sigma_db_1000_species/
-for i in `less ../1000_species.txt | cut -f 1-3 -d '/' | paste -s -d ' '`; do ln -s ../$i; done
-cd ..
-
-mkdir sigma_db_500_species
-cd sigma_db_500_species/
-for i in `less ../500_species.txt | cut -f 1-3 -d '/' | paste -s -d ' '`; do ln -s ../$i; done
-cd ..
-
-mkdir sigma_db_5638_species
-cd sigma_db_5638_species/
-for i in `less ../5638_species.txt | cut -f 1-3 -d '/' | paste -s -d ' '`; do ln -s ../$i; done
-cd ..
-
-# run the performance tests
-
-bash run_performance_test.sh &> performance_test.log 
+# run the performance test_sets
+bash run_performance_test.sh &> performance_test.log
 

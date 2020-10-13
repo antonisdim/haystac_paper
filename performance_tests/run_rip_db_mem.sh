@@ -9,12 +9,9 @@
 
 MEM_LIMIT_TEST=8000
 
-haystack config --email antonisdim41@gmail.com
-haystack config --genome-cache-folder ../rip_genome_cache/
-haystack config --batchsize 5
-haystack config --mismatch-probability 0.05
-haystack config --bowtie2-threads 5
-haystack config --bowtie2-scaling 15
+haystack config \
+  --email antonisdim41@gmail.com \
+  --genome-cache-folder ../rip_genome_cache/
 
 rm ../rip_genome_cache/*/*.bt2l
 time -v haystack database -a rip_db_10_species_input.txt -o ./rip_db_10_species_input --mem $MEM_LIMIT_TEST

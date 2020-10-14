@@ -12,3 +12,5 @@ dependencies:
   - bowtie2=2.3.5.1
   - samtools=1.9
   - wget
+  - pip:
+      - "--editable=git+git+https://github.com/antonisdim/haystack#egg=haystack"

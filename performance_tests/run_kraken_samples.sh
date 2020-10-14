@@ -8,10 +8,9 @@
 # bash strict mode
 set -euo pipefail
 
-# run kraken sample analysis performance test of samples of various sizes
-
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
+# run kraken sample analysis performance test for a sample with 1M reads
 /usr/bin/time -v kraken2 \
 	--db db_kraken_5638_species \
 	--gzip-compressed \
@@ -26,6 +25,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	-o input_1M.bracken \
 	--threads $MAX_CPU
 
+# run kraken sample analysis performance test for a sample with 10K reads
 /usr/bin/time -v kraken2 \
 	--db db_kraken_5638_species \
 	--gzip-compressed \
@@ -40,6 +40,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	-o input_10K.bracken \
 	--threads $MAX_CPU
 
+# run kraken sample analysis performance test for a sample with 100K reads
 /usr/bin/time -v kraken2 \
 	--db db_kraken_5638_species \
 	--gzip-compressed \
@@ -54,6 +55,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	-o input_100K.bracken \
 	--threads $MAX_CPU
 
+# run kraken sample analysis performance test for a sample with 10M reads
 /usr/bin/time -v kraken2 \
 	--db db_kraken_5638_species \
 	--gzip-compressed \
@@ -68,6 +70,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	-o input_10M.bracken \
 	--threads $MAX_CPU
 
+# run kraken sample analysis performance test for a sample with 100M reads
 /usr/bin/time -v kraken2 \
 	--db db_kraken_5638_species \
 	--gzip-compressed \
@@ -75,7 +78,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	--report input_100M.report \
 	--unclassified-out input_100M_unclassified.out \
 	--classified-out input_100M_classified.out \
-	--threads $MAX_CPU
+	--threads $MAX_CPU \
 	--output input_100M.out ./inputs/input_100M_reads.fastq.gz; \
 	Bracken-2.5/bracken -d db_kraken_5638_species \
 	-i input_100M.report \

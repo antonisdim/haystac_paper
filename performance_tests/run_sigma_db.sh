@@ -22,7 +22,7 @@ for test_set in "${test_sets[@]}"; do
   # benchmark Sigma
   /usr/bin/time -v \
     ./Sigma/bin/sigma-index-genomes \
-    -c "sigma_config_${test_set}.cfg" \
+    -c ./sigma_configs/"sigma_config_${test_set}.cfg" \
     -w "./sigma_db_${test_set}" \
     -p "${MAX_CPU}"
 done

@@ -8,10 +8,11 @@
 # bash strict mode
 set -euo pipefail
 
-# run malt building db performance test for samples of various sizes
+
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
+# run malt building db performance test for a db of 100 species
 /usr/bin/time -v malt-build \
 	-t $MAX_CPU \
 	-s DNA \
@@ -19,6 +20,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	-d index_new_100_species/ \
 	-a2taxonomy mapping_files/megan-map-Jul2020-2.db 
 
+# run malt building db performance test for a db of 10 species
 /usr/bin/time -v malt-build \
 	-t $MAX_CPU \
 	-s DNA \
@@ -26,6 +28,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	-d index_new_10_species/ \
 	-a2taxonomy mapping_files/megan-map-Jul2020-2.db 
 
+# run malt building db performance test for a db of 500 species
 /usr/bin/time -v malt-build \
 	-t $MAX_CPU \
 	-s DNA \
@@ -33,6 +36,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	-d index_new_500_species/ \
 	-a2taxonomy mapping_files/megan-map-Jul2020-2.db
 
+# run malt building db performance test for a db of 5638 species
 /usr/bin/time -v malt-build \
 	-t $MAX_CPU \
 	-s DNA \
@@ -40,6 +44,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	-d index_new_5638_species/ \
 	-a2taxonomy mapping_files/megan-map-Jul2020-2.db
 
+# run malt building db performance test for a db of 1000 species
 /usr/bin/time -v malt-build \
 	-t $MAX_CPU \
 	-s DNA \

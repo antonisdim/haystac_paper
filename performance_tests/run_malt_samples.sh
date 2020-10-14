@@ -8,10 +8,10 @@
 # bash strict mode
 set -euo pipefail
 
-# run malt sample analysis performance test for samples of various sizes
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
+# run malt sample analysis performance test for samples of 1M reads against a db of 5638 species
 /usr/bin/time -v malt-run \
 	-t $MAX_CPU \
 	-i ./inputs/input_1M_reads.fastq \
@@ -23,6 +23,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	--output hops_input_1M_reads \
 	--configFile configfile.txt
 
+# run malt sample analysis performance test for samples of 10M reads against a db of 5638 species
 /usr/bin/time -v malt-run \
 	-t $MAX_CPU \
 	-i ./inputs/input_10M_reads.fastq \
@@ -34,6 +35,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	--output hops_input_10M_reads \
 	--configFile configfile.txt
 
+# run malt sample analysis performance test for samples of 100M reads against a db of 5638 species
 /usr/bin/time -v malt-run \
 	-t $MAX_CPU \
 	-i ./inputs/input_100M_reads.fastq \
@@ -45,6 +47,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	--output hops_input_100M_reads \
 	--configFile configfile.txt
 
+# run malt sample analysis performance test for samples of 10K reads against a db of 5638 species
 /usr/bin/time -v malt-run \
 	-t $MAX_CPU \
 	-i ./inputs/input_10K_reads.fastq \
@@ -56,6 +59,7 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 	--output hops_input_10K_reads \
 	--configFile configfile.txt
 
+# run malt sample analysis performance test for samples of 100K reads against a db of 5638 species
 /usr/bin/time -v malt-run \
 	-t $MAX_CPU \
 	-i ./inputs/input_100K_reads.fastq \

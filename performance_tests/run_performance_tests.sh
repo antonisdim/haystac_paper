@@ -22,7 +22,7 @@ bash run_kraken_1M_vs_dbs.sh &> kraken_1M_vs_dbs.log
 # building databases of different sizes with a memory limit
 bash run_rip_db_mem.sh &> rip_db_mem.log
 # analysing samples of different sizes against a db of 5638 species with conda as a package manager
-bash run_rip_samples.sh &> rip_samples.log
+bash run_rip_samples_with_conda.sh &> rip_samples_conda.log
 # analysing a sample of 1M reads against dbs of various sizes
 bash run_rip_1M_vs_dbs.sh &> rip_1M_vs_dbs.log
 # building databases of different sizes with no memory limit

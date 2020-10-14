@@ -8,46 +8,19 @@
 # bash strict mode
 set -euo pipefail
 
-
-
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
-# run malt building db performance test for a db of 100 species
-/usr/bin/time -v malt-build \
-	-t $MAX_CPU \
-	-s DNA \
-	-i db_mutlifasta_inputs/db_input_100_species.fasta \
-	-d index_new_100_species/ \
-	-a2taxonomy mapping_files/megan-map-Jul2020-2.db 
+# setup a list of the different test_sets to run
+test_sets=(100_species 10_species 500_species 5638_species 1000_species)
 
-# run malt building db performance test for a db of 10 species
-/usr/bin/time -v malt-build \
-	-t $MAX_CPU \
-	-s DNA \
-	-i db_mutlifasta_inputs/db_input_10_species.fasta \
-	-d index_new_10_species/ \
-	-a2taxonomy mapping_files/megan-map-Jul2020-2.db 
+for test_set in "${test_sets[@]}"; do
 
-# run malt building db performance test for a db of 500 species
-/usr/bin/time -v malt-build \
-	-t $MAX_CPU \
-	-s DNA \
-	-i db_mutlifasta_inputs/db_input_500_species.fasta \
-	-d index_new_500_species/ \
-	-a2taxonomy mapping_files/megan-map-Jul2020-2.db
+  # benchmark malt building db performance test for dbs of various size
+  /usr/bin/time -v malt-build \
+    -t "$MAX_CPU" \
+    -s DNA \
+    -i db_mutlifasta_inputs/db_input_"${test_set}".fasta \
+    -d index_new_"${test_set}"/ \
+    -a2taxonomy mapping_files/megan-map-Jul2020-2.db
 
-# run malt building db performance test for a db of 5638 species
-/usr/bin/time -v malt-build \
-	-t $MAX_CPU \
-	-s DNA \
-	-i db_mutlifasta_inputs/db_input_5638_species.fasta \
-	-d index_new_5638_species/ \
-	-a2taxonomy mapping_files/megan-map-Jul2020-2.db
-
-# run malt building db performance test for a db of 1000 species
-/usr/bin/time -v malt-build \
-	-t $MAX_CPU \
-	-s DNA \
-	-i db_mutlifasta_inputs/db_input_1000_species.fasta \
-	-d index_new_1000_species/ \
-	-a2taxonomy mapping_files/megan-map-Jul2020-2.db
+done

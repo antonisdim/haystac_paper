@@ -8,12 +8,9 @@
 # bash strict mode
 set -euo pipefail
 
-#deactivating conda
-haystack config \
-  --use-conda False
+# run haystack sample analysis performance test for against a db of 5638 species using conda
 
-# run haystack sample analysis performance test for against a db of 5638 species without using conda
-
+# setup a list of the different test_sets to run
 test_sets=(input_10K_reads input_100K_reads input_100M_reads input_1M_reads input_10M_reads)
 
 for test_set in "${test_sets[@]}"; do
@@ -31,11 +28,7 @@ for test_set in "${test_sets[@]}"; do
     --mode abundances \
     --database ./refseq_resp \
     --sample ./samples/"${test_set}" \
-    --output ./refseq_analysis_output_no_conda
+    --output ./refseq_analysis_output
 
 done
-
-
-
-
 

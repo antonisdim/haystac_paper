@@ -10,51 +10,21 @@ set -euo pipefail
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
-# run malt sample analysis performance test for a sample of 1M reads against a db of 100 species
-/usr/bin/time -v malt-run \
-	-i ./inputs/input_1M_reads.fastq \
-	-d index_new_100_species \
-	-m BlastN \
-	-o input_1M_reads_100sp \
-	-t $MAX_CPU; \
-	hops --mode me_po \
-	--input input_1M_reads_100sp.rma6 \
-	--output hops_input_1M_reads_100sp \
-	--configFile configfile.txt
 
-# run malt sample analysis performance test for a sample of 1M reads against a db of 10 species
-/usr/bin/time -v malt-run \
-	-i ./inputs/input_1M_reads.fastq \
-	-d index_new_10_species \
-	-m BlastN \
-	-o input_1M_reads_10sp \
-	-t $MAX_CPU; \
-	hops --mode me_po \
-	--input input_1M_reads_10sp.rma6 \
-	--output hops_input_1M_reads_10sp \
-	--configFile configfile.txt
+# setup a list of the different test_sets to run
+test_sets=(100 10 500 1000)
 
-# run malt sample analysis performance test for a sample of 1M reads against a db of 500 species
-/usr/bin/time -v malt-run \
-	-i ./inputs/input_1M_reads.fastq \
-	-d index_new_500_species \
-	-m BlastN \
-	-o input_1M_reads_500sp \	
-	-t $MAX_CPU; \
-	hops --mode me_po \
-	--input input_1M_reads_500sp.rma6 \
-	--output hops_input_1M_reads_500sp \
-	--configFile configfile.txt
+for test_set in "${test_sets[@]}"; do
 
-# run malt sample analysis performance test for a sample of 1M reads against a db of 1000 species
-/usr/bin/time -v malt-run \
-	-i ./inputs/input_1M_reads.fastq \
-	-d index_new_1000_species \
-	-m BlastN \
-	-o input_1M_reads_1000sp \
-	-t $MAX_CPU; \
-	hops --mode me_po \
-	--input input_1M_reads_1000sp.rma6 \
-	--output hops_input_1M_reads_1000sp \
-	--configFile configfile.txt
-
+  # benchmark malt sample analysis performance test for a sample of 1M reads against dbs of various size
+  /usr/bin/time -v malt-run \
+	  -i ./inputs/input_1M_reads.fastq \
+	  -d index_new_"${test_set}"_species \
+	  -m BlastN \
+	  -o input_1M_reads_"${test_set}"sp \
+	  -t "$MAX_CPU"; \
+	  hops --mode me_po \
+	  --input input_1M_reads_"${test_set}"sp.rma6 \
+	  --output hops_input_1M_reads_"${test_set}"sp \
+	  --configFile configfile.txt
+done

@@ -11,64 +11,25 @@ set -euo pipefail
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
-mkdir sigma_outputs/input_1M_10sp
-mkdir sigma_outputs/input_1M_100sp
-mkdir sigma_outputs/input_1M_1000sp
-mkdir sigma_outputs/input_1M_500sp
+# setup a list of the different test_sets to run
+test_sets=(1M_10sp 1M_100sp 1M_1000sp 1M_500sp)
 
-#run sigma sample analysis performance test for a sample of 1M reads against a db of 10 species
-/usr/bin/time -v ./Sigma/bin/sigma-align-reads \
-	-c ./sigma_configs/sigma_config_input_1M_10sp.cfg \
-	-w sigma_outputs/input_1M_10sp \
-	-p $MAX_CPU; \
-	./Sigma/bin/sigma-build-model \
-	-c ./sigma_configs/sigma_config_input_1M_10sp.cfg \
-	-w sigma_outputs/input_1M_10sp/; \
-	./Sigma/bin/sigma-solve-model \
-	-c ./sigma_configs/sigma_config_input_1M_10sp.cfg \
-	-w sigma_outputs/input_1M_10sp/ \
-	-t $MAX_CPU; \
-	mv sigma_out.* ./sigma_outputs/input_1M_10sp/
+for test_set in "${test_sets[@]}"; do
+  mkdir -p sigma_outputs/"input_${test_set}"
 
-#run sigma sample analysis performance test for a sample of 1M reads against a db of 100 species
-/usr/bin/time -v ./Sigma/bin/sigma-align-reads \
-	-c ./sigma_configs/sigma_config_input_1M_100sp.cfg \
-	-w sigma_outputs/input_1M_100sp \
-	-p $MAX_CPU; \
-	./Sigma/bin/sigma-build-model \
-	-c ./sigma_configs/sigma_config_input_1M_100sp.cfg \
-	-w sigma_outputs/input_1M_100sp/; \
-	./Sigma/bin/sigma-solve-model \
-	-c ./sigma_configs/sigma_config_input_1M_100sp.cfg \
-	-w sigma_outputs/input_1M_100sp/ \
-	-t $MAX_CPU; \
-	mv sigma_out.* ./sigma_outputs/input_1M_100sp/
+  # benchmark Sigma sample analysis performance test for a sample of 1M reads for dbs of various sizes
+  /usr/bin/time -v ./Sigma/bin/sigma-align-reads \
+	  -c ./sigma_configs/sigma_config_input_"${test_set}".cfg \
+	  -w sigma_outputs/input_"${test_set}" \
+	  -p "$MAX_CPU"; \
+	  ./Sigma/bin/sigma-build-model \
+	  -c ./sigma_configs/sigma_config_input_"${test_set}".cfg \
+	  -w sigma_outputs/input_"${test_set}"/; \
+	  ./Sigma/bin/sigma-solve-model \
+	  -c ./sigma_configs/sigma_config_input_"${test_set}".cfg \
+	  -w sigma_outputs/input_"${test_set}"/ \
+	  -t "$MAX_CPU"; \
+	  mv sigma_out.* ./sigma_outputs/input_"${test_set}"/
 
-#run sigma sample analysis performance test for a sample of 1M reads against a db of 1000 species
-/usr/bin/time -v ./Sigma/bin/sigma-align-reads \
-	-c ./sigma_configs/sigma_config_input_1M_1000sp.cfg \
-	-w sigma_outputs/input_1M_1000sp \
-	-p $MAX_CPU; \
-	./Sigma/bin/sigma-build-model \
-	-c ./sigma_configs/sigma_config_input_1M_1000sp.cfg \
-	-w sigma_outputs/input_1M_1000sp/; \
-	./Sigma/bin/sigma-solve-model \
-	-c ./sigma_configs/sigma_config_input_1M_1000sp.cfg \
-	-w sigma_outputs/input_1M_1000sp/ \
-	-t $MAX_CPU; \
-	mv sigma_out.* ./sigma_outputs/input_1M_1000sp/
-
-#run sigma sample analysis performance test for a sample of 1M reads against a db of 500 species
-/usr/bin/time -v ./Sigma/bin/sigma-align-reads \
-	-c ./sigma_configs/sigma_config_input_1M_500sp.cfg \
-	-w sigma_outputs/input_1M_500sp \
-	-p $MAX_CPU; \
-	./Sigma/bin/sigma-build-model \
-	-c ./sigma_configs/sigma_config_input_1M_500sp.cfg \
-	-w sigma_outputs/input_1M_500sp/; \
-	./Sigma/bin/sigma-solve-model \
-	-c ./sigma_configs/sigma_config_input_1M_500sp.cfg \
-	-w sigma_outputs/input_1M_500sp/ \
-	-t $MAX_CPU; \
-	mv sigma_out.* ./sigma_outputs/input_1M_500sp/
+done
 

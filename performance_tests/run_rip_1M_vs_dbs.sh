@@ -9,49 +9,19 @@
 set -euo pipefail
 
 # run haystack sample analysis performance test for a sample of 1M reads against a db of 10 species
-rm -r ./samples/input_1M_reads
 
-/usr/bin/time -v haystack sample --sample-prefix input_1M_reads \
-  --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
+# setup a list of the different test_sets to run
+test_sets=(10_species 100_species 500_species 1000_species)
 
-/usr/bin/time -v haystack analyse \
-	--mode abundances \
-	--database ./rip_db_10_species_input \
-	--sample ./samples/input_1M_reads \
-	--output ./rip_db_10_species_analysis_output 
+for test_set in "${test_sets[@]}"; do
+  # delete any existing sample outputs so we can rebuild them
+  rm -r ./samples/input_1M_reads
 
-# run haystack sample analysis performance test for a sample of 1M reads against a db of 100 species
-rm -r ./samples/input_1M_reads
+  # run haystack sample analysis performance test for a sample of 1M reads for dbs of various sizes
+  /usr/bin/time -v haystack analyse \
+	  --mode abundances \
+	  --database ./"rip_db_${test_set}_input" \
+	  --sample ./samples/input_1M_reads \
+	  --output ./"rip_db_${test_set}_analysis_output"
 
-/usr/bin/time -v haystack sample --sample-prefix input_1M_reads \
-  --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
-
-/usr/bin/time -v haystack analyse \
-	--mode abundances \
-	--database ./rip_db_100_species_input \
-	--sample ./samples/input_1M_reads \
-	--output ./rip_db_100_species_analysis_output 
-
-# run haystack sample analysis performance test for a sample of 1M reads against a db of 500 species
-rm -r ./samples/input_1M_reads
-
-/usr/bin/time -v haystack sample --sample-prefix input_1M_reads \
-  --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
-
-/usr/bin/time -v haystack analyse \
-	--mode abundances \
-	--database ./rip_db_500_species_input \
-	--sample ./samples/input_1M_reads \
-	--output ./rip_db_500_species_analysis_output 
-
-# run haystack sample analysis performance test for a sample of 1M reads against a db of 1000 species
-rm -r ./samples/input_1M_reads
-
-/usr/bin/time -v haystack sample --sample-prefix input_1M_reads \
-  --fastq ./inputs/input_1M_reads.fastq.gz --output ./samples/input_1M_reads
-
-/usr/bin/time -v haystack analyse \
-	--mode abundances \
-	--database ./rip_db_1000_species_input \
-	--sample ./samples/input_1M_reads \
-	--output ./rip_db_1000_species_analysis_output 
+done

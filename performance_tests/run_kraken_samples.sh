@@ -10,77 +10,25 @@ set -euo pipefail
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
-# run kraken sample analysis performance test for a sample with 1M reads
-/usr/bin/time -v kraken2 \
-	--db db_kraken_5638_species \
-	--gzip-compressed \
-	--use-names \
-	--report input_1M.report \
-	--unclassified-out input_1M_unclassified.out \
-	--classified-out input_1M_classified.out \
-	--threads $MAX_CPU \
-	--output input_1M.out ./inputs/input_1M_reads.fastq.gz; \
-	Bracken-2.5/bracken -d db_kraken_5638_species \
-	-i input_1M.report \
-	-o input_1M.bracken \
-	--threads $MAX_CPU
+test_sets=(input_10K input_100K input_100M input_1M input_10M)
 
-# run kraken sample analysis performance test for a sample with 10K reads
-/usr/bin/time -v kraken2 \
-	--db db_kraken_5638_species \
-	--gzip-compressed \
-	--use-names \
-	--report input_10K.report \
-	--unclassified-out input_10K_unclassified.out \
-	--classified-out input_10K_classified.out \
-	--threads $MAX_CPU \
-	--output input_10K.out ./inputs/input_10K_reads.fastq.gz; \
-	Bracken-2.5/bracken -d db_kraken_5638_species \
-	-i input_10K.report \
-	-o input_10K.bracken \
-	--threads $MAX_CPU
+for test_set in "${test_sets[@]}"; do
 
-# run kraken sample analysis performance test for a sample with 100K reads
-/usr/bin/time -v kraken2 \
-	--db db_kraken_5638_species \
-	--gzip-compressed \
-	--use-names \
-	--report input_100K.report \
-	--unclassified-out input_100K_unclassified.out \
-	--classified-out input_100K_classified.out \
-	--threads $MAX_CPU \
-	--output input_100K.out ./inputs/input_100K_reads.fastq.gz; \
-	Bracken-2.5/bracken -d db_kraken_5638_species \
-	-i input_100K.report \
-	-o input_100K.bracken \
-	--threads $MAX_CPU
+  mkdir -p sigma_outputs/"${test_set}"
 
-# run kraken sample analysis performance test for a sample with 10M reads
-/usr/bin/time -v kraken2 \
-	--db db_kraken_5638_species \
-	--gzip-compressed \
-	--use-names \
-	--report input_10M.report \
-	--unclassified-out input_10M_unclassified.out \
-	--classified-out input_10M_classified.out \
-	--threads $MAX_CPU \
-	--output input_10M.out ./inputs/input_10M_reads.fastq.gz; \
-	Bracken-2.5/bracken -d db_kraken_5638_species \
-	-i input_10M.report \
-	-o input_10M.bracken \
-	--threads $MAX_CPU
+  # benchmark kraken sample analysis performance test for samples of various sizes
+  /usr/bin/time -v kraken2 \
+    --db db_kraken_5638_species \
+    --gzip-compressed \
+    --use-names \
+    --report "${test_set}".report \
+    --unclassified-out "${test_set}"_unclassified.out \
+    --classified-out "${test_set}"_classified.out \
+    --threads "$MAX_CPU" \
+    --output "${test_set}".out ./inputs/"${test_set}"_reads.fastq.gz; \
+    Bracken-2.5/bracken -d db_kraken_5638_species \
+    -i "${test_set}".report \
+    -o "${test_set}".bracken \
+    --threads "$MAX_CPU"
 
-# run kraken sample analysis performance test for a sample with 100M reads
-/usr/bin/time -v kraken2 \
-	--db db_kraken_5638_species \
-	--gzip-compressed \
-	--use-names \
-	--report input_100M.report \
-	--unclassified-out input_100M_unclassified.out \
-	--classified-out input_100M_classified.out \
-	--threads $MAX_CPU \
-	--output input_100M.out ./inputs/input_100M_reads.fastq.gz; \
-	Bracken-2.5/bracken -d db_kraken_5638_species \
-	-i input_100M.report \
-	-o input_100M.bracken \
-	--threads $MAX_CPU
+done

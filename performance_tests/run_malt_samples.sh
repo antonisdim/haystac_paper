@@ -8,66 +8,23 @@
 # bash strict mode
 set -euo pipefail
 
-
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
-# run malt sample analysis performance test for samples of 1M reads against a db of 5638 species
-/usr/bin/time -v malt-run \
-	-t $MAX_CPU \
-	-i ./inputs/input_1M_reads.fastq \
-	-d index_new_5638_species \
-	-m BlastN \
-	-o .; \
-	hops --mode me_po \
-	--input input_1M_reads.rma6 \
-	--output hops_input_1M_reads \
-	--configFile configfile.txt
+# setup a list of the different test_sets to run
+test_sets=(input_1M_reads input_10M_reads input_100M_reads input_10K_reads input_100K_reads)
 
-# run malt sample analysis performance test for samples of 10M reads against a db of 5638 species
-/usr/bin/time -v malt-run \
-	-t $MAX_CPU \
-	-i ./inputs/input_10M_reads.fastq \
-	-d index_new_5638_species \
-	-m BlastN \
-	-o .; \
-	hops --mode me_po \
-	--input input_10M_reads.rma6 \
-	--output hops_input_10M_reads \
-	--configFile configfile.txt
+for test_set in "${test_sets[@]}"; do
 
-# run malt sample analysis performance test for samples of 100M reads against a db of 5638 species
-/usr/bin/time -v malt-run \
-	-t $MAX_CPU \
-	-i ./inputs/input_100M_reads.fastq \
-	-d index_new_5638_species \
-	-m BlastN \
-	-o .; \
-	hops --mode me_po \
-	--input input_100M_reads.rma6 \
-	--output hops_input_100M_reads \
-	--configFile configfile.txt
+  # benchmark malt sample analysis performance test for samples of 1M reads against dbs of various size
+  /usr/bin/time -v malt-run \
+	  -t $MAX_CPU \
+	  -i ./inputs/"${test_set}".fastq \
+	  -d index_new_5638_species \
+	  -m BlastN \
+	  -o .; \
+	  hops --mode me_po \
+	  --input "${test_set}".rma6 \
+	  --output hops_"${test_set}" \
+	  --configFile configfile.txt
 
-# run malt sample analysis performance test for samples of 10K reads against a db of 5638 species
-/usr/bin/time -v malt-run \
-	-t $MAX_CPU \
-	-i ./inputs/input_10K_reads.fastq \
-	-d index_new_5638_species \
-	-m BlastN \
-	-o .; \
-	hops --mode me_po \
-	--input input_10K_reads.rma6 \
-	--output hops_input_10K_reads \
-	--configFile configfile.txt
-
-# run malt sample analysis performance test for samples of 100K reads against a db of 5638 species
-/usr/bin/time -v malt-run \
-	-t $MAX_CPU \
-	-i ./inputs/input_100K_reads.fastq \
-	-d index_new_5638_species \
-	-m BlastN \
-	-o .; \
-	hops --mode me_po \
-	--input input_100K_reads.rma6 \
-	--output hops_input_100K_reads \
-	--configFile configfile.txt
-
+done

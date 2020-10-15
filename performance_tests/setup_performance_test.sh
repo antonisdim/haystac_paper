@@ -38,7 +38,7 @@ sed -i'' "s/-Xmx.*/-Xmx${MAX_MEM}G/" ~/.conda/pkgs/malt-0.41-1/opt/malt-0.41/mal
 mkdir -p db_mutlifasta_inputs
 
 for test_set in "${test_sets[@]}"; do
-  cat "${test_set}.txt" | xargs zcat > "db_mutlifasta_inputs/db_input_${test_set}.fasta"
+  cat "${test_set}.txt" | xargs zcat >"db_mutlifasta_inputs/db_input_${test_set}.fasta"
 done
 
 # download mapping for MALT

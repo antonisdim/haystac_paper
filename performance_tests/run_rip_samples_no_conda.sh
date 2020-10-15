@@ -8,34 +8,28 @@
 # bash strict mode
 set -euo pipefail
 
+args=("$@")
+test_set=${args[0]}
+
 #deactivating conda
 haystack config \
   --use-conda False
 
 # run haystack sample analysis performance test for against a db of 5638 species without using conda
 
-test_sets=(input_10K_reads input_100K_reads input_100M_reads input_1M_reads input_10M_reads)
+# delete any existing sample outputs so we can rebuild them
+rm -r ./samples/"${test_set}"
 
-for test_set in "${test_sets[@]}"; do
-  # delete any existing sample outputs so we can rebuild them
-  rm -r ./samples/"${test_set}"
+# benchmark haystack sample analysis performance for samples of various sizes against a db of 5638 species
 
-  # benchmark haystack sample analysis performance for samples of various sizes against a db of 5638 species
+haystack sample \
+  --sample-prefix "${test_set}" \
+  --fastq ./inputs/"${test_set}".fastq.gz \
+  --output ./samples/"${test_set}"
 
-  /usr/bin/time -v haystack sample \
-    --sample-prefix "${test_set}" \
-    --fastq ./inputs/"${test_set}".fastq.gz \
-    --output ./samples/"${test_set}"
-
-  /usr/bin/time -v haystack analyse \
-    --mode abundances \
-    --database ./refseq_resp \
-    --sample ./samples/"${test_set}" \
-    --output ./refseq_analysis_output_no_conda
-
-done
-
-
-
-
+haystack analyse \
+  --mode abundances \
+  --database ./refseq_resp \
+  --sample ./samples/"${test_set}" \
+  --output ./refseq_analysis_output_no_conda
 

@@ -11,11 +11,7 @@ set -euo pipefail
 args=("$@")
 test_set=${args[0]}
 
-#deactivating conda
-haystack config \
-  --use-conda False
-
-# run haystack sample analysis performance test for against a db of 5638 species without using conda
+# run haystack sample analysis performance test for against a db of 5638 species using conda
 
 # delete any existing sample outputs so we can rebuild them
 rm -r ./samples/"${test_set}"
@@ -29,7 +25,8 @@ haystack sample \
 
 haystack analyse \
   --mode abundances \
-  --database ./refseq_resp \
+  --database ./haystack_db_5638_species_input_mem \
   --sample ./samples/"${test_set}" \
-  --output ./refseq_analysis_output_no_conda
+  --output ./refseq_analysis_output
+
 

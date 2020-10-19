@@ -22,5 +22,5 @@ haystack analyse \
   --mode abundances \
   --database ./"rip_db_${test_set}_input" \
   --sample ./samples/input_1M_reads \
-  --output ./"rip_db_${test_set}_analysis_output"
+  --output ./"haystack_db_${test_set}_analysis_output"
 

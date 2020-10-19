@@ -35,31 +35,31 @@ done
 
 for test_set in "${test_sets_species[@]}"; do
   # building databases of different sizes with a memory limit
-  /usr/bin/time -v bash run_rip_db_mem.sh "${test_set}" &>rip_db_mem.log
+  /usr/bin/time -v bash run_haystack_db_mem.sh "${test_set}" &>rip_db_mem.log
 done
 
 # setup a list of the different test_sets to run
 test_sets_samples_hsk=(input_10K_reads input_100K_reads input_1M_reads input_10M_reads input_100M_reads)
 for test_set in "${test_sets_samples_hsk[@]}"; do
   # analysing samples of different sizes against a db of 5638 species with conda as a package manager
-  /usr/bin/time -v bash run_rip_samples_with_conda.sh "${test_set}" &>rip_samples_conda.log
+  /usr/bin/time -v bash run_haystack_samples_with_conda.sh "${test_set}" &>rip_samples_conda.log
 done
 
 # setup a list of the different test_sets to run
 test_sets_1M_hsk=(10_species 100_species 500_species 1000_species)
 for test_set in "${test_sets_1M_hsk[@]}"; do
   # analysing a sample of 1M reads against dbs of various sizes
-  /usr/bin/time -v bash run_rip_1M_vs_dbs.sh "${test_set}" &> rip_1M_vs_dbs.log
+  /usr/bin/time -v bash run_haystack_1M_vs_dbs.sh "${test_set}" &> rip_1M_vs_dbs.log
 done
 
 for test_set in "${test_sets_species[@]}"; do
   # building databases of different sizes with no memory limit
-  /usr/bin/time -v bash run_rip_db_no_mem.sh "${test_set}" &>rip_db_no_mem.log
+  /usr/bin/time -v bash run_haystack_db_no_mem.sh "${test_set}" &>rip_db_no_mem.log
 done
 
 for test_set in "${test_sets_samples_hsk[@]}"; do
   # analysing samples of different sizes against a db of 5638 species with no conda
-  /usr/bin/time -v bash run_rip_samples_no_conda.sh "${test_set}" &>rip_samples_no_conda.log
+  /usr/bin/time -v bash run_haystack_samples_no_conda.sh "${test_set}" &>rip_samples_no_conda.log
 done
 
 

@@ -17,6 +17,7 @@ rm ../rip_genome_cache/*/*.bt2l
 
 # run haystack building db performance test with no mem limit for dbs of various sizes
 haystack database \
-  -a ./haystack_configs/"rip_db_${test_set}_input.txt" \
-  -o ./"rip_db_${test_set}_input_no_mem"
+  --mode build \
+  --accessions ./haystack_configs/"haystack_db_${test_set}_input.txt" \
+  --output ./"haystack_db_${test_set}_input_no_mem"
 

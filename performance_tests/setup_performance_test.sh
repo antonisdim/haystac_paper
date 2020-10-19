@@ -23,6 +23,8 @@ wget --content-disposition http://sourceforge.net/projects/sigma-omicsbio/files/
 tar xvzf Sigma.tar.gz
 rm Sigma.tar.gz
 
+bash haystack_setup_and_fetch_genomes.sh
+
 # setup a list of the different test_sets to run
 test_sets=(10_species 100_species 500_species 1000_species 5638_species)
 

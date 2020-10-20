@@ -9,24 +9,23 @@
 set -euo pipefail
 
 args=("$@")
-test_set=${args[0]}
+sample_input=${args[0]}
+db_input=${args[1]}
 
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
-mkdir -p sigma_outputs/"${test_set}"
-
 # benchmark kraken sample analysis performance test for samples of various sizes
 kraken2 \
-  --db db_kraken_5638_species \
+  --db db_kraken_"${db_input}"_species \
   --gzip-compressed \
   --use-names \
-  --report "${test_set}".report \
-  --unclassified-out "${test_set}"_unclassified.out \
-  --classified-out "${test_set}"_classified.out \
+  --report "${sample_input}"_"${db_input}"_species.report \
+  --unclassified-out "${sample_input}"_"${db_input}"_species_unclassified.out \
+  --classified-out "${sample_input}"_"${db_input}"_species_classified.out \
   --threads "$MAX_CPU" \
-  --output "${test_set}".out ./inputs/"${test_set}"_reads.fastq.gz
+  --output "${sample_input}"_"${db_input}"_species.out ./inputs/"${sample_input}"_reads.fastq.gz
 
-Bracken-2.5/bracken -d db_kraken_5638_species \
-  -i "${test_set}".report \
-  -o "${test_set}".bracken \
+Bracken-2.5/bracken -d db_kraken_"${db_input}"_species \
+  -i "${sample_input}"_"${db_input}"_species.report \
+  -o "${sample_input}"_"${db_input}"_species.bracken \
   --threads "$MAX_CPU"

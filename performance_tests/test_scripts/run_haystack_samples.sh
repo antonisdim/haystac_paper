@@ -9,26 +9,28 @@
 set -euo pipefail
 
 args=("$@")
-test_set=${args[0]}
+sample_input=${args[0]}
+db_input=${args[1]}
+use_conda=${args[2]}
 
 #deactivating conda
 haystack config \
-  --use-conda False
+  --use-conda "${use_conda}"
 
 # run haystack sample analysis performance test for against a db of 5638 species without using conda
 
 # delete any existing sample outputs so we can rebuild them
-rm -r ./samples/"${test_set}"
+rm -r ./samples/"${sample_input}"
 
 # benchmark haystack sample analysis performance for samples of various sizes against a db of 5638 species
 
 haystack sample \
-  --sample-prefix "${test_set}" \
-  --fastq ./inputs/"${test_set}".fastq.gz \
-  --output ./samples/"${test_set}"
+  --sample-prefix "${sample_input}" \
+  --fastq ./inputs/"${sample_input}".fastq.gz \
+  --output ./samples/"${sample_input}"
 
 haystack analyse \
   --mode abundances \
-  --database ./haystack_db_5638_species_input_mem \
-  --sample ./samples/"${test_set}" \
-  --output ./refseq_analysis_output_no_conda
+  --database ./haystack_db_"${db_input}"_species_input_mem \
+  --sample ./samples/"${sample_input}" \
+  --output ./haystack_out_db_"${db_input}"_"${sample_input}"_conda_"${use_conda}"

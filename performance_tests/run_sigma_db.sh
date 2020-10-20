@@ -23,4 +23,3 @@ rm ./sigma_db_"${test_set}"/*/*.bt2
   -c ./sigma_configs/"sigma_config_${test_set}.cfg" \
   -w "./sigma_db_${test_set}" \
   -p "${MAX_CPU}"
-

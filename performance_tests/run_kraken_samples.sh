@@ -25,6 +25,7 @@ kraken2 \
   --classified-out "${test_set}"_classified.out \
   --threads "$MAX_CPU" \
   --output "${test_set}".out ./inputs/"${test_set}"_reads.fastq.gz
+
 Bracken-2.5/bracken -d db_kraken_5638_species \
   -i "${test_set}".report \
   -o "${test_set}".bracken \

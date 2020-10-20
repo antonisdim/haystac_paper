@@ -13,7 +13,6 @@ test_set=${args[0]}
 
 # run haystack sample analysis performance test for a sample of 1M reads against a db of 10 species
 
-
 # delete any existing sample outputs so we can rebuild them
 rm -r ./samples/input_1M_reads
 
@@ -23,4 +22,3 @@ haystack analyse \
   --database ./"rip_db_${test_set}_input" \
   --sample ./samples/input_1M_reads \
   --output ./"haystack_db_${test_set}_analysis_output"
-

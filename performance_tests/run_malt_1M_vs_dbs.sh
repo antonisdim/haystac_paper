@@ -20,6 +20,7 @@ malt-run \
   -m BlastN \
   -o input_1M_reads_"${test_set}"sp \
   -t "$MAX_CPU"
+
 hops --mode me_po \
   --input input_1M_reads_"${test_set}"sp.rma6 \
   --output hops_input_1M_reads_"${test_set}"sp \

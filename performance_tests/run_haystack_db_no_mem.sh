@@ -11,7 +11,6 @@ set -euo pipefail
 args=("$@")
 test_set=${args[0]}
 
-
 # delete any existing indices outputs so we can rebuild them
 rm ../rip_genome_cache/*/*.bt2l
 
@@ -20,4 +19,3 @@ haystack database \
   --mode build \
   --accessions ./haystack_configs/"haystack_db_${test_set}_input.txt" \
   --output ./"haystack_db_${test_set}_input_no_mem"
-

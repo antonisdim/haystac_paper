@@ -23,6 +23,7 @@ kraken2 \
   --classified-out input_1M_"${test_set}"sp_classified.out \
   --threads "$MAX_CPU" \
   --output input_1M_"${test_set}"sp.out ./inputs/input_1M_reads.fastq.gz
+
 Bracken-2.5/bracken -d db_kraken_"${test_set}"_species \
   -i input_1M_"${test_set}"sp.report \
   -o input_1M_"${test_set}"sp.bracken \

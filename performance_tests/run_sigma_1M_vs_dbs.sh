@@ -20,13 +20,14 @@ mkdir -p sigma_outputs/"input_${test_set}"
   -c ./sigma_configs/sigma_config_input_"${test_set}".cfg \
   -w sigma_outputs/input_"${test_set}" \
   -p "$MAX_CPU"
+
 ./Sigma/bin/sigma-build-model \
   -c ./sigma_configs/sigma_config_input_"${test_set}".cfg \
   -w sigma_outputs/input_"${test_set}"/
+
 ./Sigma/bin/sigma-solve-model \
   -c ./sigma_configs/sigma_config_input_"${test_set}".cfg \
   -w sigma_outputs/input_"${test_set}"/ \
   -t "$MAX_CPU"
+
 mv sigma_out.* ./sigma_outputs/input_"${test_set}"/
-
-

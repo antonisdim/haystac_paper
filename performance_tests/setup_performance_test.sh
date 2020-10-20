@@ -13,17 +13,32 @@ eval "$(conda shell.bash hook)"
 conda env create -f environment.yaml -n performance_test
 conda activate performance_test
 
-# download the binaries for Bracken and Sigma
+# set the required config options for haystakc
+haystack config \
+  --email antonisdim41@gmail.com \
+  --cache ./rip_genome_cache/
+
+# pre-fetch the conda environment dependencies
+haystack database --snakemake '{"conda_create_envs_only": 1}'
+haystack sample --snakemake '{"conda_create_envs_only": 1}'
+haystack analyse --snakemake '{"conda_create_envs_only": 1}'
+
+# fetch all the genomes in the representative RefSeq database
+/usr/bin/time -v haystack database \
+  --mode fetch \
+  --accessions ./haystack_configs/rip_db_5638_species_input.txt \
+  --output ./genome_fetch/
+
+# download and extract Bracken (as there is no conda package)
 wget https://github.com/jenniferlu717/Bracken/archive/v2.5.tar.gz -O Bracken-2.5.tar.gz
 tar xvzf Bracken-2.5.tar.gz
 rm Bracken-2.5.tar.gz
 
+# download and extract Sigma (as there is no conda package)
 wget --content-disposition http://sourceforge.net/projects/sigma-omicsbio/files/V1.0.3/sigma-v1.0.3.tar.gz/download \
   -O Sigma.tar.gz
 tar xvzf Sigma.tar.gz
 rm Sigma.tar.gz
-
-bash haystack_setup_and_fetch_genomes.sh
 
 # setup a list of the different test_sets to run
 test_sets=(10_species 100_species 500_species 1000_species 5638_species)
@@ -35,10 +50,9 @@ MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2/1024}')
 sed -i'' "s/-Xmx.*/-Xmx${MAX_MEM}G/" ~/.conda/pkgs/malt-0.41-1/opt/malt-0.41/malt-run.vmoptions
 sed -i'' "s/-Xmx.*/-Xmx${MAX_MEM}G/" ~/.conda/pkgs/malt-0.41-1/opt/malt-0.41/malt-build.vmoptions
 
-# create mutlifasta files for kraken2 and MALT and move them to the right folders
-
 mkdir -p db_mutlifasta_inputs
 
+# create mutlifasta files for kraken2 and MALT, and move them into the right folders
 for test_set in "${test_sets[@]}"; do
   cat "${test_set}.txt" | xargs zcat >"db_mutlifasta_inputs/db_input_${test_set}.fasta"
 done
@@ -54,5 +68,4 @@ for test_set in "${test_sets[@]}"; do
   cat "${test_set}.txt" | xargs dirname | awk '{print "../"$0}' | xargs ln -s -t "sigma_db_${test_set}"
 done
 
-# run the performance test_sets
-bash run_performance_test.sh &>performance_test.log
+echo "DONE!"

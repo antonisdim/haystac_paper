@@ -28,5 +28,3 @@ haystack analyse \
   --database ./haystack_db_5638_species_input_mem \
   --sample ./samples/"${test_set}" \
   --output ./refseq_analysis_output
-
-

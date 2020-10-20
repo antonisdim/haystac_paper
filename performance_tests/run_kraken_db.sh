@@ -25,4 +25,3 @@ kraken2-build --build --db db_kraken_"${test_set}" --threads "$MAX_CPU"
 
 # run bracken building db performance test for 100 species
 Bracken-2.5/bracken-build -d db_kraken_"${test_set}"/
-

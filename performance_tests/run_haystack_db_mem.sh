@@ -22,4 +22,3 @@ haystack database \
   --accessions ./haystack_configs/"haystack_db_${test_set}_input.txt" \
   --output ./"haystack_db_${test_set}_input_mem" \
   --mem $MEM_LIMIT_TEST
-

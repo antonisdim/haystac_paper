@@ -20,4 +20,3 @@ malt-build \
   -i db_mutlifasta_inputs/db_input_"${test_set}".fasta \
   -d index_new_"${test_set}"/ \
   -a2taxonomy mapping_files/megan-map-Jul2020-2.db
-

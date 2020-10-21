@@ -24,36 +24,6 @@ read_counts=(input_10K input_100K input_1M input_10M input_100M)
 mkdir -p logs
 
 # ----------------------------------------------------------------------------------------------------------------------
-# -                                   run all the tests for kraken/bracken                                             -
-# ----------------------------------------------------------------------------------------------------------------------
-
-# building databases of different sizes
-for species_count in "${species_counts[@]}"; do
-  echo "Running 'run_kraken_db.sh' for ${species_count} species"
-
-  /usr/bin/time -v -o "logs/kraken_db-${species_count}_species.time.log" \
-    bash run_kraken_db.sh "${species_count}_species" &>"kraken_db-${species_count}_species.log"
-done
-
-# analysing samples of different sizes against a db of 5638 species
-for read_count in "${read_counts[@]}"; do
-  echo "Running 'run_kraken_samples.sh' for ${read_count} reads against 5638 species"
-
-  /usr/bin/time -v -o "logs/kraken_samples-${read_count}_reads-5638_species.time.log" \
-    bash run_kraken_samples.sh "${read_count}" 5638 \
-    &>"logs/kraken_samples-${read_count}_reads-5638_species.log"
-done
-
-# analysing a sample of 1M reads against dbs of various sizes
-for species_count in "${species_counts[@]:0:4}"; do
-  echo "Running 'run_kraken_samples.sh' for input_1M reads against ${species_count} species"
-
-  /usr/bin/time -v -o "logs/kraken_samples-input_1M-${species_count}_species.time.log" \
-    bash run_kraken_samples.sh input_1M "${species_count}" \
-    &>"logs/kraken_samples-input_1M-${species_count}_species.log"
-done
-
-# ----------------------------------------------------------------------------------------------------------------------
 # -                                     run all the tests for haystack                                                 -
 # ----------------------------------------------------------------------------------------------------------------------
 
@@ -88,6 +58,36 @@ for species_count in "${species_counts[@]:0:4}"; do
   /usr/bin/time -v -o "logs/haystack_samples-input_1M_reads-${species_count}_species-conda_True.time.log" \
     bash run_haystack_samples.sh input_1M_reads "${species_count}_species" "True" \
     &>"logs/haystack_samples-input_1M_reads-${species_count}_species-conda_True.log"
+done
+
+# ----------------------------------------------------------------------------------------------------------------------
+# -                                   run all the tests for kraken/bracken                                             -
+# ----------------------------------------------------------------------------------------------------------------------
+
+# building databases of different sizes
+for species_count in "${species_counts[@]}"; do
+  echo "Running 'run_kraken_db.sh' for ${species_count} species"
+
+  /usr/bin/time -v -o "logs/kraken_db-${species_count}_species.time.log" \
+    bash run_kraken_db.sh "${species_count}_species" &>"kraken_db-${species_count}_species.log"
+done
+
+# analysing samples of different sizes against a db of 5638 species
+for read_count in "${read_counts[@]}"; do
+  echo "Running 'run_kraken_samples.sh' for ${read_count} reads against 5638 species"
+
+  /usr/bin/time -v -o "logs/kraken_samples-${read_count}_reads-5638_species.time.log" \
+    bash run_kraken_samples.sh "${read_count}" 5638 \
+    &>"logs/kraken_samples-${read_count}_reads-5638_species.log"
+done
+
+# analysing a sample of 1M reads against dbs of various sizes
+for species_count in "${species_counts[@]:0:4}"; do
+  echo "Running 'run_kraken_samples.sh' for input_1M reads against ${species_count} species"
+
+  /usr/bin/time -v -o "logs/kraken_samples-input_1M-${species_count}_species.time.log" \
+    bash run_kraken_samples.sh input_1M "${species_count}" \
+    &>"logs/kraken_samples-input_1M-${species_count}_species.log"
 done
 
 # ----------------------------------------------------------------------------------------------------------------------

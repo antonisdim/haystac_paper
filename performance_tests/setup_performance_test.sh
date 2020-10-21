@@ -17,12 +17,12 @@ set -euo pipefail
 # set the required config options for haystack
 haystack config \
   --email antonisdim41@gmail.com \
-  --cache ./rip_genome_cache/
+  --cache ./haystack_genome_cache/
 
 # fetch all the genomes in the representative RefSeq database
 /usr/bin/time -v haystack database \
   --mode fetch \
-  --accessions ./haystack_configs/rip_db_5638_species_input.txt \
+  --accessions ./haystack_configs/haystack_db_5638_species_input.txt \
   --output ./genome_fetch/
 
 # download and extract Bracken (as there is no conda package)

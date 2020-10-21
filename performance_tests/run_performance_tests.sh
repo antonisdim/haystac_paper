@@ -8,6 +8,9 @@
 # bash strict mode
 set -euo pipefail
 
+# handle conda error when PS1 is not set
+PS1=${PS1:=""}
+
 # activate the conda environment for running the tests
 eval "$(conda shell.bash hook)"
 conda activate performance_test

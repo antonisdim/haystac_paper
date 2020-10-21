@@ -8,12 +8,15 @@
 # bash strict mode
 set -euo pipefail
 
+# handle conda error when PS1 is not set
+PS1=${PS1:=""}
+
 # create a new conda environment to run all the test_sets
 eval "$(conda shell.bash hook)"
 conda env create -f environment.yaml -n performance_test
 conda activate performance_test
 
-# set the required config options for haystakc
+# set the required config options for haystack
 haystack config \
   --email antonisdim41@gmail.com \
   --cache ./rip_genome_cache/

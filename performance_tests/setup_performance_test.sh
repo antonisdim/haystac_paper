@@ -5,17 +5,14 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
-# bash strict mode
-set -euo pipefail
-
-# handle conda error when PS1 is not set
-PS1=${PS1:=""}
-
 # create a new conda environment to run all the test_sets
 eval "$(conda shell.bash hook)"
 conda env remove --name performance_test
 conda env create -f environment.yaml -n performance_test
 conda activate performance_test
+
+# bash strict mode (set after conda is activated, as the start-up scripts are not strict safe)
+set -euo pipefail
 
 # set the required config options for haystack
 haystack config \

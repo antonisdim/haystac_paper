@@ -5,15 +5,12 @@
 # Email:     antonisdim41@gmail.com
 # License:   MIT
 
-# bash strict mode
-set -euo pipefail
-
-# handle conda error when PS1 is not set
-PS1=${PS1:=""}
-
 # activate the conda environment for running the tests
 eval "$(conda shell.bash hook)"
 conda activate performance_test
+
+# bash strict mode (set after conda is activated, as the start-up scripts are not strict safe)
+set -euo pipefail
 
 MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2/1024}')
 

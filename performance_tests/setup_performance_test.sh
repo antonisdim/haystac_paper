@@ -19,11 +19,6 @@ haystack config \
   --email antonisdim41@gmail.com \
   --cache ./rip_genome_cache/
 
-# pre-fetch the conda environment dependencies
-haystack database --snakemake '{"conda_create_envs_only": 1}'
-haystack sample --snakemake '{"conda_create_envs_only": 1}'
-haystack analyse --snakemake '{"conda_create_envs_only": 1}'
-
 # fetch all the genomes in the representative RefSeq database
 /usr/bin/time -v haystack database \
   --mode fetch \

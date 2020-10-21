@@ -43,7 +43,13 @@ rm Sigma.tar.gz
 test_sets=(10_species 100_species 500_species 1000_species 5638_species)
 
 # get the max available memory (in GB)
-MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2/1024}')
+if ! command -v free &> /dev/null; then
+  # MacOS does not have the free command
+  MAX_MEM=$(sysctl -a | awk '/^hw.memsize:/{printf "%.0f", $2/(1024)^3}')
+else
+  # but linux does
+  MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2/1024}')
+fi
 
 # configure MALT to use the max available memory
 sed -i'' "s/-Xmx.*/-Xmx${MAX_MEM}G/" ~/.conda/pkgs/malt-0.41-1/opt/malt-0.41/malt-run.vmoptions

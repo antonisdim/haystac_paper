@@ -14,13 +14,16 @@ conda activate performance_test
 # bash strict mode (set after conda is activated, as the start-up scripts are not strict safe)
 set -euo pipefail
 
+# force bash to use the `time` command and not it's own native implementation
+time=$(which time)
+
 # set the required config options for haystack
 haystack config \
   --email antonisdim41@gmail.com \
   --cache ./haystack_genome_cache/
 
 # fetch all the genomes in the representative RefSeq database
-/usr/bin/time -v haystack database \
+$time -v haystack database \
   --mode fetch \
   --accessions ./haystack_configs/haystack_db_5638_species_input.txt \
   --output ./genome_fetch/

@@ -1,0 +1,11 @@
+__pycache__
+.idea
+.snakemake
+*Rhist*
+*Rproj*
+*tmp*
+~*
+benchmarks/
+genome_fetch/
+haystack_genome_cache/
+nohup*

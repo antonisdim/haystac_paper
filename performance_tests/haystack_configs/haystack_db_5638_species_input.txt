@@ -2270,7 +2270,6 @@ Hathewaya_proteolytica	FRAD01
 Helcococcus_kunzii	AGEI01
 Helcococcus_sueciensis	AUHK01
 Helicobacter_ailurogastricus	CDMG01
-Helicobacter_apodemus	*fasta.gz
 Helicobacter_bilis	NZ_CP019645.1
 Helicobacter_bizzozeronii	NC_015674.1
 Helicobacter_canadensis	ACSF01
@@ -2282,16 +2281,12 @@ Helicobacter_fennelliae	BASD01
 Helicobacter_heilmannii	CDMK01
 Helicobacter_hepaticus	NC_004917.1
 Helicobacter_himalayensis	NZ_CP014991.1
-Helicobacter_jaachi	*fasta.gz
 Helicobacter_macacae	AZJI01
-Helicobacter_muridarum	*fasta.gz
 Helicobacter_mustelae	NC_013949.1
 Helicobacter_pametensis	JADE01
 Helicobacter_pullorum	ABQU01
 Helicobacter_rodentium	JHWC01
-Helicobacter_saguini	*fasta.gz
 Helicobacter_suis	ADGY01
-Helicobacter_trogontum	*fasta.gz
 Helicobacter_typhlonius	NZ_LN907858.1
 Helicobacter_winghamensis	ACDO01
 Heliobacterium_modesticaldum	NC_010337.2
@@ -2333,7 +2328,6 @@ Hungateiclostridium_clariflavum	NC_016627.1
 Hungateiclostridium_thermocellum	NC_009012.1
 Hungatella_hathewayi	ACIO01
 Hyalangium_minutum	JMCB01
-Hydrobacter_penzbergensis	*fasta.gz
 Hydrocarboniphaga_daqingensis	FQWZ01
 Hydrocarboniphaga_effusa	AKGD01
 Hydrogenibacillus_schlegelii	JXBB01
@@ -2544,7 +2538,6 @@ Labilibacter_aurantiacus	LYBV02
 Labilibacter_marinus	LXYE02
 Labrenzia_aggregata	NZ_CP019630.1
 Labrenzia_alba	CXTY01
-Labrenzia_alexandrii	*fasta.gz
 Labrenzia_suaedae	FRBW01
 Lachnoanaerobaculum_saburreum	LSDA01
 Lachnobacterium_bovis	FNPG01
@@ -2862,7 +2855,6 @@ Lutibaculum_baratangense	AWXZ01
 Lutimaribacter_saemankumensis	FNEB01
 Lutispora_thermophila	FQZS01
 Lyngbya_aestuarii	AUZM01
-Lyngbya_confervoides	*fasta.gz
 Lysinibacillus_fusiformis	NZ_CP010820.1
 Lysinibacillus_macroides	LGCI01
 Lysinibacillus_manganicus	JPVN01
@@ -3082,7 +3074,6 @@ Methanohalobium_evestigatum	NC_014253.1
 Methanohalophilus_halophilus	NZ_CP017921.1
 Methanohalophilus_mahii	NC_014002.1
 Methanolacinia_petrolearia	NC_014507.1
-Methanolinea_tarda	*fasta.gz
 Methanolobus_profundi	FOUJ01
 Methanolobus_psychrophilus	NC_018876.1
 Methanolobus_tindarius	AZAJ01
@@ -3098,7 +3089,6 @@ Methanosaeta_harundinacea	NC_017527.1
 Methanosalsum_zhilinae	NC_015676.1
 Methanosarcina_acetivorans	NC_003552.1
 Methanosarcina_barkeri	NZ_CP009517.1
-Methanosarcina_flavescens	*fasta.gz
 Methanosarcina_horonobensis	NZ_CP009516.1
 Methanosarcina_lacustris	NZ_CP009515.1
 Methanosarcina_mazei	NZ_CP009512.1
@@ -3250,7 +3240,6 @@ Micromonospora_siamensis	NZ_LT607751.1
 Micromonospora_yangpuensis	FMIA01
 Microscilla_marina	AAWS01
 Microterricola_viridarii	NZ_CP014145.1
-Microtetraspora_glauca	*fasta.gz
 Microtetraspora_malaysiensis	BBYJ01
 Microvirga_flocculans	JAEA01
 Microvirga_guangxiensis	FMVJ01
@@ -3603,7 +3592,6 @@ Nitrosospira_lacus	NZ_CP021106.3
 Nitrosospira_multiformis	FNKY01
 Nitrosovibrio_tenuis	FOBH01
 Nitrospina_gracilis	CAQJ01
-Nitrospira_cf._moscoviensis_SBR1015	*fasta.gz
 Nitrospira_defluvii	NC_014355.1
 Nitrospira_japonica	NZ_LT828648.1
 Nitrospira_moscoviensis	NZ_CP011801.1
@@ -3866,7 +3854,6 @@ Paeniglutamicibacter_antarcticus	CZJT01
 Paeniglutamicibacter_gangotriensis	AOCK01
 Paenirhodobacter_enshiensis	JFZB01
 Paenisporosarcina_indica	MPTA01
-Paenisporosarcina_quisquiliarum	*fasta.gz
 Pajaroellobacter_abortibovis	NZ_CP016908.1
 Palaeococcus_ferrophilus	LANF01
 Palaeococcus_pacificus	NZ_CP006019.1
@@ -3896,7 +3883,6 @@ Paraburkholderia_kururiensis	BBJI01
 Paraburkholderia_megapolitana	FOQU01
 Paraburkholderia_phymatum	NC_010622.1
 Paraburkholderia_rhizoxinica	NC_014722.1
-Paraburkholderia_sacchari	*fasta.gz
 Paraburkholderia_sartisoli	FNRQ01
 Paraburkholderia_sprentiae	NZ_CP017561.1
 Paraburkholderia_xenovorans	NC_007953.1
@@ -4069,8 +4055,6 @@ Planifilum_fulgidum	FOOK01
 Planktomarina_temperata_RCA23	CP003984.1
 Planktotalea_frisia	MLCB01
 Planktothrix_agardhii	ASAK01
-Planktothrix_paucivesiculata	*fasta.gz
-Planktothrix_serta	*fasta.gz
 Planktothrix_tepida	CZDF01
 Planobispora_rosea	JPMW01
 Planococcus_antarcticus	NZ_CP016534.2
@@ -4680,7 +4664,6 @@ Schlesneria_paludicola	AHZR01
 Sciscionella_marina	ARAX01
 Scytonema_hofmannii	ANNX02
 Scytonema_hofmanni_UTEX_2349	ALWD01
-Scytonema_tolypothrichoides	*fasta.gz
 Sebaldella_termitidis	NC_013517.1
 secondary_endosymbiont_of_Ctenarytaina_eucalypti	NC_018419.1
 secondary_endosymbiont_of_Heteropsylla_cubana	NC_018420.1
@@ -4712,7 +4695,6 @@ Serratia_fonticola	NZ_CP011254.1
 Serratia_liquefaciens	NC_021741.1
 Serratia_marcescens	NZ_HG326223.1
 Serratia_rubidaea	NZ_CP014474.1
-Serratia_symbiotica	*fasta.gz
 Sharpea_azabuensis	JNKU01
 Shewanella_algae	CDQH01
 Shewanella_amazonensis	NC_008700.1
@@ -5196,7 +5178,6 @@ Taylorella_asinigenitalis	NC_016043.1
 Taylorella_equigenitalis	NC_018108.1
 Tenacibaculum_dicentrarchi	NZ_CP013671.1
 Tenacibaculum_holothuriorum	LAPZ01
-Tenacibaculum_maritimum	*fasta.gz
 Tenacibaculum_mesophilum	FQVV01
 Tenacibaculum_ovolyticum	AUMF01
 Tenacibaculum_soleae	MAKX01
@@ -5414,7 +5395,6 @@ Tissierella_praeacuta	FQTY01
 Tistlia_consotensis	FWZX01
 Tistrella_mobilis	NC_017956.1
 Tolumonas_auensis	NC_012691.1
-Tolypothrix_bouteillei	*fasta.gz
 Tomitella_biformata	BAVQ01
 Trabulsiella_odontotermitis	LIFV01
 Tranquillimonas_alkanivorans	FOXA01
@@ -5469,13 +5449,11 @@ Ureaplasma_diversum	JFDP01
 Ureaplasma_parvum	NC_010503.1
 Ureibacillus_thermosphaericus	AJIK01
 Urinacoccus_massiliensis	FPLH01
-Urmitella_timonensis	*fasta.gz
 Vagococcus_fluvialis	FWFD01
 Vagococcus_lutrae	AYSH01
 Vagococcus_penaei	NZ_CP019609.1
 Vagococcus_teuberi	NZ_CP017267.1
 Varibaculum_cambriense	ATUF01
-Varibaculum_timonense	*fasta.gz
 Variovorax_paradoxus	ARNA01
 Variovorax_soli	BCUU01
 Veillonella_magna	AUAN01

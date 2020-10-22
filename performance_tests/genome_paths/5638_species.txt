@@ -2284,7 +2284,6 @@
 ./rip_genome_cache/Helcococcus_kunzii/AGEI01.fasta.gz
 ./rip_genome_cache/Helcococcus_sueciensis/AUHK01.fasta.gz
 ./rip_genome_cache/Helicobacter_ailurogastricus/CDMG01.fasta.gz
-./rip_genome_cache/Helicobacter_apodemus/*fasta.gz
 ./rip_genome_cache/Helicobacter_bilis/NZ_CP019645.1.fasta.gz
 ./rip_genome_cache/Helicobacter_bizzozeronii/NC_015674.1.fasta.gz
 ./rip_genome_cache/Helicobacter_canadensis/ACSF01.fasta.gz
@@ -2296,16 +2295,12 @@
 ./rip_genome_cache/Helicobacter_heilmannii/CDMK01.fasta.gz
 ./rip_genome_cache/Helicobacter_hepaticus/NC_004917.1.fasta.gz
 ./rip_genome_cache/Helicobacter_himalayensis/NZ_CP014991.1.fasta.gz
-./rip_genome_cache/Helicobacter_jaachi/*fasta.gz
 ./rip_genome_cache/Helicobacter_macacae/AZJI01.fasta.gz
-./rip_genome_cache/Helicobacter_muridarum/*fasta.gz
 ./rip_genome_cache/Helicobacter_mustelae/NC_013949.1.fasta.gz
 ./rip_genome_cache/Helicobacter_pametensis/JADE01.fasta.gz
 ./rip_genome_cache/Helicobacter_pullorum/ABQU01.fasta.gz
 ./rip_genome_cache/Helicobacter_rodentium/JHWC01.fasta.gz
-./rip_genome_cache/Helicobacter_saguini/*fasta.gz
 ./rip_genome_cache/Helicobacter_suis/ADGY01.fasta.gz
-./rip_genome_cache/Helicobacter_trogontum/*fasta.gz
 ./rip_genome_cache/Helicobacter_typhlonius/NZ_LN907858.1.fasta.gz
 ./rip_genome_cache/Helicobacter_winghamensis/ACDO01.fasta.gz
 ./rip_genome_cache/Heliobacterium_modesticaldum/NC_010337.2.fasta.gz
@@ -2347,7 +2342,6 @@
 ./rip_genome_cache/Hungateiclostridium_thermocellum/NC_009012.1.fasta.gz
 ./rip_genome_cache/Hungatella_hathewayi/ACIO01.fasta.gz
 ./rip_genome_cache/Hyalangium_minutum/JMCB01.fasta.gz
-./rip_genome_cache/Hydrobacter_penzbergensis/*fasta.gz
 ./rip_genome_cache/Hydrocarboniphaga_daqingensis/FQWZ01.fasta.gz
 ./rip_genome_cache/Hydrocarboniphaga_effusa/AKGD01.fasta.gz
 ./rip_genome_cache/Hydrogenibacillus_schlegelii/JXBB01.fasta.gz
@@ -2559,7 +2553,6 @@
 ./rip_genome_cache/Labilibacter_marinus/LXYE02.fasta.gz
 ./rip_genome_cache/Labrenzia_aggregata/NZ_CP019630.1.fasta.gz
 ./rip_genome_cache/Labrenzia_alba/CXTY01.fasta.gz
-./rip_genome_cache/Labrenzia_alexandrii/*fasta.gz
 ./rip_genome_cache/Labrenzia_suaedae/FRBW01.fasta.gz
 ./rip_genome_cache/Lachnoanaerobaculum_saburreum/LSDA01.fasta.gz
 ./rip_genome_cache/Lachnobacterium_bovis/FNPG01.fasta.gz
@@ -2877,7 +2870,6 @@
 ./rip_genome_cache/Lutimaribacter_saemankumensis/FNEB01.fasta.gz
 ./rip_genome_cache/Lutispora_thermophila/FQZS01.fasta.gz
 ./rip_genome_cache/Lyngbya_aestuarii/AUZM01.fasta.gz
-./rip_genome_cache/Lyngbya_confervoides/*fasta.gz
 ./rip_genome_cache/Lysinibacillus_fusiformis/NZ_CP010820.1.fasta.gz
 ./rip_genome_cache/Lysinibacillus_macroides/LGCI01.fasta.gz
 ./rip_genome_cache/Lysinibacillus_manganicus/JPVN01.fasta.gz
@@ -3097,7 +3089,6 @@
 ./rip_genome_cache/Methanohalophilus_halophilus/NZ_CP017921.1.fasta.gz
 ./rip_genome_cache/Methanohalophilus_mahii/NC_014002.1.fasta.gz
 ./rip_genome_cache/Methanolacinia_petrolearia/NC_014507.1.fasta.gz
-./rip_genome_cache/Methanolinea_tarda/*fasta.gz
 ./rip_genome_cache/Methanolobus_profundi/FOUJ01.fasta.gz
 ./rip_genome_cache/Methanolobus_psychrophilus/NC_018876.1.fasta.gz
 ./rip_genome_cache/Methanolobus_tindarius/AZAJ01.fasta.gz
@@ -3113,7 +3104,6 @@
 ./rip_genome_cache/Methanosalsum_zhilinae/NC_015676.1.fasta.gz
 ./rip_genome_cache/Methanosarcina_acetivorans/NC_003552.1.fasta.gz
 ./rip_genome_cache/Methanosarcina_barkeri/NZ_CP009517.1.fasta.gz
-./rip_genome_cache/Methanosarcina_flavescens/*fasta.gz
 ./rip_genome_cache/Methanosarcina_horonobensis/NZ_CP009516.1.fasta.gz
 ./rip_genome_cache/Methanosarcina_lacustris/NZ_CP009515.1.fasta.gz
 ./rip_genome_cache/Methanosarcina_mazei/NZ_CP009512.1.fasta.gz
@@ -3265,7 +3255,6 @@
 ./rip_genome_cache/Micromonospora_yangpuensis/FMIA01.fasta.gz
 ./rip_genome_cache/Microscilla_marina/AAWS01.fasta.gz
 ./rip_genome_cache/Microterricola_viridarii/NZ_CP014145.1.fasta.gz
-./rip_genome_cache/Microtetraspora_glauca/*fasta.gz
 ./rip_genome_cache/Microtetraspora_malaysiensis/BBYJ01.fasta.gz
 ./rip_genome_cache/Microvirga_flocculans/JAEA01.fasta.gz
 ./rip_genome_cache/Microvirga_guangxiensis/FMVJ01.fasta.gz
@@ -3618,7 +3607,6 @@
 ./rip_genome_cache/Nitrosospira_multiformis/FNKY01.fasta.gz
 ./rip_genome_cache/Nitrosovibrio_tenuis/FOBH01.fasta.gz
 ./rip_genome_cache/Nitrospina_gracilis/CAQJ01.fasta.gz
-./rip_genome_cache/Nitrospira_cf._moscoviensis_SBR1015/*fasta.gz
 ./rip_genome_cache/Nitrospira_defluvii/NC_014355.1.fasta.gz
 ./rip_genome_cache/Nitrospira_japonica/NZ_LT828648.1.fasta.gz
 ./rip_genome_cache/Nitrospira_moscoviensis/NZ_CP011801.1.fasta.gz
@@ -3881,7 +3869,6 @@
 ./rip_genome_cache/Paeniglutamicibacter_gangotriensis/AOCK01.fasta.gz
 ./rip_genome_cache/Paenirhodobacter_enshiensis/JFZB01.fasta.gz
 ./rip_genome_cache/Paenisporosarcina_indica/MPTA01.fasta.gz
-./rip_genome_cache/Paenisporosarcina_quisquiliarum/*fasta.gz
 ./rip_genome_cache/Pajaroellobacter_abortibovis/NZ_CP016908.1.fasta.gz
 ./rip_genome_cache/Palaeococcus_ferrophilus/LANF01.fasta.gz
 ./rip_genome_cache/Palaeococcus_pacificus/NZ_CP006019.1.fasta.gz
@@ -3911,7 +3898,6 @@
 ./rip_genome_cache/Paraburkholderia_megapolitana/FOQU01.fasta.gz
 ./rip_genome_cache/Paraburkholderia_phymatum/NC_010622.1.fasta.gz
 ./rip_genome_cache/Paraburkholderia_rhizoxinica/NC_014722.1.fasta.gz
-./rip_genome_cache/Paraburkholderia_sacchari/*fasta.gz
 ./rip_genome_cache/Paraburkholderia_sartisoli/FNRQ01.fasta.gz
 ./rip_genome_cache/Paraburkholderia_sprentiae/NZ_CP017561.1.fasta.gz
 ./rip_genome_cache/Paraburkholderia_xenovorans/NC_007953.1.fasta.gz
@@ -4084,8 +4070,6 @@
 ./rip_genome_cache/Planktomarina_temperata_RCA23/CP003984.1.fasta.gz
 ./rip_genome_cache/Planktotalea_frisia/MLCB01.fasta.gz
 ./rip_genome_cache/Planktothrix_agardhii/ASAK01.fasta.gz
-./rip_genome_cache/Planktothrix_paucivesiculata/*fasta.gz
-./rip_genome_cache/Planktothrix_serta/*fasta.gz
 ./rip_genome_cache/Planktothrix_tepida/CZDF01.fasta.gz
 ./rip_genome_cache/Planobispora_rosea/JPMW01.fasta.gz
 ./rip_genome_cache/Planococcus_antarcticus/NZ_CP016534.2.fasta.gz
@@ -4703,7 +4687,6 @@
 ./rip_genome_cache/Sciscionella_marina/ARAX01.fasta.gz
 ./rip_genome_cache/Scytonema_hofmannii/ANNX02.fasta.gz
 ./rip_genome_cache/Scytonema_hofmanni_UTEX_2349/ALWD01.fasta.gz
-./rip_genome_cache/Scytonema_tolypothrichoides/*fasta.gz
 ./rip_genome_cache/Sebaldella_termitidis/NC_013517.1.fasta.gz
 ./rip_genome_cache/secondary_endosymbiont_of_Ctenarytaina_eucalypti/NC_018419.1.fasta.gz
 ./rip_genome_cache/secondary_endosymbiont_of_Heteropsylla_cubana/NC_018420.1.fasta.gz
@@ -4735,7 +4718,6 @@
 ./rip_genome_cache/Serratia_liquefaciens/NC_021741.1.fasta.gz
 ./rip_genome_cache/Serratia_marcescens/NZ_HG326223.1.fasta.gz
 ./rip_genome_cache/Serratia_rubidaea/NZ_CP014474.1.fasta.gz
-./rip_genome_cache/Serratia_symbiotica/*fasta.gz
 ./rip_genome_cache/Sharpea_azabuensis/JNKU01.fasta.gz
 ./rip_genome_cache/Shewanella_algae/CDQH01.fasta.gz
 ./rip_genome_cache/Shewanella_amazonensis/NC_008700.1.fasta.gz
@@ -5241,7 +5223,6 @@
 ./rip_genome_cache/Taylorella_equigenitalis/NC_018108.1.fasta.gz
 ./rip_genome_cache/Tenacibaculum_dicentrarchi/NZ_CP013671.1.fasta.gz
 ./rip_genome_cache/Tenacibaculum_holothuriorum/LAPZ01.fasta.gz
-./rip_genome_cache/Tenacibaculum_maritimum/*fasta.gz
 ./rip_genome_cache/Tenacibaculum_mesophilum/FQVV01.fasta.gz
 ./rip_genome_cache/Tenacibaculum_ovolyticum/AUMF01.fasta.gz
 ./rip_genome_cache/Tenacibaculum_soleae/MAKX01.fasta.gz
@@ -5459,7 +5440,6 @@
 ./rip_genome_cache/Tistlia_consotensis/FWZX01.fasta.gz
 ./rip_genome_cache/Tistrella_mobilis/NC_017956.1.fasta.gz
 ./rip_genome_cache/Tolumonas_auensis/NC_012691.1.fasta.gz
-./rip_genome_cache/Tolypothrix_bouteillei/*fasta.gz
 ./rip_genome_cache/Tomitella_biformata/BAVQ01.fasta.gz
 ./rip_genome_cache/Trabulsiella_odontotermitis/LIFV01.fasta.gz
 ./rip_genome_cache/Tranquillimonas_alkanivorans/FOXA01.fasta.gz
@@ -5514,13 +5494,11 @@
 ./rip_genome_cache/Ureaplasma_parvum/NC_010503.1.fasta.gz
 ./rip_genome_cache/Ureibacillus_thermosphaericus/AJIK01.fasta.gz
 ./rip_genome_cache/Urinacoccus_massiliensis/FPLH01.fasta.gz
-./rip_genome_cache/Urmitella_timonensis/*fasta.gz
 ./rip_genome_cache/Vagococcus_fluvialis/FWFD01.fasta.gz
 ./rip_genome_cache/Vagococcus_lutrae/AYSH01.fasta.gz
 ./rip_genome_cache/Vagococcus_penaei/NZ_CP019609.1.fasta.gz
 ./rip_genome_cache/Vagococcus_teuberi/NZ_CP017267.1.fasta.gz
 ./rip_genome_cache/Varibaculum_cambriense/ATUF01.fasta.gz
-./rip_genome_cache/Varibaculum_timonense/*fasta.gz
 ./rip_genome_cache/Variovorax_paradoxus/ARNA01.fasta.gz
 ./rip_genome_cache/Variovorax_soli/BCUU01.fasta.gz
 ./rip_genome_cache/Veillonella_magna/AUAN01.fasta.gz

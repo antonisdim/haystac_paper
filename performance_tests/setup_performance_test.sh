@@ -17,9 +17,9 @@ set -euo pipefail
 # force bash to use the `time` command and not it's own native implementation
 time=$(which time)
 
-# set the required config options for haystack
+# set some config options for haystack
 haystack config \
-  --email antonisdim41@gmail.com \
+  --api-key 4a7ceec35df93baf39e6f747e08f69f39909 \
   --cache ./haystack_genome_cache/
 
 # fetch all the genomes in the representative RefSeq database

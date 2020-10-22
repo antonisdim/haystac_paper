@@ -3304,7 +3304,6 @@ Mycetocola_saprophilus	JOEC01
 Mycobacterium_alsense	MVHD01
 Mycobacterium_arosiense	MVHG01
 Mycobacterium_asiaticum	CCBD01
-Mycobacterium_avium	AGAQ01
 Mycobacterium_bohemicum	CSTD01
 Mycobacterium_colombiense	NZ_CP020821.1
 Mycobacterium_conspicuum	LQOR01

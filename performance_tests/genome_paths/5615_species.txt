@@ -3304,7 +3304,6 @@
 ./haystack_genome_cache/ncbi/Mycobacterium_alsense/MVHD01.fasta.gz
 ./haystack_genome_cache/ncbi/Mycobacterium_arosiense/MVHG01.fasta.gz
 ./haystack_genome_cache/ncbi/Mycobacterium_asiaticum/CCBD01.fasta.gz
-./haystack_genome_cache/ncbi/Mycobacterium_avium/AGAQ01.fasta.gz
 ./haystack_genome_cache/ncbi/Mycobacterium_bohemicum/CSTD01.fasta.gz
 ./haystack_genome_cache/ncbi/Mycobacterium_colombiense/NZ_CP020821.1.fasta.gz
 ./haystack_genome_cache/ncbi/Mycobacterium_conspicuum/LQOR01.fasta.gz

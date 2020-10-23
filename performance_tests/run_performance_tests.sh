@@ -18,7 +18,7 @@ time=$(which time)
 MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2/1024}')
 
 # list of database sizes (i.e. number of species) to test
-species_counts=(10 100 500 1000 5615)
+species_counts=(10 100 500 1000 5660)
 
 # list of library sizes to test
 read_counts=(input_10K input_100K input_1M input_10M input_100M)
@@ -42,15 +42,15 @@ for species_count in "${species_counts[@]}"; do
   done
 done
 
-# analysing samples of different sizes against a db of 5615 species with conda as a package manager
+# analysing samples of different sizes against a db of 5660 species with conda as a package manager
 for read_count in "${read_counts[@]}"; do
 
   for bool in "False" "True"; do
-    echo "Running 'run_haystack_samples.sh' for ${read_count} reads, against 5615 species and use_conda ${bool}"
+    echo "Running 'run_haystack_samples.sh' for ${read_count} reads, against 5660 species and use_conda ${bool}"
 
-    $time -v -o "logs/haystack_samples-${read_count}_reads-5615_species-conda_${bool}.time.log" \
-      bash scripts/run_haystack_samples.sh "${read_count}_reads" 5615_species "${bool}" \
-      &>"logs/haystack_samples-${read_count}_reads-5615_species-conda_${bool}.log"
+    $time -v -o "logs/haystack_samples-${read_count}_reads-5660_species-conda_${bool}.time.log" \
+      bash scripts/run_haystack_samples.sh "${read_count}_reads" 5660_species "${bool}" \
+      &>"logs/haystack_samples-${read_count}_reads-5660_species-conda_${bool}.log"
   done
 done
 
@@ -75,13 +75,13 @@ for species_count in "${species_counts[@]}"; do
     bash scripts/run_kraken_db.sh "${species_count}_species" &>"kraken_db-${species_count}_species.log"
 done
 
-# analysing samples of different sizes against a db of 5615 species
+# analysing samples of different sizes against a db of 5660 species
 for read_count in "${read_counts[@]}"; do
-  echo "Running 'run_kraken_samples.sh' for ${read_count} reads against 5615 species"
+  echo "Running 'run_kraken_samples.sh' for ${read_count} reads against 5660 species"
 
-  $time -v -o "logs/kraken_samples-${read_count}_reads-5615_species.time.log" \
-    bash scripts/run_kraken_samples.sh "${read_count}" 5615 \
-    &>"logs/kraken_samples-${read_count}_reads-5615_species.log"
+  $time -v -o "logs/kraken_samples-${read_count}_reads-5660_species.time.log" \
+    bash scripts/run_kraken_samples.sh "${read_count}" 5660 \
+    &>"logs/kraken_samples-${read_count}_reads-5660_species.log"
 done
 
 # analysing a sample of 1M reads against dbs of various sizes
@@ -105,12 +105,12 @@ for species_count in "${species_counts[@]}"; do
     bash scripts/run_sigma_db.sh "${species_count}_species" &>"logs/sigma_db-${species_count}_species.log"
 done
 
-# analysing samples of different sizes against a db of 5615 species
+# analysing samples of different sizes against a db of 5660 species
 for read_count in "${read_counts[@]}"; do
-  echo "Running 'run_sigma_samples.sh' for ${read_count} reads against 5615 species"
+  echo "Running 'run_sigma_samples.sh' for ${read_count} reads against 5660 species"
 
-  $time -v -o "logs/sigma_samples-${read_count}_reads-5615_species.time.log" \
-    bash scripts/run_sigma_samples.sh "${read_count}" 5615 &>"logs/sigma_samples-${read_count}_reads-5615_species.log"
+  $time -v -o "logs/sigma_samples-${read_count}_reads-5660_species.time.log" \
+    bash scripts/run_sigma_samples.sh "${read_count}" 5660 &>"logs/sigma_samples-${read_count}_reads-5660_species.log"
 done
 
 # analysing a sample of 1M reads against dbs of various sizes
@@ -133,12 +133,12 @@ for species_count in "${species_counts[@]}"; do
     bash scripts/run_malt_db.sh "${species_count}_species" &>"logs/malt_db-${species_count}_species.log"
 done
 
-# analysing samples of different sizes against a db of 5615 species
+# analysing samples of different sizes against a db of 5660 species
 for read_count in "${read_counts[@]}"; do
-  echo "Running 'run_malt_samples.sh' for ${read_count} reads against 5615 species"
+  echo "Running 'run_malt_samples.sh' for ${read_count} reads against 5660 species"
 
-  $time -v -o "logs/malt_samples-${read_count}_reads-5615_species.time.log" \
-    bash scripts/run_malt_samples.sh "${read_count}_reads" 5615 &>"logs/malt_samples-${read_count}_reads-5615_species.log"
+  $time -v -o "logs/malt_samples-${read_count}_reads-5660_species.time.log" \
+    bash scripts/run_malt_samples.sh "${read_count}_reads" 5660 &>"logs/malt_samples-${read_count}_reads-5660_species.log"
 done
 
 # analysing a sample of 1M reads against dbs of various sizes

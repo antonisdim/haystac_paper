@@ -18,7 +18,7 @@ rm ../haystack_genome_cache/*/*.bt2l
 # run haystack building db performance test with a mem limit for dbs of various sizes
 haystack database \
   --mode build \
-  --accessions ./haystack_configs/"haystack_db_${db_input}_input.txt" \
+  --accessions ./haystack_configs/"haystack_db_${db_input}_refseq_input.txt" \
   --output ./"haystack_db_${db_input}_input_${mem_limit}_mem" \
   --mem "${mem_limit}" \
   --force-accessions

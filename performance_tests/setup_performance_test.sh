@@ -25,7 +25,7 @@ haystack config \
 # fetch all the genomes in the representative RefSeq database
 $time -v haystack database \
   --mode fetch \
-  --accessions ./haystack_configs/haystack_db_5615_species_input.txt \
+  --accessions ./haystack_configs/haystack_db_5660_species_refseq_input.txt \
   --output ./genome_fetch/ \
   --force-accessions
 
@@ -41,7 +41,7 @@ tar xvzf Sigma.tar.gz
 rm Sigma.tar.gz
 
 # setup a list of the different test_sets to run
-test_sets=(10_species 100_species 500_species 1000_species 5615_species)
+test_sets=(10_species 100_species 500_species 1000_species 5660_species)
 
 # get the max available memory (in GB)
 if ! command -v free &> /dev/null; then
@@ -60,7 +60,7 @@ mkdir -p db_mutlifasta_inputs
 
 # create mutlifasta files for kraken2 and MALT, and move them into the right folders
 for test_set in "${test_sets[@]}"; do
-  cat "genome_paths/${test_set}.txt" | xargs zcat >"db_mutlifasta_inputs/db_input_${test_set}.fasta"
+  cat "genome_paths/${test_set}_refseq.txt" | xargs zcat >"db_mutlifasta_inputs/db_input_${test_set}.fasta"
 done
 
 # download mapping for MALT
@@ -71,7 +71,7 @@ gunzip -c mapping_files/megan-map-Jul2020-2.db.zip >mapping_files/megan-map-Jul2
 # make the database folders for Sigma by symlinking the genomes into the relevant folders
 for test_set in "${test_sets[@]}"; do
   mkdir -p "sigma_db_${test_set}"
-  cat "genome_paths/${test_set}.txt" | xargs dirname | awk '{print "../"$0}' | xargs ln -s -t "sigma_db_${test_set}"
+  cat "genome_paths/${test_set}_refseq.txt" | xargs dirname | awk '{print "../"$0}' | xargs ln -s -t "sigma_db_${test_set}"
 done
 
 echo "DONE!"

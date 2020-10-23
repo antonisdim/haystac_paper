@@ -26,7 +26,8 @@ haystack config \
 $time -v haystack database \
   --mode fetch \
   --accessions ./haystack_configs/haystack_db_5615_species_input.txt \
-  --output ./genome_fetch/
+  --output ./genome_fetch/ \
+  --force-accessions
 
 # download and extract Bracken (as there is no conda package)
 wget https://github.com/jenniferlu717/Bracken/archive/v2.5.tar.gz -O Bracken-2.5.tar.gz

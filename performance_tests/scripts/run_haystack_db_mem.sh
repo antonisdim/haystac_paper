@@ -20,4 +20,5 @@ haystack database \
   --mode build \
   --accessions ./haystack_configs/"haystack_db_${db_input}_input.txt" \
   --output ./"haystack_db_${db_input}_input_${mem_limit}_mem" \
-  --mem "${mem_limit}"
+  --mem "${mem_limit}" \
+  --force-accessions

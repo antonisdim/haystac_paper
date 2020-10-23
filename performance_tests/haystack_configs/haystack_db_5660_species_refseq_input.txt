@@ -2477,7 +2477,7 @@ Klebsiella_grimontii	NZ_CP044527.1
 Klebsiella_huaxiensis	NZ_CP036175.1
 Klebsiella_michiganensis	NZ_CP048108.1
 Klebsiella_oxytoca	NZ_CP011636.1
-Klebsiella_pneumoniae	NZ_WKJE00000000.1
+Klebsiella_pneumoniae   NZ_VDGR00000000.1
 Klebsiella_quasipneumoniae	NZ_CP026368.1
 Klebsiella_quasivariicola	NZ_CP022823.1
 Klebsiella_sp._FDAARGOS_511	NZ_CP033824.1

@@ -653,7 +653,6 @@ Bacillus_niacini	BCVA01
 Bacillus_niameyensis	CTDY01
 Bacillus_novalis	LUUR01
 Bacillus_oceanisediminis	NZ_CP015506.1
-Bacillus_okuhidensis	LILD01
 Bacillus_oryziterrae	ANOK01
 Bacillus_panaciterrae	AUMR01
 Bacillus_patagoniensis	MTIX01
@@ -1288,7 +1287,6 @@ Comamonas_granuli	BBJX01
 Comamonas_kerstersii	NZ_CP020121.1
 Comamonas_serinivorans	NZ_CP021455.1
 Comamonas_terrae	BCNT01
-Comamonas_terrigena	BCNR01
 Comamonas_testosteroni	NZ_CP006704.1
 Commensalibacter_intestini	AGFR01
 Conchiformibius_kuhniae	AUAP01
@@ -2266,7 +2264,6 @@ Hathewaya_proteolytica	FRAD01
 Helcococcus_kunzii	AGEI01
 Helcococcus_sueciensis	AUHK01
 Helicobacter_ailurogastricus	CDMG01
-Helicobacter_apodemus	JRPC01
 Helicobacter_bilis	NZ_CP019645.1
 Helicobacter_bizzozeronii	NC_015674.1
 Helicobacter_canadensis	ACSF01
@@ -2278,16 +2275,12 @@ Helicobacter_fennelliae	BASD01
 Helicobacter_heilmannii	CDMK01
 Helicobacter_hepaticus	NC_004917.1
 Helicobacter_himalayensis	NZ_CP014991.1
-Helicobacter_jaachi	JRPR01
 Helicobacter_macacae	AZJI01
-Helicobacter_muridarum	JRPD01
 Helicobacter_mustelae	NC_013949.1
 Helicobacter_pametensis	JADE01
 Helicobacter_pullorum	ABQU01
 Helicobacter_rodentium	JHWC01
-Helicobacter_saguini	JRMP01
 Helicobacter_suis	ADGY01
-Helicobacter_trogontum	JRPL01
 Helicobacter_typhlonius	NZ_LN907858.1
 Helicobacter_winghamensis	ACDO01
 Heliobacterium_modesticaldum	NC_010337.2
@@ -2540,7 +2533,6 @@ Labilibacter_aurantiacus	LYBV02
 Labilibacter_marinus	LXYE02
 Labrenzia_aggregata	NZ_CP019630.1
 Labrenzia_alba	CXTY01
-Labrenzia_alexandrii	ACCU01
 Labrenzia_suaedae	FRBW01
 Lachnoanaerobaculum_saburreum	LSDA01
 Lachnobacterium_bovis	FNPG01
@@ -2858,7 +2850,6 @@ Lutibaculum_baratangense	AWXZ01
 Lutimaribacter_saemankumensis	FNEB01
 Lutispora_thermophila	FQZS01
 Lyngbya_aestuarii	AUZM01
-Lyngbya_confervoides	JTHE01
 Lysinibacillus_fusiformis	NZ_CP010820.1
 Lysinibacillus_macroides	LGCI01
 Lysinibacillus_manganicus	JPVN01
@@ -3076,7 +3067,6 @@ Methanohalobium_evestigatum	NC_014253.1
 Methanohalophilus_halophilus	NZ_CP017921.1
 Methanohalophilus_mahii	NC_014002.1
 Methanolacinia_petrolearia	NC_014507.1
-Methanolinea_tarda	AGIY02
 Methanolobus_profundi	FOUJ01
 Methanolobus_psychrophilus	NC_018876.1
 Methanolobus_tindarius	AZAJ01
@@ -3092,7 +3082,6 @@ Methanosaeta_harundinacea	NC_017527.1
 Methanosalsum_zhilinae	NC_015676.1
 Methanosarcina_acetivorans	NC_003552.1
 Methanosarcina_barkeri	NZ_CP009517.1
-Methanosarcina_flavescens	LKAZ01
 Methanosarcina_horonobensis	NZ_CP009516.1
 Methanosarcina_lacustris	NZ_CP009515.1
 Methanosarcina_mazei	NZ_CP009512.1
@@ -3597,7 +3586,6 @@ Nitrosospira_lacus	NZ_CP021106.3
 Nitrosospira_multiformis	FNKY01
 Nitrosovibrio_tenuis	FOBH01
 Nitrospina_gracilis	CAQJ01
-Nitrospira_cf._moscoviensis_SBR1015	 FJVM02
 Nitrospira_defluvii	NC_014355.1
 Nitrospira_japonica	NZ_LT828648.1
 Nitrospira_moscoviensis	NZ_CP011801.1
@@ -3890,7 +3878,6 @@ Paraburkholderia_kururiensis	BBJI01
 Paraburkholderia_megapolitana	FOQU01
 Paraburkholderia_phymatum	NC_010622.1
 Paraburkholderia_rhizoxinica	NC_014722.1
-Paraburkholderia_sacchari	JTDB01
 Paraburkholderia_sartisoli	FNRQ01
 Paraburkholderia_sprentiae	NZ_CP017561.1
 Paraburkholderia_xenovorans	NC_007953.1
@@ -4063,8 +4050,6 @@ Planifilum_fulgidum	FOOK01
 Planktomarina_temperata_RCA23	CP003984.1
 Planktotalea_frisia	MLCB01
 Planktothrix_agardhii	ASAK01
-Planktothrix_paucivesiculata	CZCS01
-Planktothrix_serta	CZCU01
 Planktothrix_tepida	CZDF01
 Planobispora_rosea	JPMW01
 Planococcus_antarcticus	NZ_CP016534.2
@@ -4224,7 +4209,6 @@ Pseudarthrobacter_sulfonivorans	NZ_CP013747.1
 Pseudescherichia_vulneris	BBMZ01
 Pseudoalteromonas_atlantica	NC_008228.1
 Pseudoalteromonas_byunsanensis	MNAN01
-Pseudoalteromonas_citrea	AHBZ02
 Pseudoalteromonas_denitrificans	FOLO01
 Pseudoalteromonas_espejiana	NZ_CP011029.1
 Pseudoalteromonas_luteoviolacea	NZ_CP015412.1
@@ -5405,7 +5389,6 @@ Tissierella_praeacuta	FQTY01
 Tistlia_consotensis	FWZX01
 Tistrella_mobilis	NC_017956.1
 Tolumonas_auensis	NC_012691.1
-Tolypothrix_bouteillei	JHEG02
 Tomitella_biformata	BAVQ01
 Trabulsiella_odontotermitis	LIFV01
 Tranquillimonas_alkanivorans	FOXA01

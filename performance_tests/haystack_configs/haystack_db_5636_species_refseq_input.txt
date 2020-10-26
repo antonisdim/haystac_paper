@@ -408,7 +408,7 @@ Anaerobranca_californiensis	FRAI01
 Anaerococcus_lactolyticus	ABYO01
 Anaerococcus_mediterraneensis	NZ_LT635772.1
 Anaerococcus_obesiensis	CAGV01
-Anaerococcus_pacaensis 	CAJJ02
+Anaerococcus_pacaensis	CAJJ02
 Anaerococcus_prevotii	AEXM01
 Anaerococcus_provencensis	CAJU02
 Anaerococcus_tetradius	ACGC01
@@ -475,7 +475,7 @@ Aquimonas_voraii	FNAG01
 Aquincola_tertiaricarbonis	JZUE01
 Aquisalimonas_asiatica	FOEG01
 Aquitalea_pelogenes	LNQV01
-Arabia_massiliensis	 FWDJ01
+Arabia_massiliensis	FWDJ01
 Arachidicoccus_rhizosphaerae	FNQY01
 Arcanobacterium_haemolyticum	NC_014218.1
 Arcanobacterium_phocae	NZ_LT629804.1
@@ -2472,7 +2472,7 @@ Klebsiella_grimontii	NZ_CP044527.1
 Klebsiella_huaxiensis	NZ_CP036175.1
 Klebsiella_michiganensis	NZ_CP048108.1
 Klebsiella_oxytoca	NZ_CP011636.1
-Klebsiella_pneumoniae   NZ_VDGR00000000.1
+Klebsiella_pneumoniae	NZ_VDGR00000000.1
 Klebsiella_quasipneumoniae	NZ_CP026368.1
 Klebsiella_quasivariicola	NZ_CP022823.1
 Klebsiella_sp._FDAARGOS_511	NZ_CP033824.1
@@ -3848,7 +3848,7 @@ Paeniglutamicibacter_antarcticus	CZJT01
 Paeniglutamicibacter_gangotriensis	AOCK01
 Paenirhodobacter_enshiensis	JFZB01
 Paenisporosarcina_indica	MPTA01
-Paenisporosarcina_quisquiliarum FOBQ01
+Paenisporosarcina_quisquiliarum	FOBQ01
 Pajaroellobacter_abortibovis	NZ_CP016908.1
 Palaeococcus_ferrophilus	LANF01
 Palaeococcus_pacificus	NZ_CP006019.1
@@ -4658,7 +4658,7 @@ Schlesneria_paludicola	AHZR01
 Sciscionella_marina	ARAX01
 Scytonema_hofmanni_UTEX_2349	ALWD01
 Scytonema_hofmannii	ANNX02
-Scytonema_tolypothrichoides		JXCA01
+Scytonema_tolypothrichoides	JXCA01
 Sebaldella_termitidis	NC_013517.1
 Sedimenticola_selenatireducens	ATZE01
 Sedimenticola_thiotaurini	NZ_CP011412.1
@@ -4687,7 +4687,7 @@ Serratia_fonticola	NZ_CP011254.1
 Serratia_liquefaciens	NC_021741.1
 Serratia_marcescens	NZ_HG326223.1
 Serratia_rubidaea	NZ_CP014474.1
-Serratia_symbiotica		CCES01
+Serratia_symbiotica	CCES01
 Sharpea_azabuensis	JNKU01
 Shewanella_algae	CDQH01
 Shewanella_amazonensis	NC_008700.1
@@ -5593,7 +5593,7 @@ Yersinia_sp._KBS0713	NZ_CP042173.1
 Yokenella_regensburgei	JMPS01
 Yoonia_litorea	FOZM01
 Yoonia_rosea	FTPR01
-Yoonia_tamlensis    FOYP01
+Yoonia_tamlensis	FOYP01
 Yoonia_vestfoldensis	NZ_CP021431.1
 Youngiibacter_fragilis	AXUN02
 Yuhushiella_deserti	FOWW01

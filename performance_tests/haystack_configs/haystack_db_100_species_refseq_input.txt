@@ -46,7 +46,7 @@ Pseudomonas_monteilii	NZ_CP013997.1
 Streptococcus_pyogenes	NZ_CP047120.1
 Alcanivorax_nanhaiticus	ARXV01
 Caballeronia_zhejiangensis	JFHD01
-Bordetella_avium	NZ_CP025522.1
+Bordetella_avium	NC_010645.1
 Roseivivax_lentus	FTOQ01
 Bacillus_lentus	BCVC01
 Haloferax_elongans	AOLK01

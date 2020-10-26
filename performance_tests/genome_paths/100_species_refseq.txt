@@ -46,7 +46,7 @@
 ./haystack_genome_cache/ncbi/Streptococcus_pyogenes/NZ_CP047120.1.fasta.gz
 ./haystack_genome_cache/ncbi/Alcanivorax_nanhaiticus/ARXV01.fasta.gz
 ./haystack_genome_cache/ncbi/Caballeronia_zhejiangensis/JFHD01.fasta.gz
-./haystack_genome_cache/ncbi/Bordetella_avium/NZ_CP025522.1.fasta.gz
+./haystack_genome_cache/ncbi/Bordetella_avium/NC_010645.1.fasta.gz
 ./haystack_genome_cache/ncbi/Roseivivax_lentus/FTOQ01.fasta.gz
 ./haystack_genome_cache/ncbi/Bacillus_lentus/BCVC01.fasta.gz
 ./haystack_genome_cache/ncbi/Haloferax_elongans/AOLK01.fasta.gz

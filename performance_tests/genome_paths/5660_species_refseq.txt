@@ -651,7 +651,6 @@
 ./haystack_genome_cache/ncbi/Bacillus_niameyensis/CTDY01.fasta.gz
 ./haystack_genome_cache/ncbi/Bacillus_novalis/LUUR01.fasta.gz
 ./haystack_genome_cache/ncbi/Bacillus_oceanisediminis/NZ_CP015506.1.fasta.gz
-./haystack_genome_cache/ncbi/Bacillus_okuhidensis/LILD01.fasta.gz
 ./haystack_genome_cache/ncbi/Bacillus_oryziterrae/ANOK01.fasta.gz
 ./haystack_genome_cache/ncbi/Bacillus_panaciterrae/AUMR01.fasta.gz
 ./haystack_genome_cache/ncbi/Bacillus_patagoniensis/MTIX01.fasta.gz

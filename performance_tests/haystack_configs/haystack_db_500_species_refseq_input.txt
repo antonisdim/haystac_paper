@@ -310,7 +310,7 @@ Pseudoxanthomonas_mexicana	LSIF01
 Thalassotalea_crassostreae	NZ_CP017689.1
 Gordonia_sihwensis	BANU01
 Erysipelothrix_larvae	NZ_CP013213.1
-Staphylococcus_warneri	NC_020269.1
+Staphylococcus_warneri	NC_020274.1
 Streptomyces_griseoplanus	LIQR01
 Mycolicibacterium_tusciae	MVIM01
 Roseovarius_mucosus	NZ_CP020474.1
@@ -404,7 +404,7 @@ Caryophanon_latum	MATO01
 Azospirillum_humicireducens	NZ_CP015285.1
 Caldithrix_abyssi	NZ_CP018099.1
 Massiliomicrobiota_timonensis	NFLJ01
-Streptococcus_iniae	NZ_CP022392.1
+Streptococcus_iniae	NZ_CP010783.1
 Leptospira_kmetyi	AHMP02
 Streptomyces_wuyuanensis	FNHI01
 Ferroglobus_placidus	NC_013849.1
@@ -476,7 +476,7 @@ Methanobacterium_paludis	NC_015574.1
 Melaminivora_alkalimesophila	ALEE01
 Prevotella_histicola	BAJX01
 Campylobacter_gracilis	NZ_CP012196.1
-Bordetella_trematum	NZ_LT546645.1
+Bordetella_trematum	NZ_CP016340.1
 Desulfotignum_balticum	ATWO01
 Glycomyces_arizonensis	AXWO01
 Paenibacillus_xerothermodurans	NHRJ02

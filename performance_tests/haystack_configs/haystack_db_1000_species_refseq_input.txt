@@ -997,3 +997,4 @@ Acutalibacter_muris	NZ_CP021422.1
 Chitinibacter_tainanensis	AUCN01
 Desulfohalobium_retbaense	NC_013223.1
 Capnocytophaga_cynodegmi	ARAI01
+Rhodococcus_maanshanensis	BCXA01

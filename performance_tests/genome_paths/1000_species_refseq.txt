@@ -997,3 +997,4 @@
 ./haystack_genome_cache/ncbi/Chitinibacter_tainanensis/AUCN01.fasta.gz
 ./haystack_genome_cache/ncbi/Desulfohalobium_retbaense/NC_013223.1.fasta.gz
 ./haystack_genome_cache/ncbi/Capnocytophaga_cynodegmi/ARAI01.fasta.gz
+./haystack_genome_cache/ncbi/Rhodococcus_maanshanensis/BCXA01.fasta.gz

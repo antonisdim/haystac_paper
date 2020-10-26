@@ -25,7 +25,7 @@ haystack config \
 # fetch all the genomes in the representative RefSeq database
 $time -v haystack database \
   --mode fetch \
-  --accessions ./haystack_configs/haystack_db_5660_species_refseq_input.txt \
+  --accessions ./haystack_configs/haystack_db_5636_species_refseq_input.txt \
   --output ./genome_fetch/ \
   --force-accessions
 
@@ -41,7 +41,7 @@ tar xvzf Sigma.tar.gz
 rm Sigma.tar.gz
 
 # setup a list of the different test_sets to run
-test_sets=(10_species 100_species 500_species 1000_species 5660_species)
+test_sets=(10_species 100_species 500_species 1000_species 5636_species)
 
 # get the max available memory (in GB)
 if ! command -v free &> /dev/null; then

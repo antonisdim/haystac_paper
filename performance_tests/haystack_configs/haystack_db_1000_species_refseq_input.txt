@@ -347,7 +347,7 @@ Hirschia_maritima	ARKC01
 Thermomonospora_curvata	NC_013510.1
 Roseomonas_gilardii	NZ_CP015583.1
 Acidovorax_konjaci	FOMQ01
-Streptococcus_uberis	NZ_CP022435.1
+Streptococcus_uberis	NC_012004.1
 Thiomonas_intermedia	NZ_CP020046.1
 Sulfurovum_lithotrophicum	NZ_CP011308.1
 Methanosarcina_acetivorans	NC_003552.1
@@ -463,7 +463,7 @@ Staphylococcus_gallinarum	JXCF01
 Neokomagataea_thailandica	BCZB01
 Noviherbaspirillum_massiliense	CAHF01
 Pseudoruegeria_lutimaris	FNEK01
-Streptococcus_equi	NC_012471.1
+Streptococcus_equi	NC_012470.1
 Janibacter_anophelis	BCSQ01
 Legionella_drancourtii	ACUL02
 Rhizobium_etli	NC_007761.1
@@ -488,7 +488,7 @@ Syntrophomonas_wolfei	NC_008346.1
 Methanobrevibacter_smithii	NC_009515.1
 Moheibacter_sediminis	FWXS01
 Serratia_rubidaea	NZ_CP014474.1
-Streptococcus_anginosus	NZ_AP013072.1
+Streptococcus_anginosus	NC_022239.1
 Terrimonas_ferruginea	AUDS01
 Streptococcus_agalactiae	NZ_CP026082.1
 Christensenella_timonensis	FLKP01
@@ -511,7 +511,7 @@ Lactobacillus_jensenii	NZ_CP018809.1
 Marinobacter_adhaerens	CP001978.1
 Neptunomonas_phycophila	MRCI01
 Thermotoga_caldifontis	NZ_AP014509.1
-Acinetobacter_defluvii	NZ_CP029392.1
+Acinetobacter_defluvii	NZ_CP029397.1
 Peptoniphilus_grossensis	MJIH01
 Acidovorax_valerianellae	FMZC01
 Pseudonocardia_asaccharolytica	AUII01
@@ -530,7 +530,7 @@ Sphingomonas_haloaromaticamans	MIPT01
 Thermostaphylospora_chromogena	FNKK01
 Streptococcus_entericus	ARCC01
 Anditalea_andensis	JMIH01
-Rhizobium_gallicum	CP006879.1
+Rhizobium_gallicum	CP006880.1
 Mycoplasma_columborale	JNJZ01
 Halalkalicoccus_paucihalophilus	LTAZ01
 Halanaerobium_salsuginis	FOTI01
@@ -770,7 +770,7 @@ Herbaspirillum_autotrophicum	LFLS01
 Anaerosporobacter_mobilis	FRCP01
 Marinomonas_atlantica	LTAW01
 Halopelagius_inordinatus	FOOQ01
-Streptococcus_thermophilus	NZ_CP038020.1
+Streptococcus_thermophilus	NC_017581.1
 Ochrovirga_pacifica	AFPK01
 Histophilus_somni	NC_010519.1
 Peptoanaerobacter_stomatis	AFZF02
@@ -819,7 +819,7 @@ Sphingopyxis_macrogoltabida	NZ_CP009429.1
 Marininema_mesophilum	FNNQ01
 Streptomyces_katrae	NZ_CP020042.1
 Paeniclostridium_sordellii	BDJI01
-Bordetella_holmesii	NZ_CP007494.1
+Bordetella_holmesii	NZ_CP007159.1
 Chromohalobacter_japonicus	CDGZ01
 Cryobacterium_arcticum	NZ_CP016282.1
 Prevotella_oris	BAJC01
@@ -964,7 +964,7 @@ Fusobacterium_russii	ARMK01
 Streptococcus_suis	NZ_CP017092.1
 Fervidicella_metallireducens	AZQP01
 Ferrovum_myxofaciens	JPOQ01
-Rhodobacter_sphaeroides	NC_009430.1
+Rhodobacter_sphaeroides	NC_009428.1
 Methanosarcina_vacuolata	NZ_CP009520.1
 Bacillus_boroniphilus	BAUW01
 Asanoa_ishikariensis	FNQB01
@@ -973,7 +973,6 @@ Mycobacterium_malmoense	MVHV01
 Halobacillus_halophilus	NC_017668.1
 Hydrogenovibrio_kuenenii	JAGP01
 Myxococcus_stipitatus	NC_020126.1
-Bacillus_okuhidensis	LILD01
 Dermatophilus_congolensis	AUCS01
 Pseudomonas_fulva	NC_015556.1
 Microbacterium_oleivorans	BCRG01

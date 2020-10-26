@@ -347,7 +347,7 @@
 ./haystack_genome_cache/ncbi/Thermomonospora_curvata/NC_013510.1.fasta.gz
 ./haystack_genome_cache/ncbi/Roseomonas_gilardii/NZ_CP015583.1.fasta.gz
 ./haystack_genome_cache/ncbi/Acidovorax_konjaci/FOMQ01.fasta.gz
-./haystack_genome_cache/ncbi/Streptococcus_uberis/NZ_CP022435.1.fasta.gz
+./haystack_genome_cache/ncbi/Streptococcus_uberis/NC_012004.1.fasta.gz
 ./haystack_genome_cache/ncbi/Thiomonas_intermedia/NZ_CP020046.1.fasta.gz
 ./haystack_genome_cache/ncbi/Sulfurovum_lithotrophicum/NZ_CP011308.1.fasta.gz
 ./haystack_genome_cache/ncbi/Methanosarcina_acetivorans/NC_003552.1.fasta.gz
@@ -463,7 +463,7 @@
 ./haystack_genome_cache/ncbi/Neokomagataea_thailandica/BCZB01.fasta.gz
 ./haystack_genome_cache/ncbi/Noviherbaspirillum_massiliense/CAHF01.fasta.gz
 ./haystack_genome_cache/ncbi/Pseudoruegeria_lutimaris/FNEK01.fasta.gz
-./haystack_genome_cache/ncbi/Streptococcus_equi/NC_012471.1.fasta.gz
+./haystack_genome_cache/ncbi/Streptococcus_equi/NC_012470.1.fasta.gz
 ./haystack_genome_cache/ncbi/Janibacter_anophelis/BCSQ01.fasta.gz
 ./haystack_genome_cache/ncbi/Legionella_drancourtii/ACUL02.fasta.gz
 ./haystack_genome_cache/ncbi/Rhizobium_etli/NC_007761.1.fasta.gz
@@ -488,7 +488,7 @@
 ./haystack_genome_cache/ncbi/Methanobrevibacter_smithii/NC_009515.1.fasta.gz
 ./haystack_genome_cache/ncbi/Moheibacter_sediminis/FWXS01.fasta.gz
 ./haystack_genome_cache/ncbi/Serratia_rubidaea/NZ_CP014474.1.fasta.gz
-./haystack_genome_cache/ncbi/Streptococcus_anginosus/NZ_AP013072.1.fasta.gz
+./haystack_genome_cache/ncbi/Streptococcus_anginosus/NC_022239.1.fasta.gz
 ./haystack_genome_cache/ncbi/Terrimonas_ferruginea/AUDS01.fasta.gz
 ./haystack_genome_cache/ncbi/Streptococcus_agalactiae/NZ_CP026082.1.fasta.gz
 ./haystack_genome_cache/ncbi/Christensenella_timonensis/FLKP01.fasta.gz
@@ -511,7 +511,7 @@
 ./haystack_genome_cache/ncbi/Marinobacter_adhaerens/CP001978.1.fasta.gz
 ./haystack_genome_cache/ncbi/Neptunomonas_phycophila/MRCI01.fasta.gz
 ./haystack_genome_cache/ncbi/Thermotoga_caldifontis/NZ_AP014509.1.fasta.gz
-./haystack_genome_cache/ncbi/Acinetobacter_defluvii/NZ_CP029392.1.fasta.gz
+./haystack_genome_cache/ncbi/Acinetobacter_defluvii/NZ_CP029397.1.fasta.gz
 ./haystack_genome_cache/ncbi/Peptoniphilus_grossensis/MJIH01.fasta.gz
 ./haystack_genome_cache/ncbi/Acidovorax_valerianellae/FMZC01.fasta.gz
 ./haystack_genome_cache/ncbi/Pseudonocardia_asaccharolytica/AUII01.fasta.gz
@@ -530,7 +530,7 @@
 ./haystack_genome_cache/ncbi/Thermostaphylospora_chromogena/FNKK01.fasta.gz
 ./haystack_genome_cache/ncbi/Streptococcus_entericus/ARCC01.fasta.gz
 ./haystack_genome_cache/ncbi/Anditalea_andensis/JMIH01.fasta.gz
-./haystack_genome_cache/ncbi/Rhizobium_gallicum/CP006879.1.fasta.gz
+./haystack_genome_cache/ncbi/Rhizobium_gallicum/CP006880.1.fasta.gz
 ./haystack_genome_cache/ncbi/Mycoplasma_columborale/JNJZ01.fasta.gz
 ./haystack_genome_cache/ncbi/Halalkalicoccus_paucihalophilus/LTAZ01.fasta.gz
 ./haystack_genome_cache/ncbi/Halanaerobium_salsuginis/FOTI01.fasta.gz
@@ -770,7 +770,7 @@
 ./haystack_genome_cache/ncbi/Anaerosporobacter_mobilis/FRCP01.fasta.gz
 ./haystack_genome_cache/ncbi/Marinomonas_atlantica/LTAW01.fasta.gz
 ./haystack_genome_cache/ncbi/Halopelagius_inordinatus/FOOQ01.fasta.gz
-./haystack_genome_cache/ncbi/Streptococcus_thermophilus/NZ_CP038020.1.fasta.gz
+./haystack_genome_cache/ncbi/Streptococcus_thermophilus/NC_017581.1.fasta.gz
 ./haystack_genome_cache/ncbi/Ochrovirga_pacifica/AFPK01.fasta.gz
 ./haystack_genome_cache/ncbi/Histophilus_somni/NC_010519.1.fasta.gz
 ./haystack_genome_cache/ncbi/Peptoanaerobacter_stomatis/AFZF02.fasta.gz
@@ -819,7 +819,7 @@
 ./haystack_genome_cache/ncbi/Marininema_mesophilum/FNNQ01.fasta.gz
 ./haystack_genome_cache/ncbi/Streptomyces_katrae/NZ_CP020042.1.fasta.gz
 ./haystack_genome_cache/ncbi/Paeniclostridium_sordellii/BDJI01.fasta.gz
-./haystack_genome_cache/ncbi/Bordetella_holmesii/NZ_CP007494.1.fasta.gz
+./haystack_genome_cache/ncbi/Bordetella_holmesii/NZ_CP007159.1.fasta.gz
 ./haystack_genome_cache/ncbi/Chromohalobacter_japonicus/CDGZ01.fasta.gz
 ./haystack_genome_cache/ncbi/Cryobacterium_arcticum/NZ_CP016282.1.fasta.gz
 ./haystack_genome_cache/ncbi/Prevotella_oris/BAJC01.fasta.gz
@@ -964,7 +964,7 @@
 ./haystack_genome_cache/ncbi/Streptococcus_suis/NZ_CP017092.1.fasta.gz
 ./haystack_genome_cache/ncbi/Fervidicella_metallireducens/AZQP01.fasta.gz
 ./haystack_genome_cache/ncbi/Ferrovum_myxofaciens/JPOQ01.fasta.gz
-./haystack_genome_cache/ncbi/Rhodobacter_sphaeroides/NC_009430.1.fasta.gz
+./haystack_genome_cache/ncbi/Rhodobacter_sphaeroides/NC_009428.1.fasta.gz
 ./haystack_genome_cache/ncbi/Methanosarcina_vacuolata/NZ_CP009520.1.fasta.gz
 ./haystack_genome_cache/ncbi/Bacillus_boroniphilus/BAUW01.fasta.gz
 ./haystack_genome_cache/ncbi/Asanoa_ishikariensis/FNQB01.fasta.gz
@@ -973,7 +973,6 @@
 ./haystack_genome_cache/ncbi/Halobacillus_halophilus/NC_017668.1.fasta.gz
 ./haystack_genome_cache/ncbi/Hydrogenovibrio_kuenenii/JAGP01.fasta.gz
 ./haystack_genome_cache/ncbi/Myxococcus_stipitatus/NC_020126.1.fasta.gz
-./haystack_genome_cache/ncbi/Bacillus_okuhidensis/LILD01.fasta.gz
 ./haystack_genome_cache/ncbi/Dermatophilus_congolensis/AUCS01.fasta.gz
 ./haystack_genome_cache/ncbi/Pseudomonas_fulva/NC_015556.1.fasta.gz
 ./haystack_genome_cache/ncbi/Microbacterium_oleivorans/BCRG01.fasta.gz

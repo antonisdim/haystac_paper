@@ -5612,8 +5612,8 @@
 ./haystack_genome_cache/ncbi/Zymobacter_palmae/JHVG01.fasta.gz
 ./haystack_genome_cache/ncbi/Zymomonas_mobilis/NC_017262.1.fasta.gz
 ./haystack_genome_cache/ncbi/Alistipes_inops/JRGF01.fastq.gz
-./haystack_genome_cache/ncbi/Anaerococcus_pacaensis /CAJJ02.fastq.gz
-./haystack_genome_cache/ncbi/Arabia_massiliensis/ FWDJ01.fastq.gz
+./haystack_genome_cache/ncbi/Anaerococcus_pacaensis/CAJJ02.fastq.gz
+./haystack_genome_cache/ncbi/Arabia_massiliensis/FWDJ01.fastq.gz
 ./haystack_genome_cache/ncbi/Bacteroides_pyogenes/BAIU01.fastq.gz
 ./haystack_genome_cache/ncbi/Bifidobacterium_thermophilum/JGZV01.fastq.gz
 ./haystack_genome_cache/ncbi/Blautia_schinkii/JNKJ01.fastq.gz

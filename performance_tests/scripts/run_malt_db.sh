@@ -13,6 +13,8 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 args=("$@")
 test_set=${args[0]}
 
+mkdir -p index_new_"${test_set}"
+
 # benchmark malt building db performance test for dbs of various size
 malt-build \
   -t "$MAX_CPU" \

@@ -30,12 +30,12 @@ $time -v haystack database \
   --force-accessions
 
 # download and extract Bracken (as there is no conda package)
-wget https://github.com/jenniferlu717/Bracken/archive/v2.5.tar.gz -O Bracken-2.5.tar.gz
+wget --quiet https://github.com/jenniferlu717/Bracken/archive/v2.5.tar.gz -O Bracken-2.5.tar.gz
 tar xvzf Bracken-2.5.tar.gz
 rm Bracken-2.5.tar.gz
 
 # download and extract Sigma (as there is no conda package)
-wget --content-disposition http://sourceforge.net/projects/sigma-omicsbio/files/V1.0.3/sigma-v1.0.3.tar.gz/download \
+wget --quiet --content-disposition http://sourceforge.net/projects/sigma-omicsbio/files/V1.0.3/sigma-v1.0.3.tar.gz/download \
   -O Sigma.tar.gz
 tar xvzf Sigma.tar.gz
 rm Sigma.tar.gz
@@ -64,8 +64,8 @@ for test_set in "${test_sets[@]}"; do
 done
 
 # download mapping for MALT
-wget -P mapping_files https://software-ab.informatik.uni-tuebingen.de/download/megan6/megan-map-Jul2020-2.db.zip
-wget -P mapping_files https://software-ab.informatik.uni-tuebingen.de/download/megan6/megan-nucl-Jul2020.db.zip
+wget --quiet -P mapping_files https://software-ab.informatik.uni-tuebingen.de/download/megan6/megan-map-Jul2020-2.db.zip
+wget --quiet -P mapping_files https://software-ab.informatik.uni-tuebingen.de/download/megan6/megan-nucl-Jul2020.db.zip
 gunzip -c mapping_files/megan-map-Jul2020-2.db.zip >mapping_files/megan-map-Jul2020-2.db
 
 # make the database folders for Sigma by symlinking the genomes into the relevant folders

@@ -13,7 +13,7 @@ db_input=${args[0]}
 mem_limit=${args[1]}
 
 # delete any existing indices outputs so we can rebuild them
-rm ../haystack_genome_cache/*/*.bt2l
+rm -f ../haystack_genome_cache/*/*.bt2l
 
 # run haystack building db performance test with a mem limit for dbs of various sizes
 haystack database \

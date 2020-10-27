@@ -20,7 +20,7 @@ haystack config \
 # run haystack sample analysis performance test for against a db of 5638 species without using conda
 
 # delete any existing sample outputs so we can rebuild them
-rm -r ./samples/"${sample_input}"
+rm -rf ./samples/"${sample_input}"
 
 # benchmark haystack sample analysis performance for samples of various sizes against a db of 5638 species
 

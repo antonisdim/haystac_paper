@@ -16,7 +16,7 @@ test_set=${args[0]}
 MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
 # delete any existing indices so we can rebuild them
-rm ./sigma_db_"${test_set}"/*/*.bt2
+rm -f ./sigma_db_"${test_set}"/*/*.bt2
 
 # benchmark Sigma
 ./Sigma/bin/sigma-index-genomes \

@@ -28,4 +28,4 @@ kraken2 \
 Bracken-2.5/bracken -d db_kraken_"${db_input}"_species \
   -i "${sample_input}"_"${db_input}"_species.report \
   -o "${sample_input}"_"${db_input}"_species.bracken \
-  --threads "$MAX_CPU"
+  -t "$MAX_CPU"

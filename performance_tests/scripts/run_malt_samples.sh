@@ -20,7 +20,7 @@ malt-run \
   -i ./inputs/"${sample_input}".fastq \
   -d index_new_"${db_input}"_species \
   -m BlastN \
-  -o "${sample_input}"_"${db_input}"_species
+  -o "${sample_input}"_"${db_input}"_species.rma6
 
 hops --mode me_po \
   --input "${sample_input}"_"${db_input}"_species.rma6 \

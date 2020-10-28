@@ -15,7 +15,7 @@ set -euo pipefail
 # force bash to use the `time` command and not it's own native implementation
 time=$(which time)
 
-MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2/1024}')
+MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2}')
 
 # list of database sizes (i.e. number of species) to test
 species_counts=(10 100 500 1000 5636)

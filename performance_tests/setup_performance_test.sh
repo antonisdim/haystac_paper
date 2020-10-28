@@ -74,4 +74,8 @@ for test_set in "${test_sets[@]}"; do
   cat "genome_paths/${test_set}_refseq.txt" | xargs dirname | awk '{print "../"$0}' | xargs ln -s -t "sigma_db_${test_set}"
 done
 
+# decompress the genome and input files for Sigma
+gzip -k -d sigma_db_5636_species/*/*.fasta.gz
+gzip -k -d inputs/*.fastq.gz
+
 echo "DONE!"

@@ -26,11 +26,11 @@ rm -rf ./samples/"${sample_input}"
 
 haystack sample \
   --sample-prefix "${sample_input}" \
-  --fastq ./inputs/"${sample_input}".fastq.gz \
+  --fastq inputs/"${sample_input}".fastq.gz \
   --output ./samples/"${sample_input}"
 
 haystack analyse \
   --mode abundances \
-  --database ./haystack_db_"${db_input}"_species_input_mem \
+  --database ./haystack_db_"${db_input}"_input_8000_mem \
   --sample ./samples/"${sample_input}" \
   --output ./haystack_out_db_"${db_input}"_"${sample_input}"_conda_"${use_conda}"

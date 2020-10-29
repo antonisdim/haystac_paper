@@ -33,6 +33,7 @@ $time -v haystack database \
 wget --quiet https://github.com/jenniferlu717/Bracken/archive/v2.5.tar.gz -O Bracken-2.5.tar.gz
 tar xvzf Bracken-2.5.tar.gz
 rm Bracken-2.5.tar.gz
+bash Bracken-2.5/install_bracken.sh
 
 # download and extract Sigma (as there is no conda package)
 wget --quiet --content-disposition http://sourceforge.net/projects/sigma-omicsbio/files/V1.0.3/sigma-v1.0.3.tar.gz/download \

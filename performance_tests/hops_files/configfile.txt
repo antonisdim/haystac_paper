@@ -1,1 +1,1 @@
-pathToList=./RefSeq_rep.txt
+pathToList=./hops_files/RefSeq_rep.txt

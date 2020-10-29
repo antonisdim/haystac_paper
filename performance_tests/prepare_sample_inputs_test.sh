@@ -11,7 +11,7 @@ wget --quiet http://downloads.hmpdacc.org/dacc/hhs/genome/microbiome/wgs/analysi
   -O inputs/SRS078671.tar.bz2
 
 # decompress the downloaded file
-tar -xvjf inputs/SRS078671.tar.bz2
+tar -xvjf inputs/SRS078671.tar.bz2 -C inputs/
 
 # concatenate the files into one big file
 cat inputs/SRS078671/SRS078671.denovo_duplicates_marked.trimmed.1.fastq \

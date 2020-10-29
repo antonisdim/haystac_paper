@@ -77,6 +77,5 @@ done
 
 # decompress the genome and input files for Sigma
 gzip -k -d sigma_db_5636_species/*/*.fasta.gz
-gzip -k -d inputs/*.fastq.gz
 
 echo "DONE!"

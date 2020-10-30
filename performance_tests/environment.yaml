@@ -2,6 +2,7 @@ channels:
   - conda-forge
   - bioconda
   - r
+  - ostrokach
 dependencies:
   - adapterremoval=2.3.1
   - argcomplete=1.12.1
@@ -38,3 +39,4 @@ dependencies:
   - kraken2=2.0.9beta-0
   - malt=0.41
   - hops=0.34-0
+  - gzip=1.7

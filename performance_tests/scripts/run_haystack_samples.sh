@@ -15,8 +15,7 @@ use_conda=${args[2]}
 
 #deactivating conda
 haystack config \
-  --use-conda "${use_conda}" \
-  --cache ./haystack_genome_cache/
+  --use-conda "${use_conda}"
 
 # run haystack sample analysis performance test for against a db of 5638 species without using conda
 

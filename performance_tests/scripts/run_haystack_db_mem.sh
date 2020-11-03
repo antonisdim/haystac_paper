@@ -12,10 +12,8 @@ args=("$@")
 db_input=${args[0]}
 mem_limit=${args[1]}
 
-# delete any existing indices outputs so we can rebuild them
-rm -f ../haystack_genome_cache/ncbi/*/*.bt2l
-
 # run haystack building db performance test with a mem limit for dbs of various sizes
+
 haystack database \
   --mode build \
   --accessions ./haystack_configs/"haystack_db_${db_input}_refseq_input.txt" \

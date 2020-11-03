@@ -36,6 +36,10 @@ for species_count in "${species_counts[@]}"; do
   for mem in 8000 $MAX_MEM; do
     echo "Running 'run_haystack_db_mem.sh' for ${species_count} species and ${mem} RAM"
 
+    # delete any existing indices outputs so we can rebuild them
+    rm -f ./haystack_genome_cache/ncbi/*/*.bt2l
+    rm -f ./haystack_genome_cache/ncbi/*/*.fasta.gz.fai
+
     $time -v -o "logs/haystack_db_mem-${species_count}_species-${mem}_mem.time.log" \
       bash scripts/run_haystack_db_mem.sh "${species_count}_species" "${mem}" \
       >"logs/haystack_db_mem-${species_count}_species-${mem}_mem.log"
@@ -100,6 +104,9 @@ done
 # building databases of different sizes
 for species_count in "${species_counts[@]}"; do
   echo "Running 'run_sigma_db.sh' for ${species_count} species"
+
+  # delete any existing indices so we can rebuild them
+  rm -f ./sigma_db_"${species_count}_species"/*/*.bt2
 
   $time -v -o "logs/sigma_db-${species_count}_species.time.log" \
     bash scripts/run_sigma_db.sh "${species_count}_species" >"logs/sigma_db-${species_count}_species.log"

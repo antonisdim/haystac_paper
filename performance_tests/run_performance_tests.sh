@@ -33,7 +33,7 @@ mkdir -p logs
 # building databases of different sizes with a memory limit
 for species_count in "${species_counts[@]}"; do
 
-  for mem in 8000 $MAX_MEM; do
+  for mem in $MAX_MEM; do
     echo "Running 'run_haystack_db_mem.sh' for ${species_count} species and ${mem} RAM"
 
     # delete any existing indices outputs so we can rebuild them

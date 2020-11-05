@@ -39,4 +39,4 @@ dependencies:
   - kraken2=2.0.9beta-0
   - malt=0.41
   - hops=0.34-0
-  - gzip=1.7
+# - gzip=1.7

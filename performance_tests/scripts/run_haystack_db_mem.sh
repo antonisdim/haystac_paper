@@ -13,6 +13,11 @@ db_input=${args[0]}
 mem_limit=${args[1]}
 use_conda=${args[2]}
 
+#deactivating conda
+
+haystack config \
+  --use-conda "${use_conda}"
+
 # run haystack building db performance test with a mem limit for dbs of various sizes
 
 haystack database \

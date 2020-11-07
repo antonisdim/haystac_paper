@@ -31,6 +31,6 @@ haystack sample \
 
 haystack analyse \
   --mode abundances \
-  --database ./haystack_db_"${db_input}"_input_8000_mem \
+  --database ./haystack_db_"${db_input}"_input_8000_mem_conda_"${use_conda}" \
   --sample ./samples/"${sample_input}" \
   --output ./haystack_out_db_"${db_input}"_"${sample_input}"_conda_"${use_conda}"

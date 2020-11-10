@@ -39,8 +39,8 @@ for species_count in "${species_counts[@]}"; do
       echo "Running 'run_haystack_db_mem.sh' for ${species_count} species and ${mem} RAM and use_conda ${bool}"
 
       # delete any existing indices outputs so we can rebuild them
-      rm -f ./haystack_genome_cache/ncbi/*/*.bt2l
-      rm -f ./haystack_genome_cache/ncbi/*/*.fasta.gz.fai
+      find ./haystack_genome_cache/ncbi/ -name "*.bt2l" -print0 | xargs -0 rm
+      find ./haystack_genome_cache/ncbi/ -name "*.fasta.gz.fai" -print0 | xargs -0 rm
 
       $time -v -o "logs/haystack_db_mem-${species_count}_species-${mem}_mem_conda_${bool}.time.log" \
         bash scripts/run_haystack_db_mem.sh "${species_count}_species" "${mem}" "${bool}" \

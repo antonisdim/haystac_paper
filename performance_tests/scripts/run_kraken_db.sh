@@ -16,7 +16,8 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 mkdir -p db_kraken_"${test_set}"
 
 # benchmark kraken building db performance test for 100 species
-kraken2-build --download-taxonomy --db db_kraken_"${test_set}"
+kraken2-build --download-taxonomy --db db_kraken_"${test_set}" \
+  --threads "$MAX_CPU"
 
 kraken2-build \
   --add-to-library db_mutlifasta_inputs/db_input_"${test_set}".fasta \

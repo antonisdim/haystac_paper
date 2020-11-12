@@ -15,6 +15,8 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
 mkdir -p db_kraken_"${test_set}"
 
+export OMP_NUM_THREADS=$MAX_CPU
+
 # benchmark kraken building db performance test for 100 species
 kraken2-build --download-taxonomy --db db_kraken_"${test_set}" \
   --threads "$MAX_CPU"

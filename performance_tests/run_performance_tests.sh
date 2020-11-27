@@ -18,10 +18,12 @@ time=$(which time)
 MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2}')
 
 # list of database sizes (i.e. number of species) to test
-species_counts=(10 100 500 1000 5636)
+#species_counts=(10 100 500 1000 5636)
+species_counts=(10 100 500 1000)
 
 # list of library sizes to test
-read_counts=(input_10K input_100K input_1M input_10M input_100M)
+#read_counts=(input_10K input_100K input_1M input_10M input_100M)
+read_counts=(input_10K input_100K input_1M input_10M)
 
 # make a folder to store the log files
 mkdir -p logs
@@ -56,19 +58,19 @@ done
 for read_count in "${read_counts[@]}"; do
 
   for bool in "False" "True"; do
-    echo "Running 'run_haystack_samples.sh' for ${read_count} reads, against 5636 species and use_conda ${bool}"
+    echo "Running 'run_haystack_samples.sh' for ${read_count} reads, against 1000 species and use_conda ${bool}"
 
     #delete any existing outputs
     rm -rf ./haystack_out_db_5636_species_"${read_count}"_reads_conda_"${bool}"
 
-    $time -v -o "logs/haystack_samples-${read_count}_reads-5636_species-conda_${bool}.time.log" \
-      bash scripts/run_haystack_samples.sh "${read_count}_reads" 5636_species "${bool}" \
-      >"logs/haystack_samples-${read_count}_reads-5636_species-conda_${bool}.log"
+    $time -v -o "logs/haystack_samples-${read_count}_reads-1000_species-conda_${bool}.time.log" \
+      bash scripts/run_haystack_samples.sh "${read_count}_reads" 1000_species "${bool}" \
+      >"logs/haystack_samples-${read_count}_reads-1000_species-conda_${bool}.log"
   done
 done
 
 # analysing a sample of 1M reads against dbs of various sizes
-for species_count in "${species_counts[@]:0:4}"; do
+for species_count in "${species_counts[@]:0:3}"; do
   for bool in "False" "True"; do
     echo "Running 'run_haystack_samples.sh' for input_1M reads, against ${species_count} species and use_conda ${bool}"
 
@@ -98,20 +100,20 @@ done
 
 # analysing samples of different sizes against a db of 5636 species
 for read_count in "${read_counts[@]}"; do
-  echo "Running 'run_kraken_samples.sh' for ${read_count} reads against 5636 species"
+  echo "Running 'run_kraken_samples.sh' for ${read_count} reads against 1000 species"
 
   #delete any existing outputs
   rm -rf *.report
   rm -rf *.out
   rm -rf *bracken
 
-  $time -v -o "logs/kraken_samples-${read_count}_reads-5636_species.time.log" \
-    bash scripts/run_kraken_samples.sh "${read_count}" 5636 \
-    >"logs/kraken_samples-${read_count}_reads-5636_species.log"
+  $time -v -o "logs/kraken_samples-${read_count}_reads-1000_species.time.log" \
+    bash scripts/run_kraken_samples.sh "${read_count}" 1000 \
+    >"logs/kraken_samples-${read_count}_reads-1000_species.log"
 done
 
 # analysing a sample of 1M reads against dbs of various sizes
-for species_count in "${species_counts[@]:0:4}"; do
+for species_count in "${species_counts[@]:0:3}"; do
   echo "Running 'run_kraken_samples.sh' for input_1M reads against ${species_count} species"
 
   #delete any existing outputs
@@ -141,17 +143,17 @@ done
 
 # analysing samples of different sizes against a db of 5636 species
 for read_count in "${read_counts[@]}"; do
-  echo "Running 'run_sigma_samples.sh' for ${read_count} reads against 5636 species"
+  echo "Running 'run_sigma_samples.sh' for ${read_count} reads against 1000 species"
 
   # delete any existing indices so we can rebuild them
   rm -rf sigma_outputs/"${read_count}"
 
-  $time -v -o "logs/sigma_samples-${read_count}_reads-5636_species.time.log" \
-    bash scripts/run_sigma_samples.sh "${read_count}" 5636 >"logs/sigma_samples-${read_count}_reads-5636_species.log"
+  $time -v -o "logs/sigma_samples-${read_count}_reads-1000_species.time.log" \
+    bash scripts/run_sigma_samples.sh "${read_count}" 1000 >"logs/sigma_samples-${read_count}_reads-1000_species.log"
 done
 
 # analysing a sample of 1M reads against dbs of various sizes
-for species_count in "${species_counts[@]:0:4}"; do
+for species_count in "${species_counts[@]:0:3}"; do
   echo "Running 'run_sigma_samples.sh' for input_1M reads against ${species_count} species"
 
   # delete any existing indices so we can rebuild them
@@ -178,18 +180,18 @@ done
 
 # analysing samples of different sizes against a db of 5636 species
 for read_count in "${read_counts[@]}"; do
-  echo "Running 'run_malt_samples.sh' for ${read_count} reads against 5636 species"
+  echo "Running 'run_malt_samples.sh' for ${read_count} reads against 1000 species"
 
   # delete any existing indices so we can rebuild them
   rm -f *.rma6
   rm -rf hops_"${read_count}_reads"_5636_species
 
-  $time -v -o "logs/malt_samples-${read_count}_reads-5636_species.time.log" \
-    bash scripts/run_malt_samples.sh "${read_count}_reads" 5636 >"logs/malt_samples-${read_count}_reads-5636_species.log"
+  $time -v -o "logs/malt_samples-${read_count}_reads-1000_species.time.log" \
+    bash scripts/run_malt_samples.sh "${read_count}_reads" 1000 >"logs/malt_samples-${read_count}_reads-1000_species.log"
 done
 
 # analysing a sample of 1M reads against dbs of various sizes
-for species_count in "${species_counts[@]:0:4}"; do
+for species_count in "${species_counts[@]:0:3}"; do
   echo "Running 'run_malt_samples.sh' for input_1M reads against ${species_count} species"
 
   # delete any existing indices so we can rebuild them

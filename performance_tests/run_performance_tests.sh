@@ -61,7 +61,7 @@ for read_count in "${read_counts[@]}"; do
     echo "Running 'run_haystack_samples.sh' for ${read_count} reads, against 1000 species and use_conda ${bool}"
 
     #delete any existing outputs
-    rm -rf ./haystack_out_db_5636_species_"${read_count}"_reads_conda_"${bool}"
+    rm -rf ./haystack_out_db_1000_species_"${read_count}"_reads_conda_"${bool}"
 
     $time -v -o "logs/haystack_samples-${read_count}_reads-1000_species-conda_${bool}.time.log" \
       bash scripts/run_haystack_samples.sh "${read_count}_reads" 1000_species "${bool}" \

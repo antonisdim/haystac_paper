@@ -184,7 +184,7 @@ for read_count in "${read_counts[@]}"; do
 
   # delete any existing indices so we can rebuild them
   rm -f *.rma6
-  rm -rf hops_"${read_count}_reads"_5636_species
+  rm -rf hops_"${read_count}_reads"_1000_species
 
   $time -v -o "logs/malt_samples-${read_count}_reads-1000_species.time.log" \
     bash scripts/run_malt_samples.sh "${read_count}_reads" 1000 >"logs/malt_samples-${read_count}_reads-1000_species.log"

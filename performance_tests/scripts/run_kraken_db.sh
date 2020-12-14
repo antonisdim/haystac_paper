@@ -15,7 +15,8 @@ MAX_CPU=$(grep -c ^processor /proc/cpuinfo)
 
 mkdir -p db_kraken_"${test_set}"
 
-export OMP_NUM_THREADS=$MAX_CPU
+# allow kraken2 to use OMP multithreading
+unset OMP_NUM_THREADS
 
 # benchmark kraken building db performance test for 100 species
 kraken2-build --download-taxonomy --db db_kraken_"${test_set}" \

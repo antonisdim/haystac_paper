@@ -95,7 +95,7 @@ for species_count in "${species_counts[@]}"; do
   rm -rf db_kraken_"${species_count}"_species
 
   $time -v -o "logs/kraken_db-${species_count}_species.time.log" \
-    bash scripts/run_kraken_db.sh "${species_count}_species" >"kraken_db-${species_count}_species.log"
+    bash scripts/run_kraken_db.sh "${species_count}_species" >"logs/kraken_db-${species_count}_species.log"
 done
 
 # analysing samples of different sizes against a db of 5636 species

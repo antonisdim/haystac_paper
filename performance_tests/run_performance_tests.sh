@@ -49,7 +49,7 @@ for species_count in "${species_counts[@]}"; do
       haystac config --cache ./haystack_genome_cache/
       $time -v -o "logs/haystack_db_mem-${species_count}_species-${mem}_mem_conda_${bool}.time.log" \
         bash scripts/run_haystack_db_mem.sh "${species_count}_species" "${mem}" "${bool}" \
-        >"logs/haystack_db_mem-${species_count}_species-${mem}_mem-conda_${bool}.log"
+        &>"logs/haystack_db_mem-${species_count}_species-${mem}_mem-conda_${bool}.log"
     done
   done
 done
@@ -70,7 +70,7 @@ for read_count in "${read_counts[@]}"; do
     haystac config --cache ./haystack_genome_cache/
     $time -v -o "logs/haystack_samples-${read_count}_reads-500_species-conda_${bool}.time.log" \
       bash scripts/run_haystack_samples.sh "${read_count}_reads" 500_species "${bool}" \
-      >"logs/haystack_samples-${read_count}_reads-500_species-conda_${bool}.log"
+      &>"logs/haystack_samples-${read_count}_reads-500_species-conda_${bool}.log"
   done
 done
 
@@ -84,7 +84,7 @@ for species_count in "${species_counts[@]:0:2}"; do
     haystac config --cache ./haystack_genome_cache/
     $time -v -o "logs/haystack_samples-input_1M_reads-${species_count}_species-conda_${bool}.time.log" \
       bash scripts/run_haystack_samples.sh input_1M_reads "${species_count}_species" ${bool} \
-      >"logs/haystack_samples-input_1M_reads-${species_count}_species-conda_${bool}.log"
+      &>"logs/haystack_samples-input_1M_reads-${species_count}_species-conda_${bool}.log"
   done
 done
 
@@ -100,7 +100,7 @@ for species_count in "${species_counts[@]}"; do
   rm -rf db_kraken_"${species_count}"_species
 
   $time -v -o "logs/kraken_db-${species_count}_species.time.log" \
-    bash scripts/run_kraken_db.sh "${species_count}_species" >"logs/kraken_db-${species_count}_species.log"
+    bash scripts/run_kraken_db.sh "${species_count}_species" &>"logs/kraken_db-${species_count}_species.log"
 done
 
 # analysing samples of different sizes against a db of 5636 species
@@ -114,7 +114,7 @@ for read_count in "${read_counts[@]}"; do
 
   $time -v -o "logs/kraken_samples-${read_count}_reads-500_species.time.log" \
     bash scripts/run_kraken_samples.sh "${read_count}" 500 \
-    >"logs/kraken_samples-${read_count}_reads-500_species.log"
+    &>"logs/kraken_samples-${read_count}_reads-500_species.log"
 done
 
 # analysing a sample of 1M reads against dbs of various sizes
@@ -128,7 +128,7 @@ for species_count in "${species_counts[@]:0:2}"; do
 
   $time -v -o "logs/kraken_samples-input_1M-${species_count}_species.time.log" \
     bash scripts/run_kraken_samples.sh input_1M "${species_count}" \
-    >"logs/kraken_samples-input_1M-${species_count}_species.log"
+    &>"logs/kraken_samples-input_1M-${species_count}_species.log"
 done
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -143,7 +143,7 @@ for species_count in "${species_counts[@]}"; do
   find -L ./sigma_db_"${species_count}_species"/ -name "*.bt2" -delete
 
   $time -v -o "logs/sigma_db-${species_count}_species.time.log" \
-    bash scripts/run_sigma_db.sh "${species_count}_species" >"logs/sigma_db-${species_count}_species.log"
+    bash scripts/run_sigma_db.sh "${species_count}_species" &>"logs/sigma_db-${species_count}_species.log"
 done
 
 bash scripts/run_sigma_db.sh "10_species"
@@ -156,7 +156,7 @@ for read_count in "${read_counts[@]}"; do
   rm -rf sigma_outputs/"${read_count}"
 
   $time -v -o "logs/sigma_samples-${read_count}_reads-500_species.time.log" \
-    bash scripts/run_sigma_samples.sh "${read_count}" 500 >"logs/sigma_samples-${read_count}_reads-500_species.log"
+    bash scripts/run_sigma_samples.sh "${read_count}" 500 &>"logs/sigma_samples-${read_count}_reads-500_species.log"
 done
 
 # analysing a sample of 1M reads against dbs of various sizes
@@ -167,7 +167,7 @@ for species_count in "${species_counts[@]:0:2}"; do
   rm -rf sigma_outputs/"${read_count}"
 
   $time -v -o "logs/sigma_samples-input_1M_reads-${species_count}_species.time.log" \
-    bash scripts/run_sigma_samples.sh input_1M "${species_count}" >"logs/sigma_samples-input_1M-${species_count}_species.log"
+    bash scripts/run_sigma_samples.sh input_1M "${species_count}" &>"logs/sigma_samples-input_1M-${species_count}_species.log"
 done
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -182,7 +182,7 @@ for species_count in "${species_counts[@]}"; do
   rm -rf index_new_"${species_count}_species"
 
   $time -v -o "logs/malt_db-${species_count}_species.time.log" \
-    bash scripts/run_malt_db.sh "${species_count}_species" >"logs/malt_db-${species_count}_species.log"
+    bash scripts/run_malt_db.sh "${species_count}_species" &>"logs/malt_db-${species_count}_species.log"
 done
 
 # analysing samples of different sizes against a db of 5636 species
@@ -194,7 +194,7 @@ for read_count in "${read_counts[@]}"; do
   rm -rf hops_"${read_count}_reads"_500_species
 
   $time -v -o "logs/malt_samples-${read_count}_reads-500_species.time.log" \
-    bash scripts/run_malt_samples.sh "${read_count}_reads" 500 >"logs/malt_samples-${read_count}_reads-500_species.log"
+    bash scripts/run_malt_samples.sh "${read_count}_reads" 500 &>"logs/malt_samples-${read_count}_reads-500_species.log"
 done
 
 # analysing a sample of 1M reads against dbs of various sizes
@@ -207,6 +207,6 @@ for species_count in "${species_counts[@]:0:2}"; do
 
   $time -v -o "logs/malt_samples-input_1M_reads-${species_count}_species.time.log" \
     bash scripts/run_malt_samples.sh input_1M_reads "${species_count}" \
-    >"logs/malt_samples-input_1M_reads-${species_count}_species.log"
+    &>"logs/malt_samples-input_1M_reads-${species_count}_species.log"
 done
 

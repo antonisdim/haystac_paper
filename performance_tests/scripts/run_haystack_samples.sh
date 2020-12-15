@@ -16,7 +16,7 @@ use_conda=${args[2]}
 MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2}')
 
 #deactivating conda
-haystack config \
+haystac config \
   --use-conda "${use_conda}"
 
 # run haystack sample analysis performance test for against a db of 5638 species without using conda
@@ -26,12 +26,12 @@ rm -rf ./samples/"${sample_input}"
 
 # benchmark haystack sample analysis performance for samples of various sizes against a db of 5638 species
 
-haystack sample \
+haystac sample \
   --sample-prefix "${sample_input}" \
   --fastq inputs/"${sample_input}".fastq.gz \
   --output ./samples/"${sample_input}"
 
-haystack analyse \
+haystac analyse \
   --mode abundances \
   --database ./haystack_db_"${db_input}"_input_"$MAX_MEM"_mem_conda_"${use_conda}" \
   --sample ./samples/"${sample_input}" \

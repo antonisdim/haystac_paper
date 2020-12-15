@@ -15,12 +15,12 @@ use_conda=${args[2]}
 
 #deactivating conda
 
-haystack config \
+haystac config \
   --use-conda "${use_conda}"
 
 # run haystack building db performance test with a mem limit for dbs of various sizes
 
-haystack database \
+haystac database \
   --mode build \
   --accessions ./haystack_configs/"haystack_db_${db_input}_refseq_input.txt" \
   --output ./"haystack_db_${db_input}_input_${mem_limit}_mem_conda_${use_conda}" \

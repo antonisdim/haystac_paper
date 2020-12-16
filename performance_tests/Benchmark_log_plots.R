@@ -151,7 +151,7 @@ ggplot(total, aes(x=xaxis, y=value, color=Method)) +
     labels <- lapply(labels, as.character)
     list(do.call(paste, c(labels, list(sep = "\n"))))}) +
   xlab("Database size") + 
-  theme_Publication(base_size = 25, base_family = "Helvetica") +
+  theme_Publication(base_size = 24, base_family = "Helvetica") +
   theme(panel.border = element_rect(colour = "grey", fill = NA))
 
 dev.off()

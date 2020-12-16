@@ -5,7 +5,7 @@ from sys import argv
 
 script, input_file = argv 
 
-test_results = pd.read_csv(input_file, sep =',') 
+test_results = pd.read_csv(input_file, sep ='\t') 
 
 test_small = test_results[['Maximum resident set size (kbytes)', 'Elapsed (wall clock) time (h:mm:ss or m:ss)', 'File']]
 

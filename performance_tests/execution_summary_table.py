@@ -23,4 +23,4 @@ for file_path in glob.glob(folder + '/*time.log'):
 total_df = pd.concat(df_list)
 
 
-total_df.to_csv(folder + 'stats.tsv', index = False)
+total_df.to_csv(folder + 'stats.tsv', index = False, sep='\t')

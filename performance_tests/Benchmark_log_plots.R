@@ -146,11 +146,11 @@ ggplot(total, aes(x=xaxis, y=value, color=Method)) +
                      "1e+06" = "1 GB", "1e+07" = "10 GB", "1e+08" = "100 GB"), 
                      breaks=c(0.167, 1.0, 10.0, 100.0, 1e+05, 1e+06, 1e+07, 1e+8)) +
   scale_x_continuous(trans = "log10", 
-                     breaks=c(10, 100, 500, 5000), limits = c(10, 5000)) +
+                     breaks=c(10, 100, 500, 5000)) +
   facet_grid(variable~category, scales='free', labeller = function (labels) {
     labels <- lapply(labels, as.character)
     list(do.call(paste, c(labels, list(sep = "\n"))))}) +
-  xlab("Database size") + 
+  xlab("Database size (species)") + 
   theme_Publication(base_size = 24, base_family = "Helvetica") +
   theme(panel.border = element_rect(colour = "grey", fill = NA))
 
@@ -175,7 +175,7 @@ sample_500_melt$Method <- factor(sample_500_melt$Method, levels = c('Haystac', '
 sample_500_melt$category <- factor(sample_500_melt$category, levels = c('Database', 
                                                     'Analysis'))
 
-ggsave("sample_500.pdf", height = 9, width = 10, units = "in")
+ggsave("sample_500.pdf", height = 9, width = 11, units = "in")
 
 ggplot(sample_500_melt, aes(x=xaxis, y=value, color=Method)) + 
   stat_smooth(method='lm', se=F, size = 2, fullrange = T, size =1.5) + geom_point(size = 2, shape = 21) +
@@ -190,7 +190,7 @@ ggplot(sample_500_melt, aes(x=xaxis, y=value, color=Method)) +
     labels <- lapply(labels, as.character)
     list(do.call(paste, c(labels, list(sep = "\n"))))}) +
   xlab("Sample size") + 
-  theme_Publication(base_size = 22, base_family = "Helvetica") +
+  theme_Publication(base_size = 20, base_family = "Helvetica") +
   theme(panel.border = element_rect(colour = "grey", fill = NA))
 
 dev.off()

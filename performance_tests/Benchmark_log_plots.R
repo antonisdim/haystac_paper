@@ -78,6 +78,7 @@ db_melt$variable <- ifelse(grepl("RSS", db_melt$variable),
 
 sample <- as.data.frame(sample[, c('Number.of.Reads', 'Database', 'Method', 
                      'RSS', 'Runtime_m')])
+sample$RSS <- sample$RSS/4
 
 sample_500 <- sample[sample[, "Database"] == 500,]
 

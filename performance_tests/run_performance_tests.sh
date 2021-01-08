@@ -45,7 +45,7 @@ for species_count in "${species_counts[@]}"; do
       find ./haystack_genome_cache/ncbi/ -name "*.fasta.gz.fai" -delete
 
       #delete any existing outputs
-      rm -rf "haystack_db_${species_count}_input_${mem}_mem_conda_${bool}"
+      rm -rf "haystack_db_${species_count}_species_input_${mem}_mem_conda_${bool}"
       haystac config --cache ./haystack_genome_cache/
       $time -v -o "logs/haystack_db_mem-${species_count}_species-${mem}_mem_conda_${bool}.time.log" \
         bash scripts/run_haystack_db_mem.sh "${species_count}_species" "${mem}" "${bool}" \

@@ -27,7 +27,6 @@ rm -rf ./samples/"${sample_input}"
 # benchmark haystack sample analysis performance for samples of various sizes against a db of 5638 species
 
 haystac sample \
-  --sample-prefix "${sample_input}" \
   --fastq inputs/"${sample_input}".fastq.gz \
   --output ./samples/"${sample_input}"
 

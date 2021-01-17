@@ -7,11 +7,12 @@ __email__ = "antonisdim41@gmail.com"
 __license__ = "MIT"
 
 
-include: "rules/sample.smk"
+include: "rules/download_paper_db.smk"
 
-include: "rules/adapterremoval.smk"
-
-include: "rules/sra.smk"
+include: "rules/gargammel_sims.smk"
 
 
-
+rule all:
+    input:
+        "paper_db/db_taxa_accessions.tsv",
+        "all_garg_inputs_prepared.done"

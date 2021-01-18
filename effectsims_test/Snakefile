@@ -8,7 +8,6 @@ __license__ = "MIT"
 
 
 include: "rules/download_paper_db.smk"
-
 include: "rules/gargammel_sims.smk"
 
 
@@ -16,4 +15,8 @@ rule all:
     input:
         "paper_db/db_taxa_accessions.tsv",
         "all_garg_inputs_prepared.done",
-        "raw_samples/effect_5652sp_120bp_0d.fastq.gz"
+        "raw_samples/effectsim_lib.fastq.gz",
+        expand("raw_samples/effect_5652sp_{len}bp_0d_0.4l.fastq.gz", len=[100, 60, 50, 40, 30]),
+        expand("raw_samples/effect_5652sp_100bp_{deam}d_0.4l.fastq.gz", deam=[0, 0.2, 0.4, 0.6, 0.9]),
+        expand("raw_samples/effect_5652sp_{len}bp_{deam}d_0.4l.fastq.gz", zip, len=[60, 50, 40, 30],
+            deam=[0.2, 0.4, 0.6, 0.9]),

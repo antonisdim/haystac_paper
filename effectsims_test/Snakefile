@@ -15,4 +15,5 @@ include: "rules/gargammel_sims.smk"
 rule all:
     input:
         "paper_db/db_taxa_accessions.tsv",
-        "all_garg_inputs_prepared.done"
+        "all_garg_inputs_prepared.done",
+        "raw_samples/effect_5652sp_120bp_0d.fastq.gz"

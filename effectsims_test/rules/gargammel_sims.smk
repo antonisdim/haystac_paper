@@ -69,3 +69,57 @@ rule all_dirs_prepared:
         "touch {output}"
 
 
+rule simulate_gargammel:
+    input:
+        "all_garg_inputs_prepared.done"
+    log:
+        "garg_sims/{taxon}.log"
+    output:
+        "garg_sims/{taxon}_s.fq.gz"
+    message:
+        "Simulating 1000 reads from taxon {wildcards.taxon}."
+    conda:
+        "../envs/gargammel.yaml"
+    shell:
+        "( gargammel --comp 0,0,1 -n 1000 -l 120 single -rl 120 -se -ss HS25 garg_sims/{wildcards.taxon}/ "
+        "-o garg_sims/{wildcards.taxon} ) &> {log}"
+
+
+def get_tax_frags(_):
+    """Function to get the sim frags per taxon"""
+    #todo I know it is duplicated, but is it worth it putting it in a utilities file it's only one function ?
+
+    db = checkpoints.download_paper_db.get()
+
+    tax_acc = pd.read_csv(db.output.db_list, sep = '\t', names=['Taxon', 'Accession'])
+    genbank_plasmids = pd.read_csv(db.output.gen_plasmids, sep = '\t')
+    refseq_plasmids = pd.read_csv(db.output.ref_plasmids, sep = '\t')
+
+    # drop plasmids - gargammel can only do one fasta per folder
+
+    cond_gen = tax_acc['Accession'].isin(genbank_plasmids['AccessionVersion'])
+    tax_acc.drop(tax_acc[cond_gen].index, inplace = True)
+
+    cond_ref = tax_acc['Accession'].isin(refseq_plasmids['AccessionVersion'])
+    tax_acc.drop(tax_acc[cond_ref].index, inplace = True)
+
+    paths = []
+
+    for index, row in tax_acc.iterrows():
+        taxon = row['Taxon']
+        paths.append(f"garg_sims/{taxon}_s.fq.gz")
+
+    return paths
+
+
+rule create_meta_sim:
+    input:
+        get_tax_frags
+    log:
+        "raw_samples/effect_5652sp_120bp_0d.log"
+    output:
+        "raw_samples/effect_5652sp_120bp_0d.fastq.gz"
+    message:
+        "Creating a library of approx 5600 species, with 120 bp read len and 0 deamination rate."
+    script:
+        "../scripts/copy.py"

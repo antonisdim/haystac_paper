@@ -81,7 +81,7 @@ rule simulate_gargammel:
     conda:
         "../envs/gargammel.yaml"
     shell:
-        "( gargammel --comp 0,0,1 -n 1000 -l 100 single -rl 100 -se -ss HS25 garg_sims/{wildcards.taxon}/ "
+        "( gargammel --comp 0,0,1 -n 1000 -l 120 single -rl 120 -se -ss HS25 garg_sims/{wildcards.taxon}/ "
         "-o garg_sims/{wildcards.taxon} ) &> {log}"
 
 
@@ -120,14 +120,55 @@ rule create_meta_sim:
     output:
         "raw_samples/effectsim_lib.fastq.gz",
     message:
-        "Creating a library of approx 5600 species, with 100 bp read len and 0 deamination rate."
+        "Creating a library of approx 5600 species, with 120 bp read len and 0 deamination rate."
     script:
         "../scripts/copy.py"
 
 
-rule vary_length_damage:
+rule seqtk:
     input:
         "raw_samples/effectsim_lib.fastq.gz",
+    log:
+        "raw_samples/seq_trim_{readlen}bp_{damage}d_{overhang}l.log",
+    output:
+        temp("raw_samples/seq_trim_{readlen}bp_{damage}d_{overhang}l.fasta"),
+    conda:
+        "../envs/gargammel.yaml"
+    message:
+        "Changing the read length to {wildcards.readlen} bp."
+    params:
+        bptotrim=lambda wildcards: 120 - int(wildcards.readlen),
+    shell:
+        "(seqtk trimfq -e {params.bptotrim} {input} > "
+        "raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq;"
+        "seqtk seq -a raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq > "
+        "{output}; "
+        "rm raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq) 2> {log}"
+
+
+rule deamsim:
+    input:
+        "raw_samples/seq_trim_{readlen}bp_{damage}d_{overhang}l.fasta",
+    log:
+        "raw_samples/deamsim_{readlen}bp_{damage}d_{overhang}l.log",
+    output:
+        temp("raw_samples/deamsim_{readlen}bp_{damage}d_{overhang}l.fasta"),
+    conda:
+        "../envs/gargammel.yaml"
+    message:
+        "Changing the deamination rate to {wildcards.damage} and the overhang length to {wildcards.overhang}."
+    params:
+        nick=lambda wildcards: 0.03 if float(wildcards.damage) != 0 else 0,
+        over=lambda wildcards: 0.4 if float(wildcards.damage) != 0 else 0,
+        deam2=lambda wildcards: 0.01 if float(wildcards.damage) != 0 else 0
+    shell:
+        "(deamSim -damage {params.nick},{params.over},{params.deam2},{wildcards.damage} {input} > {output}) 2> {log}"
+
+
+
+rule art_illumina:
+    input:
+        "raw_samples/deamsim_{readlen}bp_{damage}d_{overhang}l.fasta",
     log:
         "raw_samples/effect_5652sp_{readlen}bp_{damage}d_{overhang}l.log",
     output:
@@ -135,28 +176,11 @@ rule vary_length_damage:
     conda:
         "../envs/gargammel.yaml"
     message:
-        "Changing the read length to {wildcards.readlen} bp and the deamination rate to {wildcards.damage}."
+        "Simulating a library."
     params:
-        bptotrim=lambda wildcards: 100 - int(wildcards.readlen),
-        # art_len=lambda wildcards: 120 if int(wildcards.readlen) != 120 else 108,
+        art_len=lambda wildcards: int(wildcards.readlen) if int(wildcards.readlen) != 120 else 108,
+        out_basename = "raw_samples/illumina_{readlen}bp_{damage}d_{overhang}l"
     shell:
-        "(seqtk trimfq -e {params.bptotrim} {input} > "
-        "raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq;"
-        "seqtk seq -a raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq > "
-        "raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fasta;"
-        "deamSim -damage 0.03,{wildcards.overhang},0.01,{wildcards.damage} "
-        "raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fasta > "
-        "raw_samples/deamsim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fasta;"
-        "art_illumina -ss HS25 -amp -na "
-        "-i raw_samples/deamsim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fasta "
-        "-l {wildcards.readlen} -c 1 -qs 0 -qs2 0 "
-        "-o raw_samples/illumina_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l; "
-        "bgzip --force "
-        "--stdout raw_samples/illumina_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fq > {output}; "
-        "rm raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq; "
-        "rm raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fasta; "
-        "rm raw_samples/deamsim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fasta; "
-        "rm raw_samples/illumina_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fq) 2> {log}"
+        "(art_illumina -ss HS25 -amp -na -i {input} -l {params.art_len} -c 1 -qs 0 -qs2 0 "
+        "-o {params.out_basename}; bgzip --force --stdout {params.out_basename}.fq > {output}) 2> {log} "
 
-
-# simulation-{id}_readlen-{readlen}_damage-{damage}.fq.gz

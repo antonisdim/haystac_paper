@@ -182,5 +182,8 @@ rule art_illumina:
         out_basename = "raw_samples/illumina_{readlen}bp_{damage}d_{overhang}l"
     shell:
         "(art_illumina -ss HS25 -amp -na -i {input} -l {params.art_len} -c 1 -qs 0 -qs2 0 "
-        "-o {params.out_basename}; bgzip --force --stdout {params.out_basename}.fq > {output}) 2> {log} "
+        "-o {params.out_basename}; bgzip --force --stdout {params.out_basename}.fq > {output}; "
+        "rm {params.out_basename}.fq) 2> {log}"
+
+
 

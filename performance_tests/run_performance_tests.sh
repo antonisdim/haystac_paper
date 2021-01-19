@@ -164,7 +164,7 @@ for species_count in "${species_counts[@]:0:4}"; do
   echo "Running 'run_sigma_samples.sh' for input_1M reads against ${species_count} species"
 
   # delete any existing indices so we can rebuild them
-  rm -rf sigma_outputs/"${read_count}"
+  rm -rf sigma_outputs/input_1M
 
   $time -v -o "logs/sigma_samples-input_1M_reads-${species_count}_species.time.log" \
     bash scripts/run_sigma_samples.sh input_1M "${species_count}" &>"logs/sigma_samples-input_1M-${species_count}_species.log"

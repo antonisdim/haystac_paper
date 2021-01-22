@@ -21,7 +21,7 @@ CACHE = conf["cache"]
 
 rule prepare_garg_dirs:
     input:
-        "paper_db/db_taxa_accessions.tsv",
+        "sim_accs/db_taxa_accessions.tsv",
     output:
         "garg_sims/{taxon}/endo/{accession}.fasta",
     message:
@@ -35,8 +35,9 @@ def get_tax_acc_pairs(_):
     """Function to get the pairs of tax and acc for the gargammel sims"""
 
     db = checkpoints.download_paper_db.get()
+    sims = checkpoints.download_sims_accs.get()
 
-    tax_acc = pd.read_csv(db.output.db_list, sep="\t", names=["Taxon", "Accession"])
+    tax_acc = pd.read_csv(sims.output.sim_list, sep="\t", names=["Taxon", "Accession"])
     genbank_plasmids = pd.read_csv(db.output.gen_plasmids, sep="\t")
     refseq_plasmids = pd.read_csv(db.output.ref_plasmids, sep="\t")
 
@@ -85,13 +86,14 @@ rule simulate_gargammel:
         "-o garg_sims/{wildcards.taxon} ) &> {log}"
 
 
-def get_tax_frags(_):
+def get_tax_frags(wildcards):
     """Function to get the sim frags per taxon"""
     # todo I know it is duplicated, but is it worth it putting it in a utilities file it's only one function ?
 
     db = checkpoints.download_paper_db.get()
+    sims = checkpoints.download_sims_accs.get()
 
-    tax_acc = pd.read_csv(db.output.db_list, sep="\t", names=["Taxon", "Accession"])
+    tax_acc = pd.read_csv(sims.output.sim_list, sep="\t", names=["Taxon", "Accession"])
     genbank_plasmids = pd.read_csv(db.output.gen_plasmids, sep="\t")
     refseq_plasmids = pd.read_csv(db.output.ref_plasmids, sep="\t")
 
@@ -102,6 +104,9 @@ def get_tax_frags(_):
 
     cond_ref = tax_acc["Accession"].isin(refseq_plasmids["AccessionVersion"])
     tax_acc.drop(tax_acc[cond_ref].index, inplace=True)
+
+    if int(wildcards.species) != 5652:
+        tax_acc = tax_acc.sample(int(wildcards.species))
 
     paths = []
 
@@ -116,22 +121,22 @@ rule create_meta_sim:
     input:
         get_tax_frags,
     log:
-        "raw_samples/effectsim_lib.log",
+        "raw_samples/effectsim_lib_{species}sp.log",
     output:
-        "raw_samples/effectsim_lib.fastq.gz",
+        "raw_samples/effectsim_lib_{species}sp.fastq.gz",
     message:
-        "Creating a library of approx 5600 species, with 120 bp read len and 0 deamination rate."
+        "Creating a library of {wildcards.species} species, with 120 bp read len and 0 deamination rate."
     script:
         "../scripts/copy.py"
 
 
 rule seqtk:
     input:
-        "raw_samples/effectsim_lib.fastq.gz",
+        "raw_samples/effectsim_lib_{species}sp.fastq.gz",
     log:
-        "raw_samples/seq_trim_{readlen}bp_{damage}d_{overhang}l.log",
+        "raw_samples/seq_trim_{species}sp_{readlen}bp_{damage}d_{overhang}l.log",
     output:
-        temp("raw_samples/seq_trim_{readlen}bp_{damage}d_{overhang}l.fasta"),
+        temp("raw_samples/seq_trim_{species}sp_{readlen}bp_{damage}d_{overhang}l.fasta"),
     conda:
         "../envs/gargammel.yaml"
     message:
@@ -140,19 +145,19 @@ rule seqtk:
         bptotrim=lambda wildcards: 120 - int(wildcards.readlen),
     shell:
         "(seqtk trimfq -e {params.bptotrim} {input} > "
-        "raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq;"
-        "seqtk seq -a raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq > "
+        "raw_samples/seq_trim_{wildcards.species}sp_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq;"
+        "seqtk seq -a raw_samples/seq_trim_{wildcards.species}sp_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq > "
         "{output}; "
-        "rm raw_samples/seq_trim_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq) 2> {log}"
+        "rm raw_samples/seq_trim_{wildcards.species}sp_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l.fastq) 2> {log}"
 
 
 rule deamsim:
     input:
-        "raw_samples/seq_trim_{readlen}bp_{damage}d_{overhang}l.fasta",
+        "raw_samples/seq_trim_{species}sp_{readlen}bp_{damage}d_{overhang}l.fasta",
     log:
-        "raw_samples/deamsim_{readlen}bp_{damage}d_{overhang}l.log",
+        "raw_samples/deamsim_{species}sp_{readlen}bp_{damage}d_{overhang}l.log",
     output:
-        temp("raw_samples/deamsim_{readlen}bp_{damage}d_{overhang}l.fasta"),
+        temp("raw_samples/deamsim_{species}sp_{readlen}bp_{damage}d_{overhang}l.fasta"),
     conda:
         "../envs/gargammel.yaml"
     message:
@@ -168,18 +173,18 @@ rule deamsim:
 
 rule art_illumina:
     input:
-        "raw_samples/deamsim_{readlen}bp_{damage}d_{overhang}l.fasta",
+        "raw_samples/deamsim_{species}sp_{readlen}bp_{damage}d_{overhang}l.fasta",
     log:
-        "raw_samples/effect_5652sp_{readlen}bp_{damage}d_{overhang}l.log",
+        "raw_samples/effect_{species}sp_{readlen}bp_{damage}d_{overhang}l.log",
     output:
-        "raw_samples/effect_5652sp_{readlen}bp_{damage}d_{overhang}l.fastq.gz",
+        "raw_samples/effect_{species}sp_{readlen}bp_{damage}d_{overhang}l.fastq.gz",
     conda:
         "../envs/gargammel.yaml"
     message:
-        "Simulating a library."
+        "Simulating a library for sample effect_{wildcards.species}sp_{wildcards.readlen}bp_{wildcards.damage}d_{wildcards.overhang}l."
     params:
-        art_len=lambda wildcards: int(wildcards.readlen) if int(wildcards.readlen) != 120 else 108,
-        out_basename = "raw_samples/illumina_{readlen}bp_{damage}d_{overhang}l"
+        art_len=lambda wildcards: int(wildcards.readlen) if int(wildcards.readlen) != 120 else 100,
+        out_basename = "raw_samples/illumina_{species}sp_{readlen}bp_{damage}d_{overhang}l"
     shell:
         "(art_illumina -ss HS25 -amp -na -i {input} -l {params.art_len} -c 1 -qs 0 -qs2 0 "
         "-o {params.out_basename}; bgzip --force --stdout {params.out_basename}.fq > {output}; "

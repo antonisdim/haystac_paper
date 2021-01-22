@@ -21,3 +21,18 @@ checkpoint download_paper_db:
     shell:
         "( haystac database --mode build --accessions entrez-selected-seqs.txt --refseq-rep --force-accessions "
         "--exclude-accessions AGIY02 --output paper_db --mem 64000 ) 2> {log}"
+
+
+
+checkpoint download_sims_accs:
+    input:
+        genome_list="garg_sim_accessions.tsv",
+    log:
+        "sim_acc_paper_db.log",
+    output:
+        sim_list="sim_accs/db_taxa_accessions.tsv",
+    message:
+        "Downloading the gargammel simluation accessions."
+    shell:
+        "( haystac database --mode fetch --accessions {input} --force-accessions "
+        "--exclude-accessions AGIY02 --output sim_accs --mem 64000 ) 2> {log}"

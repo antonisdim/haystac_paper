@@ -10,6 +10,7 @@ __license__ = "MIT"
 include: "rules/download_paper_db.smk"
 include: "rules/gargammel_sims.smk"
 include: "rules/run_haystac.smk"
+include: "rules/roc.smk"
 
 
 rule all:
@@ -17,19 +18,62 @@ rule all:
         "paper_db/db_taxa_accessions.tsv",
         "all_garg_inputs_prepared.done",
         "raw_samples/effectsim_lib_5652sp.fastq.gz",
-        expand("raw_samples/effect_5652sp_{len}bp_0d_0.4l.fastq.gz", len=[120, 60, 50, 40, 30]),
-        expand("raw_samples/effect_5652sp_120bp_{deam}d_0.4l.fastq.gz", deam=[0, 0.2, 0.4, 0.6, 0.9]),
-        expand("raw_samples/effect_5652sp_{len}bp_{deam}d_0.4l.fastq.gz", zip, len=[60, 50, 40, 30],
-            deam=[0.2, 0.4, 0.6, 0.9]),
-        expand("haystac_sample/effect_5652sp_{len}bp_0d_0.4l/fastq_inputs/meta/effect_5652sp_{len}bp_0d_0.4l.size",
-            len=[120, 60, 50, 40, 30]),
-        expand("haystac_sample/effect_5652sp_120bp_{deam}d_0.4l/fastq_inputs/meta/effect_5652sp_120bp_{deam}d_0.4l.size",
-            deam=[0, 0.2, 0.4, 0.6, 0.9]),
-        expand("haystac_sample/effect_5652sp_{len}bp_{deam}d_0.4l/fastq_inputs/meta/effect_5652sp_{len}bp_{deam}d_0.4l.size",
-            zip, len=[60, 50, 40, 30], deam=[0.2, 0.4, 0.6, 0.9]),
-        expand("effect_analysis_out/probabilities/effect_5652sp_{len}bp_0d_0.4l/effect_5652sp_{len}bp_0d_0.4l_posterior_abundance.tsv",
-            len=[120, 60, 50, 40, 30]),
-        expand("effect_analysis_out/probabilities/effect_5652sp_120bp_{deam}d_0.4l/effect_5652sp_120bp_{deam}d_0.4l_posterior_abundance.tsv",
-            deam=[0, 0.2, 0.4, 0.6, 0.9]),
-        expand("effect_analysis_out/probabilities/effect_5652sp_{len}bp_{deam}d_0.4l/effect_5652sp_{len}bp_{deam}d_0.4l_posterior_abundance.tsv",
-            zip, len=[60, 50, 40, 30], deam=[0.2, 0.4, 0.6, 0.9]),
+        expand(
+            "raw_samples/effect_5652sp_{len}bp_0d_0.4l.fastq.gz",
+            len=[120, 60, 50, 40, 30],
+        ),
+        expand(
+            "raw_samples/effect_5652sp_120bp_{deam}d_0.4l.fastq.gz",
+            deam=[0, 0.2, 0.4, 0.6, 0.9],
+        ),
+        expand(
+            "raw_samples/effect_5652sp_{len}bp_{deam}d_0.4l.fastq.gz",
+            zip,
+            len=[60, 50, 40, 30],
+            deam=[0.2, 0.4, 0.6, 0.9],
+        ),
+        expand(
+            "haystac_sample/effect_5652sp_{len}bp_0d_0.4l/fastq_inputs/meta/effect_5652sp_{len}bp_0d_0.4l.size",
+            len=[120, 60, 50, 40, 30],
+        ),
+        expand(
+            "haystac_sample/effect_5652sp_120bp_{deam}d_0.4l/fastq_inputs/meta/effect_5652sp_120bp_{deam}d_0.4l.size",
+            deam=[0, 0.2, 0.4, 0.6, 0.9],
+        ),
+        expand(
+            "haystac_sample/effect_5652sp_{len}bp_{deam}d_0.4l/fastq_inputs/meta/effect_5652sp_{len}bp_{deam}d_0.4l.size",
+            zip,
+            len=[60, 50, 40, 30],
+            deam=[0.2, 0.4, 0.6, 0.9],
+        ),
+        expand(
+            "effect_analysis_out_0.05/probabilities/effect_5652sp_{len}bp_0d_0.4l/effect_5652sp_{len}bp_0d_0.4l_posterior_abundance.tsv",
+            len=[120, 60, 50, 40, 30],
+        ),
+        expand(
+            "effect_analysis_out_0.05/probabilities/effect_5652sp_120bp_{deam}d_0.4l/effect_5652sp_120bp_{deam}d_0.4l_posterior_abundance.tsv",
+            deam=[0, 0.2, 0.4, 0.6, 0.9],
+        ),
+        expand(
+            "effect_analysis_out_0.05/probabilities/effect_5652sp_{len}bp_{deam}d_0.4l/effect_5652sp_{len}bp_{deam}d_0.4l_posterior_abundance.tsv",
+            zip,
+            len=[60, 50, 40, 30],
+            deam=[0.2, 0.4, 0.6, 0.9],
+        ),
+        "roc_analysis/ROC_taxa_acc.tsv",
+        expand(
+            "roc_analysis_0.05/ROC_effect_5652sp_{len}bp_0d_0.4l/effect_5652sp_{len}bp_0d_0.4l.tsv",
+            len=[120, 60, 50, 40, 30],
+        ),
+        expand(
+            "roc_analysis_0.05/ROC_effect_5652sp_120bp_{deam}d_0.4l/effect_5652sp_120bp_{deam}d_0.4l.tsv",
+            deam=[0, 0.2, 0.4, 0.6, 0.9],
+        ),
+        expand(
+            "roc_analysis_0.05/ROC_effect_5652sp_{len}bp_{deam}d_0.4l/effect_5652sp_{len}bp_{deam}d_0.4l.tsv",
+            zip,
+            len=[60, 50, 40, 30],
+            deam=[0.2, 0.4, 0.6, 0.9],
+        ),
+
+

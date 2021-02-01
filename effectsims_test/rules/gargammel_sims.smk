@@ -127,7 +127,7 @@ rule create_meta_sim:
     message:
         "Creating a library of {wildcards.species} species, with 120 bp read len and 0 deamination rate."
     script:
-        "../scripts/copy.py"
+        "../scripts/copy_multifastq.py"
 
 
 rule seqtk:

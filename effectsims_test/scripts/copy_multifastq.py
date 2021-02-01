@@ -12,9 +12,9 @@ import gzip
 from Bio import bgzf
 
 
-def bowtie2_multifasta(fasta_files, output_file):
+def create_multi_fastq(fasta_files, output_file):
     print(
-        "Creating the bowtie2 multifasta file for the filtering ...", file=sys.stderr,
+        "Creating the multifastq file with all the simulated taxa ...", file=sys.stderr,
     )
 
     # TODO this is super slow, see https://sites.google.com/site/tfsidc/linux-tricks/processing-a-large-number-of-files
@@ -33,4 +33,4 @@ if __name__ == "__main__":
     sys.stderr = open(snakemake.log[0], "w")
 
     # noinspection PyUnresolvedReferences
-    bowtie2_multifasta(fasta_files=snakemake.input, output_file=snakemake.output[0])
+    create_multi_fastq(fasta_files=snakemake.input, output_file=snakemake.output[0])

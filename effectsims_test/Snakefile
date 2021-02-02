@@ -60,17 +60,32 @@ rule all:
             len=[60, 50, 40, 30],
             deam=[0.2, 0.4, 0.6, 0.9],
         ),
-        "roc_analysis/ROC_taxa_acc.tsv",
+        "roc_analysis_0.05/ROC_taxa_acc.tsv",
+        "roc_analysis_0.05/ROC_5652taxa_reads.tsv",
         expand(
-            "roc_analysis_0.05/ROC_effect_5652sp_{len}bp_0d_0.4l/effect_5652sp_{len}bp_0d_0.4l.tsv",
+            "roc_analysis_0.05/ROC_effect_5652sp_{len}bp_0d_0.4l.tsv",
             len=[120, 60, 50, 40, 30],
         ),
         expand(
-            "roc_analysis_0.05/ROC_effect_5652sp_120bp_{deam}d_0.4l/effect_5652sp_120bp_{deam}d_0.4l.tsv",
+            "roc_analysis_0.05/ROC_effect_5652sp_120bp_{deam}d_0.4l.tsv",
             deam=[0, 0.2, 0.4, 0.6, 0.9],
         ),
         expand(
-            "roc_analysis_0.05/ROC_effect_5652sp_{len}bp_{deam}d_0.4l/effect_5652sp_{len}bp_{deam}d_0.4l.tsv",
+            "roc_analysis_0.05/ROC_effect_5652sp_{len}bp_{deam}d_0.4l.tsv",
+            zip,
+            len=[60, 50, 40, 30],
+            deam=[0.2, 0.4, 0.6, 0.9],
+        ),
+        expand(
+            "roc_analysis_0.10/ROC_effect_5652sp_{len}bp_0d_0.4l.tsv",
+            len=[120, 60, 50, 40, 30],
+        ),
+        expand(
+            "roc_analysis_0.10/ROC_effect_5652sp_120bp_{deam}d_0.4l.tsv",
+            deam=[0, 0.2, 0.4, 0.6, 0.9],
+        ),
+        expand(
+            "roc_analysis_0.10/ROC_effect_5652sp_{len}bp_{deam}d_0.4l.tsv",
             zip,
             len=[60, 50, 40, 30],
             deam=[0.2, 0.4, 0.6, 0.9],

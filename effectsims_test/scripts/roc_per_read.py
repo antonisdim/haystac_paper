@@ -11,7 +11,6 @@ import pandas as pd
 import sys
 
 from sklearn import metrics
-from sys import argv
 
 
 def roc_per_read(taxonomy, lkhd_matrix, output):
@@ -21,23 +20,21 @@ def roc_per_read(taxonomy, lkhd_matrix, output):
         "Calculating the ROC ...", file=sys.stderr,
     )
 
-    taxa = pd.read_csv(taxonomy, names=["species", "acc"], sep="\t")
+    taxa = pd.read_csv(taxonomy, names=["species", "reads"], sep="\t")
     taxa["species"] = taxa["species"].str.replace(" ", "_")
+    taxa["reads"] = taxa["reads"] + "-1"
 
     # add human
     taxa = taxa.append(
-        pd.DataFrame([["chr", "Homo_sapiens"]], columns=["acc", "species"])
+        pd.DataFrame([["chr", "Homo_sapiens"]], columns=["reads", "species"])
     )
 
-    lkhd = pd.read_csv(lkhd_matrix, sep=",")
+    lkhd = pd.read_csv(lkhd_matrix, sep=",", usecols=["Taxon", "Read_ID", "Likelihood"])
 
     print("TSV file ready", file=sys.stderr)
 
-    acc = "|".join(taxa.acc)
-    lkhd["Accession"] = lkhd["Read_ID"].str.extract("(" + acc + ")", expand=False)
-    lkhd = lkhd[~lkhd["Accession"].isnull()]
-    complete_table = pd.merge(lkhd, taxa, left_on=["Accession"], right_on=["acc"])
-    assigned_reads = complete_table
+    assigned_reads = pd.merge(lkhd, taxa, left_on=["Read_ID"], right_on=["reads"])
+    # assigned_reads = complete_table
     assigned_reads["Truth"] = np.where(
         (assigned_reads["Taxon"] == assigned_reads["species"]), 1, 0
     )

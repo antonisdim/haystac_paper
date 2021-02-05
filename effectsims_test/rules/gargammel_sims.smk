@@ -191,4 +191,3 @@ rule art_illumina:
         "rm {params.out_basename}.fq) 2> {log}"
 
 
-

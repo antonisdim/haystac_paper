@@ -7,7 +7,7 @@ __email__ = "antonisdim41@gmail.com"
 __license__ = "MIT"
 
 
-rule run_haystac_sample:
+rule run_haystac_sample_effect:
     input:
         "raw_samples/effect_{species}sp_{readlen}bp_{damage}d_{overhang}l.fastq.gz",
     log:
@@ -24,7 +24,7 @@ rule run_haystac_sample:
         "--output haystac_sample/{params.outdir_basename} --cores {threads} &> {log}"
 
 
-rule run_haystac_analyse:
+rule run_haystac_analyse_effect:
     input:
         "haystac_sample/effect_{species}sp_{readlen}bp_{damage}d_{overhang}l/fastq_inputs/meta/effect_{species}sp_{readlen}bp_{damage}d_{overhang}l.size",
     log:

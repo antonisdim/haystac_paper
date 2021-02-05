@@ -9,6 +9,7 @@ __license__ = "MIT"
 
 include: "rules/download_paper_db.smk"
 include: "rules/gargammel_sims.smk"
+include: "rules/gargammel_spikes.smk"
 include: "rules/run_haystac.smk"
 include: "rules/roc.smk"
 
@@ -28,7 +29,6 @@ rule all:
         ),
         expand(
             "raw_samples/effect_5652sp_{len}bp_{deam}d_0.4l.fastq.gz",
-            zip,
             len=[60, 50, 40, 30],
             deam=[0.2, 0.4, 0.6, 0.9],
         ),
@@ -46,49 +46,33 @@ rule all:
             len=[60, 50, 40, 30],
             deam=[0.2, 0.4, 0.6, 0.9],
         ),
-        expand(
-            "effect_analysis_out_0.05/probabilities/effect_5652sp_{len}bp_0d_0.4l/effect_5652sp_{len}bp_0d_0.4l_posterior_abundance.tsv",
-            len=[120, 60, 50, 40, 30],
-        ),
-        expand(
-            "effect_analysis_out_0.05/probabilities/effect_5652sp_120bp_{deam}d_0.4l/effect_5652sp_120bp_{deam}d_0.4l_posterior_abundance.tsv",
-            deam=[0, 0.2, 0.4, 0.6, 0.9],
-        ),
-        expand(
-            "effect_analysis_out_0.05/probabilities/effect_5652sp_{len}bp_{deam}d_0.4l/effect_5652sp_{len}bp_{deam}d_0.4l_posterior_abundance.tsv",
-            zip,
-            len=[60, 50, 40, 30],
-            deam=[0.2, 0.4, 0.6, 0.9],
-        ),
-        "roc_analysis_0.05/ROC_taxa_acc.tsv",
-        "roc_analysis_0.05/ROC_5652taxa_reads.tsv",
-        expand(
-            "roc_analysis_0.05/ROC_effect_5652sp_{len}bp_0d_0.4l.tsv",
-            len=[120, 60, 50, 40, 30],
-        ),
-        expand(
-            "roc_analysis_0.05/ROC_effect_5652sp_120bp_{deam}d_0.4l.tsv",
-            deam=[0, 0.2, 0.4, 0.6, 0.9],
-        ),
-        expand(
-            "roc_analysis_0.05/ROC_effect_5652sp_{len}bp_{deam}d_0.4l.tsv",
-            zip,
-            len=[60, 50, 40, 30],
-            deam=[0.2, 0.4, 0.6, 0.9],
-        ),
-        expand(
-            "roc_analysis_0.10/ROC_effect_5652sp_{len}bp_0d_0.4l.tsv",
-            len=[120, 60, 50, 40, 30],
-        ),
-        expand(
-            "roc_analysis_0.10/ROC_effect_5652sp_120bp_{deam}d_0.4l.tsv",
-            deam=[0, 0.2, 0.4, 0.6, 0.9],
-        ),
-        expand(
-            "roc_analysis_0.10/ROC_effect_5652sp_{len}bp_{deam}d_0.4l.tsv",
-            zip,
-            len=[60, 50, 40, 30],
-            deam=[0.2, 0.4, 0.6, 0.9],
-        ),
-
-
+        # expand(
+        #     "effect_analysis_out_0.05/probabilities/effect_5652sp_{len}bp_0d_0.4l/effect_5652sp_{len}bp_0d_0.4l_posterior_abundance.tsv",
+        #     len=[120, 60, 50, 40, 30],
+        # ),
+        # expand(
+        #     "effect_analysis_out_0.05/probabilities/effect_5652sp_120bp_{deam}d_0.4l/effect_5652sp_120bp_{deam}d_0.4l_posterior_abundance.tsv",
+        #     deam=[0, 0.2, 0.4, 0.6, 0.9],
+        # ),
+        # expand(
+        #     "effect_analysis_out_0.05/probabilities/effect_5652sp_{len}bp_{deam}d_0.4l/effect_5652sp_{len}bp_{deam}d_0.4l_posterior_abundance.tsv",
+        #     zip,
+        #     len=[60, 50, 40, 30],
+        #     deam=[0.2, 0.4, 0.6, 0.9],
+        # ),
+        # expand(
+        #     "roc_analysis_0.05/ROC_effect_5652sp_{len}bp_0d_0.4l.tsv",
+        #     len=[120, 60, 50, 40, 30],
+        # ),
+        # expand(
+        #     "roc_analysis_0.05/ROC_effect_5652sp_120bp_{deam}d_0.4l.tsv",
+        #     deam=[0, 0.2, 0.4, 0.6, 0.9],
+        # ),
+        # expand(
+        #     "roc_analysis_0.05/ROC_effect_5652sp_{len}bp_{deam}d_0.4l.tsv",
+        #     zip,
+        #     len=[60, 50, 40, 30],
+        #     deam=[0.2, 0.4, 0.6, 0.9],
+        # ),
+        # "real_human/ERR2181127.fastq.gz",
+        "all_real_human_spiked.done"

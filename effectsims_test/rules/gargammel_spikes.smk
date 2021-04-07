@@ -31,7 +31,7 @@ rule gargammel_spike_inputs:
         "gzip -c -d {CACHE}/ncbi/{wildcards.taxon}/{wildcards.accession}.fasta.gz > {output}"
 
 
-def get_tax_acc__spike_pairs(_):
+def get_tax_acc_spike_pairs(_):
     """Function to get the pairs of tax and acc for the gargammel spiked sims"""
 
     spike_scc = checkpoints.download_spike_accs.get()
@@ -51,7 +51,7 @@ def get_tax_acc__spike_pairs(_):
 
 rule all_spike_dirs_prepared:
     input:
-        get_tax_acc__spike_pairs,
+        get_tax_acc_spike_pairs,
     output:
         "garg_sims_spikes/all_spike_dirs_prepared.done",
     message:
@@ -62,7 +62,7 @@ rule all_spike_dirs_prepared:
 
 rule simulate_gargammel_spike:
     input:
-        "garg_sims_spikes/all_garg_inputs_prepared.done",
+        "garg_sims_spikes/all_spike_dirs_prepared.done",
         misince="garg_sim_param_files/ERR2181127_dnacomp.txt",
         frag_len="garg_sim_param_files/ERR2181127_lgdistribution.txt",
         mapdamagee="garg_sim_param_files/ERR2181127_misincorporation.txt",
@@ -82,31 +82,29 @@ rule simulate_gargammel_spike:
 rule create_reaL_human_spiked_sim:
     input:
         spike="garg_sims_spikes/{taxon}_s.fq.gz",
-        human="real_human/ERR2181127.fastq.gz",
-    log:
-        "raw_samples/real_spiked_lib_{taxon}.log",
+        human="real_human/ERR2181127.fastq.gz"
     output:
         temp("raw_samples/real_spiked_lib_{taxon}.fastq.gz"),
     message:
-        "Spiking library ERR2181127 with 100 reads from {wildcards.taxon}."
-    script:
-        "( cat {input.human} {input.spike} 1> {output} ) 2> {log}"
+        "Spiking library ERR2181127 with 100 reads from {wildcards.taxon}.",
+    shell:
+        "cat {input.spike} {input.human} 1> {output}"
 
 
 rule adapterremoval_single_end:
     input:
         fastq="raw_samples/real_spiked_lib_{taxon}.fastq.gz",
     log:
-        "raw_samples/real_spiked_lib_{taxon}_adRm.log",
+        "adRm_spikes/real_spiked_lib_{taxon}_adRm.log",
     output:
-        "raw_samples/real_spiked_lib_{taxon}_adRm.fastq.gz",
+        "adRm_spikes/real_spiked_lib_{taxon}_adRm.fastq.gz",
     message:
         "Trimming sequencing adapters from file {input.fastq}."
     conda:
         "../envs/adapterremoval.yaml"
     threads: 5
     params:
-        basename="raw_samples/real_spiked_lib_{taxon}_adRm",
+        basename="adRm_spikes/real_spiked_lib_{taxon}_adRm",
     shell:
         "(AdapterRemoval"
         "   --file1 {input}"
@@ -131,7 +129,7 @@ def get_real_human_lib_paths(_):
 
     for index, row in tax_acc.iterrows():
         taxon = row["Taxon"]
-        paths.append(f"raw_samples/real_spiked_lib_{taxon}_adRm.fastq.gz")
+        paths.append(f"adRm_spikes/real_spiked_lib_{taxon}_adRm.fastq.gz")
 
     return paths
 

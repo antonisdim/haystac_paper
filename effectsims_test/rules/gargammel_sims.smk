@@ -7,6 +7,7 @@ __email__ = "antonisdim41@gmail.com"
 __license__ = "MIT"
 
 import yaml
+from os.path import isfile
 from os.path import expanduser
 import pandas as pd
 
@@ -106,7 +107,10 @@ def get_tax_frags(wildcards):
     tax_acc.drop(tax_acc[cond_ref].index, inplace=True)
 
     if int(wildcards.species) != 5652:
-        tax_acc = tax_acc.sample(int(wildcards.species))
+        if isfile('taxa_to_sample.tsv'):
+            tax_acc = pd.read_csv('taxa_to_sample.tsv', sep="\t", names=["Taxon", "Accession"])
+        else:
+            tax_acc = tax_acc.sample(int(wildcards.species))
 
     paths = []
 
@@ -168,7 +172,6 @@ rule deamsim:
         deam2=lambda wildcards: 0.01 if float(wildcards.damage) != 0 else 0
     shell:
         "(deamSim -damage {params.nick},{params.over},{params.deam2},{wildcards.damage} {input} > {output}) 2> {log}"
-
 
 
 rule art_illumina:

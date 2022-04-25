@@ -18,11 +18,11 @@ use_conda=${args[2]}
 haystac config \
   --use-conda "${use_conda}"
 
-# run haystack building db performance test with a mem limit for dbs of various sizes
+# run haystac building db performance test with a mem limit for dbs of various sizes
 
 haystac database \
   --mode build \
-  --accessions ./haystack_configs/"haystack_db_${db_input}_refseq_input.txt" \
-  --output ./"haystack_db_${db_input}_input_${mem_limit}_mem_conda_${use_conda}" \
+  --accessions ./haystac_configs/"haystac_db_${db_input}_refseq_input.txt" \
+  --output ./"haystac_db_${db_input}_input_${mem_limit}_mem_conda_${use_conda}" \
   --mem "${mem_limit}" \
   --force-accessions

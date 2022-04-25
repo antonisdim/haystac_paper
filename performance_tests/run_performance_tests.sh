@@ -48,16 +48,16 @@ for species_count in "${species_counts[@]}"; do
       rm -rf "haystack_db_${species_count}_species_input_${mem}_mem_conda_${bool}"
       haystac config --cache ./haystack_genome_cache/
       $time -v -o "logs/haystack_db_mem-${species_count}_species-${mem}_mem_conda_${bool}.time.log" \
-        bash scripts/run_haystack_db_mem.sh "${species_count}_species" "${mem}" "${bool}" \
+        bash scripts/run_haystac_db_mem.sh "${species_count}_species" "${mem}" "${bool}" \
         &>"logs/haystack_db_mem-${species_count}_species-${mem}_mem-conda_${bool}.log"
     done
   done
 done
 
 echo "redo 10 species"
-bash scripts/run_haystack_db_mem.sh "10_species" 8000 False
+bash scripts/run_haystac_db_mem.sh "10_species" 8000 False
 echo "redo 100 species"
-bash scripts/run_haystack_db_mem.sh "100_species" 8000 False
+bash scripts/run_haystac_db_mem.sh "100_species" 8000 False
 
 # analysing samples of different sizes against a db of 5636 species with conda as a package manager
 for read_count in "${read_counts[@]}"; do
@@ -69,7 +69,7 @@ for read_count in "${read_counts[@]}"; do
     rm -rf ./haystack_out_db_5636_species_"${read_count}"_reads_conda_"${bool}"
     haystac config --cache ./haystack_genome_cache/
     $time -v -o "logs/haystack_samples-${read_count}_reads-5636_species-conda_${bool}.time.log" \
-      bash scripts/run_haystack_samples.sh "${read_count}_reads" 5636_species "${bool}" \
+      bash scripts/run_haystac_samples.sh "${read_count}_reads" 5636_species "${bool}" \
       &>"logs/haystack_samples-${read_count}_reads-5636_species-conda_${bool}.log"
   done
 done
@@ -83,7 +83,7 @@ for species_count in "${species_counts[@]:0:4}"; do
     rm -rf ./haystack_out_db_"${species_count}"_species_input_1M_reads_conda_"${bool}"
     haystac config --cache ./haystack_genome_cache/
     $time -v -o "logs/haystack_samples-input_1M_reads-${species_count}_species-conda_${bool}.time.log" \
-      bash scripts/run_haystack_samples.sh input_1M_reads "${species_count}_species" ${bool} \
+      bash scripts/run_haystac_samples.sh input_1M_reads "${species_count}_species" ${bool} \
       &>"logs/haystack_samples-input_1M_reads-${species_count}_species-conda_${bool}.log"
   done
 done

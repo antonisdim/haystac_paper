@@ -19,12 +19,12 @@ MAX_MEM=$(free -m | awk '/^Mem:/{printf "%.0f", $2}')
 haystac config \
   --use-conda "${use_conda}"
 
-# run haystack sample analysis performance test for against a db of 5638 species without using conda
+# run haystac sample analysis performance test for against a db of 5638 species without using conda
 
 # delete any existing sample outputs so we can rebuild them
 rm -rf ./samples/"${sample_input}"
 
-# benchmark haystack sample analysis performance for samples of various sizes against a db of 5638 species
+# benchmark haystac sample analysis performance for samples of various sizes against a db of 5638 species
 
 haystac sample \
   --fastq inputs/"${sample_input}".fastq.gz \
@@ -32,6 +32,6 @@ haystac sample \
 
 haystac analyse \
   --mode abundances \
-  --database ./haystack_db_"${db_input}"_input_"$MAX_MEM"_mem_conda_"${use_conda}" \
+  --database ./haystac_db_"${db_input}"_input_"$MAX_MEM"_mem_conda_"${use_conda}" \
   --sample ./samples/"${sample_input}" \
-  --output ./haystack_out_db_"${db_input}"_"${sample_input}"_conda_"${use_conda}"
+  --output ./haystac_out_db_"${db_input}"_"${sample_input}"_conda_"${use_conda}"

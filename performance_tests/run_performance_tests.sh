@@ -132,6 +132,47 @@ for species_count in "${species_counts[@]:0:4}"; do
 done
 
 # ----------------------------------------------------------------------------------------------------------------------
+# -                                   run all the tests for krakenuniq                                          -
+# ----------------------------------------------------------------------------------------------------------------------
+
+# building databases of different sizes
+for species_count in "${species_counts[@]}"; do
+  echo "Running 'run_krakenuniq_db.sh' for ${species_count} species"
+
+  #delete any existing outputs
+  rm -rf db_krakenuniq_"${species_count}"_species
+
+  $time -v -o "logs/krakenuniq_db-${species_count}_species.time.log" \
+    bash scripts/run_krakenuniq_db.sh "${species_count}_species" &>"logs/krakenuniq_db-${species_count}_species.log"
+done
+
+# analysing samples of different sizes against a db of 5636 species
+for read_count in "${read_counts[@]}"; do
+  echo "Running 'run_krakenuniq_samples.sh' for ${read_count} reads against 5636 species"
+
+  #delete any existing outputs
+  rm -rf *.report
+  rm -rf *.out
+
+  $time -v -o "logs/krakenuniq_samples-${read_count}_reads-5636_species.time.log" \
+    bash scripts/run_krakenuniq_samples.sh "${read_count}" 5636 \
+    &>"logs/krakenuniq_samples-${read_count}_reads-5636_species.log"
+done
+
+# analysing a sample of 1M reads against dbs of various sizes
+for species_count in "${species_counts[@]:0:4}"; do
+  echo "Running 'run_krakenuniq_samples.sh' for input_1M reads against ${species_count} species"
+
+  #delete any existing outputs
+  rm -rf *.report
+  rm -rf *.out
+
+  $time -v -o "logs/krakenuniq_samples-input_1M-${species_count}_species.time.log" \
+    bash scripts/run_krakenuniq_samples.sh input_1M "${species_count}" \
+    &>"logs/krakenuniq_samples-input_1M-${species_count}_species.log"
+done
+
+# ----------------------------------------------------------------------------------------------------------------------
 # -                                       run all the tests for sigma                                                  -
 # ----------------------------------------------------------------------------------------------------------------------
 

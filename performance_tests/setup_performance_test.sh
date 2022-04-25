@@ -41,6 +41,13 @@ wget --quiet --content-disposition http://sourceforge.net/projects/sigma-omicsbi
 tar xvzf Sigma.tar.gz
 rm Sigma.tar.gz
 
+# download and extract krakenuniq (the latest version is hosted on github instead of conda)
+git clone https://github.com/fbreitwieser/krakenuniq
+mkdir -p bin
+KRAKENUNIQ_INSTALL_DIR=$(echo $PWD | awk '{print $1"/bin"}')
+bash krakenuniq/install_krakenuniq.sh $KRAKENUNIQ_INSTALL_DIR
+rm -r -f krakenuniq
+
 # setup a list of the different test_sets to run
 test_sets=(10_species 100_species 500_species 1000_species 5636_species)
 

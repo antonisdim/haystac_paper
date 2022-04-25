@@ -17,15 +17,15 @@ set -euo pipefail
 # force bash to use the `time` command and not it's own native implementation
 time=$(which time)
 
-# set some config options for haystack
-haystack config \
+# set some config options for haystac
+haystac config \
   --api-key 4a7ceec35df93baf39e6f747e08f69f39909 \
-  --cache ./haystack_genome_cache/
+  --cache ./haystac_genome_cache/
 
 # fetch all the genomes in the representative RefSeq database
-$time -v haystack database \
+$time -v haystac database \
   --mode fetch \
-  --accessions ./haystack_configs/haystack_db_5636_species_refseq_input.txt \
+  --accessions ./haystac_configs/haystac_db_5636_species_refseq_input.txt \
   --output ./genome_fetch/ \
   --force-accessions
 

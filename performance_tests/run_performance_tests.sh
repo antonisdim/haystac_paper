@@ -29,7 +29,7 @@ read_counts=(input_10K input_100K input_1M input_10M)
 mkdir -p logs
 
 # ----------------------------------------------------------------------------------------------------------------------
-# -                                     run all the tests for haystack                                                 -
+# -                                     run all the tests for haystac                                                  -
 # ----------------------------------------------------------------------------------------------------------------------
 
 # building databases of different sizes with a memory limit
@@ -38,18 +38,18 @@ for species_count in "${species_counts[@]}"; do
   for mem in 8000 $MAX_MEM; do
 
     for bool in "False"; do
-      echo "Running 'run_haystack_db_mem.sh' for ${species_count} species and ${mem} RAM and use_conda ${bool}"
+      echo "Running 'run_haystac_db_mem.sh' for ${species_count} species and ${mem} RAM and use_conda ${bool}"
 
       # delete any existing indices outputs so we can rebuild them
-      find ./haystack_genome_cache/ncbi/ -name "*.bt2l"  -delete
-      find ./haystack_genome_cache/ncbi/ -name "*.fasta.gz.fai" -delete
+      find ./haystac_genome_cache/ncbi/ -name "*.bt2l"  -delete
+      find ./haystac_genome_cache/ncbi/ -name "*.fasta.gz.fai" -delete
 
       #delete any existing outputs
-      rm -rf "haystack_db_${species_count}_species_input_${mem}_mem_conda_${bool}"
-      haystac config --cache ./haystack_genome_cache/
-      $time -v -o "logs/haystack_db_mem-${species_count}_species-${mem}_mem_conda_${bool}.time.log" \
+      rm -rf "haystac_db_${species_count}_species_input_${mem}_mem_conda_${bool}"
+      haystac config --cache ./haystac_genome_cache/
+      $time -v -o "logs/haystac_db_mem-${species_count}_species-${mem}_mem_conda_${bool}.time.log" \
         bash scripts/run_haystac_db_mem.sh "${species_count}_species" "${mem}" "${bool}" \
-        &>"logs/haystack_db_mem-${species_count}_species-${mem}_mem-conda_${bool}.log"
+        &>"logs/haystac_db_mem-${species_count}_species-${mem}_mem-conda_${bool}.log"
     done
   done
 done
@@ -63,28 +63,28 @@ bash scripts/run_haystac_db_mem.sh "100_species" 8000 False
 for read_count in "${read_counts[@]}"; do
 
   for bool in "False"; do
-    echo "Running 'run_haystack_samples.sh' for ${read_count} reads, against 5636 species and use_conda ${bool}"
+    echo "Running 'run_haystac_samples.sh' for ${read_count} reads, against 5636 species and use_conda ${bool}"
 
     #delete any existing outputs
-    rm -rf ./haystack_out_db_5636_species_"${read_count}"_reads_conda_"${bool}"
-    haystac config --cache ./haystack_genome_cache/
-    $time -v -o "logs/haystack_samples-${read_count}_reads-5636_species-conda_${bool}.time.log" \
+    rm -rf ./haystac_out_db_5636_species_"${read_count}"_reads_conda_"${bool}"
+    haystac config --cache ./haystac_genome_cache/
+    $time -v -o "logs/haystac_samples-${read_count}_reads-5636_species-conda_${bool}.time.log" \
       bash scripts/run_haystac_samples.sh "${read_count}_reads" 5636_species "${bool}" \
-      &>"logs/haystack_samples-${read_count}_reads-5636_species-conda_${bool}.log"
+      &>"logs/haystac_samples-${read_count}_reads-5636_species-conda_${bool}.log"
   done
 done
 
 # analysing a sample of 1M reads against dbs of various sizes
 for species_count in "${species_counts[@]:0:4}"; do
   for bool in "False"; do
-    echo "Running 'run_haystack_samples.sh' for input_1M reads, against ${species_count} species and use_conda ${bool}"
+    echo "Running 'run_haystac_samples.sh' for input_1M reads, against ${species_count} species and use_conda ${bool}"
 
     #delete any existing outputs
-    rm -rf ./haystack_out_db_"${species_count}"_species_input_1M_reads_conda_"${bool}"
-    haystac config --cache ./haystack_genome_cache/
-    $time -v -o "logs/haystack_samples-input_1M_reads-${species_count}_species-conda_${bool}.time.log" \
+    rm -rf ./haystac_out_db_"${species_count}"_species_input_1M_reads_conda_"${bool}"
+    haystac config --cache ./haystac_genome_cache/
+    $time -v -o "logs/haystac_samples-input_1M_reads-${species_count}_species-conda_${bool}.time.log" \
       bash scripts/run_haystac_samples.sh input_1M_reads "${species_count}_species" ${bool} \
-      &>"logs/haystack_samples-input_1M_reads-${species_count}_species-conda_${bool}.log"
+      &>"logs/haystac_samples-input_1M_reads-${species_count}_species-conda_${bool}.log"
   done
 done
 

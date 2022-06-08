@@ -35,6 +35,5 @@ bin/krakenuniq-build \
 bin/krakenuniq-build --build \
   --db db_krakenuniq_"${test_set}" \
   --taxids-for-genomes --taxids-for-sequences \
-  --threads "$MAX_CPU" \
-  --jellyfish-hash-size 30M
+  --threads "$MAX_CPU" 
 
